@@ -1,0 +1,30 @@
+/*
+ Theme Name:   Irish Morning
+ Theme URI:    http://frontsteps.com
+ Description:  FrontStep's Irish Morning Theme
+ Author:       FrontStep
+ Template:     frontsteps
+ Version:      1.0.0
+*/
+/* Add your custom style here */
+#header{
+	background-color: transparent;
+}
+.main-container{
+	margin-top: 0px; 
+}
+#header .container-full{
+	background-color: rgba(0,0,0,0.2);
+}
+#header .container .navigation-column .navbar-default .navbar-nav li a{
+	color: #FFFFFF;
+}
+a.nav-link{
+	color: #FFFFFF;	
+}
+.button-primary, #header .container .right-column ul li.login a{
+	background-color: transparent !important;	
+}
+.section-contact .container .gform_wrapper input[type="submit"]{
+	border-radius: 30px;
+}

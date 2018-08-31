@@ -1,0 +1,17 @@
+/*
+ Theme Name:   Euro Contempo
+ Theme URI:    http://frontsteps.com
+ Description:  FrontStep's Euro Contempo Theme
+ Author:       FrontStep 
+ Template:     frontsteps
+ Version:      1.0.0 
+*/
+#header .container .right-column ul li.login a{
+	border-radius: 5px;
+}
+.button-primary {
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 4px;
+    border: 0px solid #ffffff;
+}

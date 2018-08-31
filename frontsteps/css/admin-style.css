@@ -1,0 +1,18 @@
+.post-type-frontsteps-gallery a.page-title-action,
+.post-type-frontsteps-gallery .trash,
+.post-type-frontsteps-gallery .view
+{
+	display: none;
+}
+.menu-icon-frontsteps-gallery .wp-submenu.wp-submenu-wrap{display: none;}
+
+.post-type-member.taxonomy-member_type #col-left,
+.post-type-member.taxonomy-member_type .row-actions,
+.post-type-member.taxonomy-member_type .edit-tag-actions
+{
+	display: none;
+}
+.post-type-member.taxonomy-member_type #col-right
+{
+	width: 100%;
+}

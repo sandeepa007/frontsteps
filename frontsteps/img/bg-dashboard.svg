@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1163px" height="770px" viewBox="0 0 1163 770" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="53.250629%" y1="-17.8483272%" x2="83.8526%" y2="165.210756%" id="linearGradient-1">
+            <stop stop-color="#0090C9" offset="1.97504783%"></stop>
+            <stop stop-color="#CCE3FD" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="1-FS-Carousel-General" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="BKG" transform="translate(-89.000000, -88.000000)" fill="url(#linearGradient-1)">
+            <g id="Group-4">
+                <path d="M1.07686666,153.616344 L464.513004,422.375316 C532.886296,455.208228 609.261956,455.208228 693.639983,422.375316 C778.018011,389.542403 943.474226,329.047864 1190.00863,240.891696 C1241.26395,211.905734 1260.66833,163.632109 1248.22177,96.0708213 C1235.7752,28.5095333 1231.19839,4.24355535 1234.49133,23.2728876 L0.613038576,23.2728876 L1.07686666,153.616344 Z" id="Path-3" opacity="0.399999976"></path>
+                <path d="M166.945239,3.22344189 L277.988635,155.775372 C312.259462,192.014689 319.628601,251.505476 300.096052,334.247734 C280.563502,416.989992 237.780976,606.831199 171.748472,903.771356 L51,903.771356 L51,0 L166.945239,3.22344189 Z" id="Path-4" opacity="0.273324275"></path>
+            </g>
+        </g>
+    </g>
+</svg>
