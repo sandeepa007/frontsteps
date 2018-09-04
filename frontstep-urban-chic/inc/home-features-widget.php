@@ -8,7 +8,7 @@
  * Author URI:    https://www.jonpenland.com
  */
 
-class home_feature_Widget_child extends WP_Widget {
+class home_feature_Widget extends WP_Widget {
 
 
   // Set up the widget name and description.
@@ -22,7 +22,7 @@ class home_feature_Widget_child extends WP_Widget {
       'width' => 400,
       'height' => 350,
     );
-    parent::__construct( 'home_feature_Widget_child', 'Home Features (FrontSteps)', $widget_options, $control_ops );
+    parent::__construct( 'home_feature_Widget', 'Home Features (FrontSteps)', $widget_options, $control_ops );
 
 
   }
@@ -106,7 +106,7 @@ class home_feature_Widget_child extends WP_Widget {
                 if ( _custom_media  ) {
                     $('.custom_media_id').val(attachment.id);
                     $('.custom_media_url').val(attachment.url);
-                    $(this).parent().find('.custom_media_image').attr('src',attachment.url).css('display','block');
+                    $('.custom_media_image').attr('src',attachment.url).css('display','block');
                 } else {
                     return _orig_send_attachment.apply( button_id, [props, attachment] );
                 }
@@ -143,7 +143,7 @@ class home_feature_Widget_child extends WP_Widget {
 
 
 function home_register_home_features_widget_child() { 
-  register_widget( 'home_feature_Widget_child' );
+  register_widget( 'home_feature_Widget' );
 }
 add_action( 'widgets_init', 'home_register_home_features_widget_child', 20);
 

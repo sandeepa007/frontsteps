@@ -147,6 +147,6 @@ class home_feature_Widget extends WP_Widget {
 function home_register_home_features_widget() { 
   register_widget( 'home_feature_Widget' );
 }
-add_action( 'widgets_init', 'home_register_home_features_widget' );
+add_action( 'widgets_init', 'home_register_home_features_widget',20 );
 
 ?>

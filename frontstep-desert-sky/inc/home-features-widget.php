@@ -7,7 +7,7 @@
  * Author:        Jon Penland
  * Author URI:    https://www.jonpenland.com
  */
-class home_feature_Widget_child extends WP_Widget {
+class home_feature_Widget extends WP_Widget {
 
 
   // Set up the widget name and description.
@@ -20,8 +20,8 @@ class home_feature_Widget_child extends WP_Widget {
     $control_ops = array(
       'width' => 400,
       'height' => 350,
-    );
-    parent::__construct( 'home_feature_Widget_child', 'Home Features (FrontSteps)', $widget_options, $control_ops );
+    );    
+    parent::__construct( 'home_feature_Widget', 'Home Features (FrontSteps)', $widget_options, $control_ops );
 
 
   }
@@ -56,7 +56,7 @@ class home_feature_Widget_child extends WP_Widget {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
     $desc = ! empty( $instance['desc'] ) ? $instance['desc'] : ''; 
     $image_uri = ! empty( $instance['image_uri'] ) ? $instance['image_uri'] : ''; 
-    $is_img_left = isset( $instance['is_img_left'] ) ? (bool) $instance['is_img_left'] : false;
+    //$is_img_left = isset( $instance['is_img_left'] ) ? (bool) $instance['is_img_left'] : false;
     ?>
     <p>
       <label for="<?php echo $this->get_field_id( 'title' ); ?>">Title</label><br />
@@ -100,9 +100,9 @@ class home_feature_Widget_child extends WP_Widget {
             _custom_media = true;
             wp.media.editor.send.attachment = function(props, attachment){
                 if ( _custom_media  ) {
-                    $(this).parent().find('.custom_media_id').val(attachment.id);
-                    $(this).parent().find('.custom_media_url').val(attachment.url);
-                    $(this).parent().find('.custom_media_image').attr('src',attachment.url).css('display','block');
+                    $('.custom_media_id').val(attachment.id);
+                    $('.custom_media_url').val(attachment.url);
+                    $('.custom_media_image').attr('src',attachment.url).css('display','block');
                 } else {
                     return _orig_send_attachment.apply( button_id, [props, attachment] );
                 }
@@ -129,7 +129,7 @@ class home_feature_Widget_child extends WP_Widget {
     $instance[ 'title' ] = strip_tags( $new_instance[ 'title' ] );
     $instance[ 'desc' ] = strip_tags( $new_instance[ 'desc' ] );
     $instance['image_uri'] = strip_tags( $new_instance['image_uri'] );
-    $instance['is_img_left'] = isset( $new_instance['is_img_left'] ) ? (bool) $new_instance['is_img_left'] : false;
+   // $instance['is_img_left'] = isset( $new_instance['is_img_left'] ) ? (bool) $new_instance['is_img_left'] : false;
     return $instance;
   }
 
@@ -137,7 +137,9 @@ class home_feature_Widget_child extends WP_Widget {
 
 // Register the widget.
 function home_register_home_features_widget_child() { 
-  register_widget( 'home_feature_Widget_child' );
+
+  register_widget( 'home_feature_Widget' );
+
 }
 add_action( 'widgets_init', 'home_register_home_features_widget_child',20);
 
