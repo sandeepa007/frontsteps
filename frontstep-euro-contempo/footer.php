@@ -69,22 +69,31 @@ if($cta_bg_img != "")
 			
 				<ul class="list-inline text-center margin-tb-20px margin-lr-0px text-grey-2 text-xs-center footer-social">
 					<?php if(get_theme_mod( 'url-facebook' )) { ?>
-					<li class="list-inline-item"><a class="facebook" href="<?php echo get_theme_mod( 'url-facebook' )?>"><i class="fa fa-2x fa-facebook"></i></a></li>
+					<li class="list-inline-item"><a target="_blank" class="facebook" href="<?php echo get_theme_mod( 'url-facebook' )?>"><i class="fa fa-2x fa-facebook"></i></a></li>
 					<?php } ?>
 					<?php if(get_theme_mod( 'url-youtube' )) { ?>
-					<li class="list-inline-item"><a class="youtube" href="<?php echo get_theme_mod( 'url-youtube' )?>"><i class="fa fa-2x fa-youtube"></i></a></li>
+					<li class="list-inline-item"><a target="_blank" class="youtube" href="<?php echo get_theme_mod( 'url-youtube' )?>"><i class="fa fa-2x fa-youtube"></i></a></li>
 					<?php } ?>
 					<?php if(get_theme_mod( 'url-linkedin' )) { ?>
-					<li class="list-inline-item"><a class="linkedin" href="<?php echo get_theme_mod( 'url-linkedin' )?>"><i class="fa fa-2x fa-linkedin"></i></a></li>
+					<li class="list-inline-item"><a target="_blank" class="linkedin" href="<?php echo get_theme_mod( 'url-linkedin' )?>"><i class="fa fa-2x fa-linkedin"></i></a></li>
 					<?php } ?>
 					<?php if(get_theme_mod( 'url-google' )) { ?>
-					<li class="list-inline-item"><a class="google" href="<?php echo get_theme_mod( 'url-google' )?>"><i class="fa fa-2x fa-google-plus"></i></a></li>
+					<li class="list-inline-item"><a target="_blank" class="google" href="<?php echo get_theme_mod( 'url-google' )?>"><i class="fa fa-2x fa-google-plus"></i></a></li>
 					<?php } ?>
 					<?php if(get_theme_mod( 'url-twitter' )) { ?>
-					<li class="list-inline-item"><a class="twitter" href="<?php echo get_theme_mod( 'url-twitter' )?>"><i class="fa fa-2x fa-twitter"></i></a></li>
+					<li class="list-inline-item"><a target="_blank" class="twitter" href="<?php echo get_theme_mod( 'url-twitter' )?>"><i class="fa fa-2x fa-twitter"></i></a></li>
 					<?php } ?>
 					<?php if(get_theme_mod( 'url-blog' )) { ?>
-					<li class="list-inline-item"><a class="rss" href="<?php echo get_theme_mod( 'url-blog' )?>"><i class="fa fa-2x fa-rss" aria-hidden="true"></i></a></li>
+					<li class="list-inline-item"><a target="_blank" class="rss" href="<?php echo get_theme_mod( 'url-blog' )?>"><i class="fa fa-2x fa-rss" aria-hidden="true"></i></a></li>
+					<?php } ?>
+					<?php if(get_theme_mod( 'url-pinterest' )) { ?>
+					<li class="list-inline-item"><a target="_blank" class="pinterest" href="<?php echo get_theme_mod( 'url-pinterest' )?>"><i class="fa fa-2x fa-pinterest-p" aria-hidden="true"></i></a></li>
+					<?php } ?>
+					<?php if(get_theme_mod( 'url-instagram' )) { ?>
+					<li class="list-inline-item"><a target="_blank" class="instagram" href="<?php echo get_theme_mod( 'url-instagram' )?>"><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></a></li>
+					<?php } ?>
+					<?php if(get_theme_mod( 'url-yelp' )) { ?>
+					<li class="list-inline-item"><a target="_blank" class="yelp" href="<?php echo get_theme_mod( 'url-yelp' )?>"><i class="fa fa-2x fa-yelp" aria-hidden="true"></i></a></li>
 					<?php } ?>
 				</ul>
 				<ul class="footer-menu margin-0px padding-0px list-unstyled">
