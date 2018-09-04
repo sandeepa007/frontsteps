@@ -55,7 +55,8 @@ if( get_theme_mod( 'community-hero' ) )
             while ( $loop->have_posts() ) : $loop->the_post();
 
             $meta = get_post_meta(get_the_id(), 'community', true );
-            
+            //print_r($meta);
+
             $linkurl = $meta['url'] ? $meta['url'] : "#";
             $openin = "_self";
             if(isset($meta['openin']) && $meta['openin']==1){
@@ -68,8 +69,11 @@ if( get_theme_mod( 'community-hero' ) )
                     <div class="box-block community-block text-center">
                         <div class="img-block">
                             <?php if(the_post_thumbnail( 'full' )){ ?>
-                            <img src="<?php  the_post_thumbnail( 'full' )?>" class="img-responsive">
-                            <?php }?>
+                                <img src="<?php  the_post_thumbnail( 'full' )?>" class="img-responsive">
+                                    <?php }else{?>
+                                <img src="<?php echo get_template_directory_uri().'/img/amenities-placeholder-image.png';?>" class="img-responsive">
+                     <?php } ?>
+
                         </div>
                         <div class="info-block">
                             <h3 class="h3"><?php the_title(); ?></h3>

@@ -20,14 +20,14 @@ get_header();?>
             <div class="category-block text-center">
                <ul>
                   <li class="active"><a href="<?php echo home_url('blog');?>">All</a></li>
-<?php
-wp_list_categories( array(
-  'orderby' => 'id',
-  'style' =>'list',
-  'hide_empty' => true,
-  'title_li'  => __( '' )
-) );
-?>
+                     <?php
+                     wp_list_categories( array(
+                       'orderby' => 'id',
+                       'style' =>'list',
+                       'hide_empty' => true,
+                       'title_li'  => __( '' )
+                     ) );
+                     ?>
                </ul>
             </div>
          </div>
@@ -52,8 +52,15 @@ $query = new WP_Query($blog_args);?>
    <div class="container-fluid">
       <div class="row">
 <?php while ($query->have_posts()) : $query->the_post(); ?>
-<?php $featured_image = get_the_post_thumbnail_url($post->ID,'full');?>
-         <div class="col-xs-12">
+<?php 
+  
+    if(has_post_thumbnail()){
+      $featured_image = get_the_post_thumbnail_url($post->ID,'full');
+    }else{
+       $featured_image = get_template_directory_uri().'/img/blog-placeholder.png';}
+    
+?>
+      <div class="col-xs-12">
             <div class="box-block blog-block">
                <div class="img-block">
                   <a href="<?php echo get_permalink();?>"><img src="<?php echo $featured_image;?>" class="img-responsive"></a>

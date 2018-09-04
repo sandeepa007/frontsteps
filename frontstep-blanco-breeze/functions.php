@@ -1,4 +1,7 @@
 <?php
+$customizer_path = get_stylesheet_directory() . '/inc/customizer';
+require $customizer_path.'/styles.php';
+
 require get_stylesheet_directory() . '/home-features-widget.php';
 
 /**Custom Option for theme**/

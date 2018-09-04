@@ -7,6 +7,7 @@
  * Author:        Jon Penland
  * Author URI:    https://www.jonpenland.com
  */
+if ( ! class_exists( 'home_feature_Widget' ) ) {
 class home_feature_Widget extends WP_Widget {
 
 
@@ -106,9 +107,9 @@ class home_feature_Widget extends WP_Widget {
             _custom_media = true;
             wp.media.editor.send.attachment = function(props, attachment){
                 if ( _custom_media  ) {
-                    $('.custom_media_id').val(attachment.id);
-                    $('.custom_media_url').val(attachment.url);
-                    $('.custom_media_image').attr('src',attachment.url).css('display','block');
+                    $(this).parent().find('.custom_media_id').val(attachment.id);
+                    $(this).parent().find('.custom_media_url').val(attachment.url);
+                    $(this).parent().find('.custom_media_image').attr('src',attachment.url).css('display','block');
                 } else {
                     return _orig_send_attachment.apply( button_id, [props, attachment] );
                 }
@@ -139,6 +140,7 @@ class home_feature_Widget extends WP_Widget {
     return $instance;
   }
 
+}
 }
 
 // Register the widget.

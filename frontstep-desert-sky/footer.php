@@ -12,9 +12,27 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 ?>
 
 <!-- Main Container -->
-<?php if (!is_front_page()) :?>
+<?php if (!is_front_page() && get_page_template_slug() != "page-templates/contact-page.php") :
+   $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+   $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
+   $cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
+
+   $ctabgimgclass = "";
+   if($cta_bg_img != "")
+   {
+      $ctabgimgclass = "cta_bg_img";
+   }
+   ?>
+   <style type="text/css">
+      .cta_bg_img{
+         background: url("<?php echo $cta_bg_img;?>")!important;
+         background-repeat: no-repeat;
+         background-size: cover!important;
+         background-position: center;
+      }
+   </style>
 <?php if(get_theme_mod( 'cta-desc' )!=""){ ?>
-<div class="section section-cta">
+<div class="section section-cta <?php echo $ctabgimgclass;?>">
    <div class="container-fluid">
 
       <div class="row">

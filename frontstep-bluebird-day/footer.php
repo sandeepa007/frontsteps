@@ -10,9 +10,69 @@
 
 $container = get_theme_mod( 'frontsteps_container_type' );
 ?>
+<!-- Main Container -->
+<?php if (!is_front_page() && get_page_template_slug() != "page-templates/contact-page.php") :
+$cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+$cta_bg_color = get_theme_mod( 'cta-bkg-color' );
+$cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
 
-<?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
+$ctabgimgclass = "";
+if($cta_bg_img != "")
+{
+	$ctabgimgclass = "cta_bg_img";
+}
+?>
+<style type="text/css">
+	.cta_bg_img{
+		background: url("<?php echo $cta_bg_img;?>")!important;
+		background-repeat: no-repeat;
+		background-size: cover!important;
+		background-position: center;
+	}
+	.cta_bg_img .col-sm-offset-3,
+	.section.section-cta
+	{
+		background: <?php echo $cta_bg_color;?>;
+		color: <?php echo $cta_bg_txt_colr;?>;
+		padding: 80px 0px!important;
+	}
+	#abt-us-content
+	{
+		background: <?php echo $cta_bg_color;?>;
+		color: <?php echo $cta_bg_txt_colr;?>;
+	}
+	.button-primary
+	{
+		color: <?php echo $cta_bg_txt_colr;?>;
+		border:1px solid <?php echo $cta_bg_txt_colr;?>;
+	}
 
+</style>
+<?php if( get_theme_mod( 'cta-desc' ) != '' || get_theme_mod( 'cta-button-text') != '' )
+{ ?>
+<!-- Global Call to Actions SECTION -->
+<div class="section section-cta <?php echo $ctabgimgclass;?>">
+  <div class="bg-image fill" style=""></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <div class="testimonial-block text-center">
+                   <p id="abt-us-content" class="text-center"><?php echo get_theme_mod( 'cta-desc' ); ?></p>
+                    <?php if( get_theme_mod( 'cta-button-text' ) != '')
+                        {?>
+                        <div class="btn-block">
+                            <a id="button" href="<?php echo get_theme_mod( 'cta-button-url' ); ?>" class="button button-primary"><?php echo get_theme_mod( 'cta-button-text' ); ?></a>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
+<?php endif; ?>
+<!-- Call to Actions SECTION -->
 <footer class="gradient-white">
 
 	<div class="container ">

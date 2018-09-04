@@ -7,7 +7,7 @@
  * Author:        Jon Penland
  * Author URI:    https://www.jonpenland.com
  */
-class home_feature_Widget_urbanchic extends WP_Widget {
+class home_feature_Widget extends WP_Widget {
 
 
   // Set up the widget name and description.
@@ -73,7 +73,9 @@ class home_feature_Widget_urbanchic extends WP_Widget {
 
         <?php
             if ( $image_uri != '' ) :
-                echo '<img class="custom_media_image" src="' . $image_uri . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+              echo '<img class="custom_media_image" src="' . $image_uri . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+            else:
+              echo '<img class="custom_media_image" src="" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
             endif;
         ?>
 
@@ -82,8 +84,8 @@ class home_feature_Widget_urbanchic extends WP_Widget {
         <input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="<?php echo $this->get_field_name('image_uri'); ?>" value="Upload Image" style="margin-top:5px;" />
     </p>
 
-    <p><input class="checkbox" type="checkbox"<?php checked( $is_img_left ); ?> id="<?php echo $this->get_field_id( 'is_img_left' ); ?>" name="<?php echo $this->get_field_name( 'is_img_left' ); ?>" />
-    <label for="<?php echo $this->get_field_id( 'is_img_left' ); ?>"><?php _e( 'Is image left?' ); ?></label></p>
+    <!-- <p><input class="checkbox" type="checkbox"< ?php checked( $is_img_left ); ?> id="< ?php echo $this->get_field_id( 'is_img_left' ); ?>" name="< ?php echo $this->get_field_name( 'is_img_left' ); ?>" />
+    <label for="< ?php echo $this->get_field_id( 'is_img_left' ); ?>">< ?php _e( 'Is image left?' ); ?></label></p> -->
 
       <script type="text/javascript">
   
@@ -103,7 +105,7 @@ class home_feature_Widget_urbanchic extends WP_Widget {
                 if ( _custom_media  ) {
                     $('.custom_media_id').val(attachment.id);
                     $('.custom_media_url').val(attachment.url);
-                    $('.custom_media_image').attr('src',attachment.url).css('display','block');
+                    $(this).parent().find('.custom_media_image').attr('src',attachment.url).css('display','block');
                 } else {
                     return _orig_send_attachment.apply( button_id, [props, attachment] );
                 }
@@ -138,7 +140,7 @@ class home_feature_Widget_urbanchic extends WP_Widget {
 
 // Register the widget.
 function home_register_home_features_widget_urbanchic() { 
-  register_widget( 'home_feature_Widget_urbanchic' );
+  register_widget( 'home_feature_Widget' );
 }
 add_action( 'widgets_init', 'home_register_home_features_widget_urbanchic',20);
 

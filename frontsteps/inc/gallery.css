@@ -684,7 +684,10 @@ img.rsImg {
     z-index: 3;
     text-align: center
 }
-
+.page-template-gallery-page .rsGCaption
+{
+    display: none!important;
+}
 @media screen and (min-width: 768px) {
     .rsDefault .rsGCaption {
         bottom: 50%;
@@ -736,4 +739,3 @@ img.rsImg {
         width: 60px
     }
 }
- 

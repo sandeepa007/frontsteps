@@ -5,7 +5,7 @@ require get_stylesheet_directory() . '/inc/home-features-widget.php';
 
 
 add_action('customize_register', 'citrus_customize_register', 1000);
-add_action( 'init', 'customizer_library_citrus_options', 20 );
+add_action( 'customize_register', 'customizer_library_citrus_options', 2000 );
 function citrus_customize_register($wp_customize) {
   $wp_customize->remove_control( 'about-section2-title' );
   $wp_customize->remove_control( 'about-section2-desc' );
@@ -13,6 +13,8 @@ function citrus_customize_register($wp_customize) {
   $wp_customize->remove_control( 'about-section3-desc' );  
   $wp_customize->remove_control( 'gallery-subtitle' );  
   $wp_customize->remove_control( 'gallery-subtitle' );  
+  $wp_customize->remove_section( 'amenities_content' );  
+  $wp_customize->remove_section( 'gallery_content' );
   
 }
 
@@ -22,7 +24,9 @@ function citrus_customize_register($wp_customize) {
  * @package Customizer Library Demo
  */
 
-function customizer_library_citrus_options() {
+function customizer_library_citrus_options($wp_customize) {
+
+    
     $sections = array();
     $panels = array();	
     $options['amenities-rightcontent'] = array(
@@ -59,7 +63,8 @@ function customizer_library_citrus_options() {
         'title' => __( 'Services Settings', 'frontsteps' ),
         'priority' => '200'
     );
-    $sections[] = array(
+
+    $sections['services_hero'] = array(
         'id' => "services_hero",
         'title' => __( 'Services Settings', 'frontsteps' ),
         'priority' => '30',

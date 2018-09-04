@@ -564,8 +564,8 @@ li {
           padding: 0 20px;
           min-width: 120px;
           border-radius: 5px;
-          border: 1px solid #E24C3E;
-          background: #ffffff; }
+          background: #ffffff;
+        }
           #header .container .right-column ul li.login a:hover {
             color: #ffffff;
             background: #E24C3E; }
@@ -800,10 +800,13 @@ li {
      }
     .section-hero .hero-block .h1 {
       font-size: 32px;
-      margin: 0 0 10px 0; }
+      margin: 0 0 10px 0; 
+      color: #000;
+    }
     .section-hero .hero-block p {
       font-size: 18px;
       line-height: normal;
+      color: #000;
        }
   .section-hero.section-inner-hero {
     padding: 200px 0 150px 0; }

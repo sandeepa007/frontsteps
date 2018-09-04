@@ -13,6 +13,16 @@ get_header();?>
     $hero_overlay = get_theme_mod( 'hero-overlay' );
     $hero_overlay_color = get_theme_mod( 'hero-overlay-color' );
     $hero_overlay_opacity = get_theme_mod( 'hero-overlay-opacity' );
+    $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+    $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
+    $cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
+
+    $ctabgimgclass = "";
+    if($cta_bg_img != "")
+    {
+    $ctabgimgclass = "cta_bg_img";
+    }
+
     if($hero_overlay == 0)
     { 
        // echo $hero_overlay_opacity."opa";
@@ -20,6 +30,24 @@ get_header();?>
         <style type="text/css">
             .section-hero{background: <?php echo $hero_overlay_color;?>}
             .section-hero .bg-image{opacity: <?php echo '0.'.$hero_overlay_opacity;?>}
+            .cta_bg_img{
+                background: url("<?php echo $cta_bg_img;?>")!important;
+                background-repeat: no-repeat;
+                background-size: cover!important;
+                background-position: center;
+            }
+            #abt-us-content
+            {
+                background: <?php echo $cta_bg_color;?>;
+                color: <?php echo $cta_bg_txt_colr;?>;
+            }
+            .cta_bg_img .col-sm-offset-3,
+            .section.section-home-cta 
+            {
+                background: <?php echo $cta_bg_color;?>;
+                color: <?php echo $cta_bg_txt_colr;?>!important;
+                padding: 80px 0px!important;
+            }
         </style>
         
 <?php } ?>
@@ -115,7 +143,7 @@ endwhile; // end of the loop. ?>
 <?php if( get_theme_mod( 'home-cta-desc' ) != '' || get_theme_mod( 'home-cta-button-text') != '' )
 { ?>
 <!-- Home Call to Actions SECTION -->
-<div class="section section-home-cta">
+<div class="section section-home-cta <?php echo $ctabgimgclass;?>">
   <div class="bg-image fill" style=""></div>
 
     <div class="container">
@@ -146,8 +174,7 @@ endwhile; // end of the loop. ?>
 <?php endif; ?>
 <?php //endif;?>
 <!-- IMAGE TEXT SECTION -->
-
-<?php
+<?php 
 $args = array( 'post_type' => 'accreditation', 'posts_per_page' => -1 );
 $loop = new WP_Query( $args );
 
@@ -157,18 +184,21 @@ if ( $loop->have_posts() ) {
 <div class="section section-accredidations">
    <div class="container">
       <div class="row">
-
+<div class="accredidations-logos">
 <?php
 while ( $loop->have_posts() ) : $loop->the_post();
   ?>
-    <div class="col-xs-12 col-sm-2 acc-col">
-            <div class="logo-block">
-               <?php the_post_thumbnail( 'accredition-logo' );?>
-            </div>
+    <div class="slide">
+        <?php if ( has_post_thumbnail() ) {
+                    the_post_thumbnail( 'full' );
+                }else{ ?>
+            <img src="<?php echo get_template_directory_uri().'/img/accre-placeholder-img.png';?>">
+                   <?php } ?>
     </div>
 <?php
 endwhile; wp_reset_postdata();
 ?>
+</div>
       </div>
    </div>
 </div>

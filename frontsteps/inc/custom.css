@@ -92,8 +92,8 @@ li { margin: 0; }
 .button-normal:focus, .button-normal:hover { border-color: #926d4d; }
 .button-border { color: #926d4d; padding: 12px 20px; border: 2px solid #926d4d; transition: all 0.3s; font-weight: 500; min-width: inherit; font-size: 16px; }
 .button-border:hover { color: #ffffff; background: #926d4d; }
-.button-primary { overflow: hidden; transition: all 0.3s; color: #ffffff !important;border-radius: 30px; border:1px solid #ffffff;  font-weight: normal; text-align: center; min-width: inherit; text-transform: uppercase; letter-spacing: 2px; padding: 15px 40px;  }
-.button-primary:hover { color: #ffffff !important; background: #2ca0ba; }
+.button-primary { overflow: hidden; transition: all 0.3s; color: #ffffff; border-radius: 30px; border:1px solid #ffffff;  font-weight: normal; text-align: center; min-width: inherit; text-transform: uppercase; letter-spacing: 2px; padding: 15px 40px;  }
+.button-primary:hover { color: #ffffff; background: #2ca0ba; }
 .button-primary:focus { color: #ffffff; }
 .button-dark { overflow: hidden; transition: all 0.3s; color: #f8e50f; background: #463a10; position: relative; font-size: 20px; font-weight: normal; border-radius: 50px; border: none; text-align: center; }
 .button-dark:hover { color: #ffffff; background: #2F3542; }
@@ -397,6 +397,13 @@ footer .section-footer .container .credit-block img { display: inline-block; ver
 .border-line-bottom { position: relative; padding-bottom: 40px; }
 .border-line-bottom:after { content: ''; position: absolute; width: 78px; height: 5px; background: #926d4d; border: 1px solid #020202; bottom: 0; left: 50%; transform: translateX(-50%); }
 
+/*Blog Page*/
+.blog-block .h2{
+  text-align: left;
+  padding-left: 0px;
+}
+
+
 /* ///////////////////// */
 /*    RESPONSIVE VIEW    */
 /* ///////////////////// */
@@ -566,7 +573,8 @@ iframe {
     background-size: cover;
     opacity: 0.66;
 }
-.contct-map .row
+.contct-map .row, .contct-map .row .col-xs-12
 {
   margin: 0px!important;
+  padding: 0px;
 }

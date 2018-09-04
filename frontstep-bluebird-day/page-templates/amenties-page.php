@@ -116,29 +116,4 @@ endwhile; // end of the loop. ?>
 </div>
 <?php } ?>
 
-<?php if( get_theme_mod( 'cta-desc' ) != '' || get_theme_mod( 'cta-button-text') != '' )
-{ ?>
-<!-- Global Call to Actions SECTION -->
-<div class="section section-home-cta">
-  <div class="bg-image fill" style=""></div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <div class="testimonial-block text-center">
-                   <p id="abt-us-content" class="text-center"><?php echo get_theme_mod( 'cta-desc' ); ?></p>
-                    <?php if( get_theme_mod( 'cta-button-text' ) != '')
-                        {?>
-                        <div class="btn-block">
-                            <a id="button" href="<?php echo get_theme_mod( 'cta-button-url' ); ?>" class="button button-primary"><?php echo get_theme_mod( 'cta-button-text' ); ?></a>
-                        </div>
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php } ?>
-<!-- Call to Actions SECTION -->
-
 <?php get_footer(); ?>

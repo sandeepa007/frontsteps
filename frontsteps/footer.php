@@ -8,12 +8,45 @@
  */
 
 
-$container = get_theme_mod( 'frontsteps_container_type' );
+$container = get_theme_mod( 'frontsteps_conainer_type' );
 ?>
 <!-- Main Container -->
-<?php if (!is_front_page()) :?>
+<?php if (!is_front_page() && get_page_template_slug() != "page-templates/contact-page.php") :
+
+$cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+$cta_bg_color = get_theme_mod( 'cta-bkg-color' );
+$cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
+
+$ctabgimgclass = "";
+if($cta_bg_img != "")
+{
+	$ctabgimgclass = "cta_bg_img";
+}
+?>
+<style type="text/css">
+	.cta_bg_img{
+		background: url("<?php echo $cta_bg_img;?>")!important;
+		background-repeat: no-repeat;
+		background-size: cover!important;
+		background-position: center;
+	}
+	.cta_bg_img .col-sm-offset-3,
+	.section.section-cta
+	{
+		background: <?php echo $cta_bg_color;?>;
+		color: <?php echo $cta_bg_txt_colr;?>;
+		padding: 80px 0px!important;
+	}
+	.button-primary
+	{
+		color: <?php echo $cta_bg_txt_colr;?>;
+		border:1px solid <?php echo $cta_bg_txt_colr;?>;
+	}
+
+</style>
 <?php if(get_theme_mod( 'cta-desc' )!=""){ ?>
-<div class="section section-cta">
+
+<div class="section section-cta <?php echo $ctabgimgclass;?>">
    <div class="container-fluid">
 
       <div class="row">
@@ -62,6 +95,21 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 					<?php } ?>
 					<?php if(get_theme_mod( 'url-blog' )) { ?>
 					<li class="list-inline-item"><a class="rss" href="<?php echo get_theme_mod( 'url-blog' )?>"><i class="fa fa-2x fa-rss" aria-hidden="true"></i></a></li>
+					<?php } ?>
+					<?php if(get_theme_mod( 'url-pinterest' )) { ?>
+					<li class="list-inline-item">
+						<a target="_blank" class="pinterest" href="<?php echo get_theme_mod( 'url-pinterest' )?>"><i class="fa fa-2x fa-pinterest-p"></i></a>
+					</li>
+					<?php } ?>
+					<?php if(get_theme_mod( 'url-instagram' )) { ?>
+					<li class="list-inline-item">
+						<a target="_blank" class="instagram" href="<?php echo get_theme_mod( 'url-instagram' )?>"><i class="fa fa-2x fa-instagram"></i></a>
+					</li>
+					<?php } ?>
+					<?php if(get_theme_mod( 'url-yelp' )) { ?>
+					<li class="list-inline-item">
+						<a target="_blank" class="yelp" href="<?php echo get_theme_mod( 'url-yelp' )?>"><i class="fa fa-2x fa-yelp" aria-hidden="true"></i></a>
+					</li>
 					<?php } ?>
 				</ul>
 				<!-- // Social -->

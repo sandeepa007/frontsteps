@@ -379,6 +379,14 @@ li {
 
 .button-thin-border {
   border: 1px solid; }
+#header .container .right-column ul li a:first-child{
+    margin-top: 18px;
+    line-height: 36px;
+    padding: 0 20px;
+    min-width: 120px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
 
 .bg-grey {
   background: #f9f9f9 !important; }
@@ -563,7 +571,7 @@ li {
           text-align: center; }
           #header .container .right-column ul li a:hover {
             color: #E24C3E; }
-        #header .container .right-column ul li.login a {
+        #header .container .right-column ul li.login a, .section-contact .container .gform_wrapper input[type="submit"] {
           margin-top: 18px;
           color: #FFF;
           line-height: 36px;

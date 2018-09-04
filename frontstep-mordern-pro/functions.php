@@ -1,11 +1,13 @@
 <?php
 require get_stylesheet_directory() . '/inc/home-features-widget.php';
 
+$customizer_path = get_stylesheet_directory() . '/inc';
+require $customizer_path.'/styles.php';
 /**Custom Option for theme**/
 
 
-add_action('customize_register', 'modernpro_customize_register', 1000);
-add_action( 'init', 'customizer_library_modernpro_options', 1000 );
+add_action('customize_register', 'modernpro_customize_register', 20);
+add_action( 'init', 'customizer_library_modernpro_options', 20 );
 function modernpro_customize_register($wp_customize) {
   $wp_customize->remove_control( 'about-section2-title' );
   $wp_customize->remove_control( 'about-section2-desc' );
@@ -13,6 +15,8 @@ function modernpro_customize_register($wp_customize) {
   $wp_customize->remove_control( 'about-section3-desc' );  
   $wp_customize->remove_control( 'gallery-subtitle' );  
   $wp_customize->remove_control( 'gallery-subtitle' );  
+  $wp_customize->remove_section( 'amenities_content' );  
+  $wp_customize->remove_section( 'gallery_content' );  
   
 }
 
@@ -22,7 +26,9 @@ function modernpro_customize_register($wp_customize) {
  * @package Customizer Library Demo
  */
 
-function customizer_library_modernpro_options() {
+function customizer_library_modernpro_options($wp_customize) {
+
+    
     $sections = array();
     $panels = array();	
     $options['amenities-rightcontent'] = array(
@@ -77,6 +83,18 @@ function customizer_library_modernpro_options() {
         'label'   => __( 'Hero Image', 'frontsteps' ),
         'section' => 'services_hero',
         'type'    => 'upload'
+    );
+    $options['nav-bkg-color'] = array(
+        'id' => 'nav-bkg-color',
+        'label'   => __( 'Nav Background Color ', 'frontsteps' ),
+        'section' => 'colors',
+        'type'    => 'color'
+    );
+    $options['nav-text-color'] = array(
+        'id' => 'nav-text-color',
+        'label'   => __( 'Nav Text Color', 'frontsteps' ),
+        'section' => 'colors',
+        'type'    => 'color'
     );
 
     $panel = 'community_content';
@@ -344,71 +362,4 @@ function save_communities_meta( $post_id ) {
 }
 add_action( 'save_post', 'save_communities_meta' );
 
-/**
- * Implements styles set in the theme customizer
- *
- * @package Customizer Library Demo
- */
-if (!function_exists('customizer_library_euro_build_styles') ) :
-
-    /**
-     * Process user options to generate CSS needed to implement the choices.
-     *
-     * @since  1.0.0.
-     *
-     * @return void
-     */
-    function customizer_library_euro_build_styles()
-    {
-        
-        // Secondary Color
-        $setting = 'secondary-color';
-        $mod = get_theme_mod($setting, customizer_library_get_default($setting));
-
-        if ($mod !== customizer_library_get_default($setting)) {
-
-            $color = sanitize_hex_color($mod);
-
-            Customizer_Library_Styles()->add(array(
-                'selectors' => array(
-                    '.button-primary',
-                ),
-                'declarations' => array(
-                    'background-color' => $color
-                )
-            ));
-        }
-    }
-endif;
-
-add_action('customizer_library_styles', 'customizer_library_euro_build_styles');
-
-if (!function_exists('customizer_library_euro_styles')) :
-    /**
-     * Generates the style tag and CSS needed for the theme options.
-     *
-     * By using the "Customizer_Library_Styles" filter, different components can print CSS in the header.
-     * It is organized this way to ensure there is only one "style" tag.
-     *
-     * @since  1.0.0.
-     *
-     * @return void
-     */
-    function customizer_library_euro_styles()
-    {
-
-        do_action('customizer_library_styles');
-
-        // Echo the rules
-        $css = Customizer_Library_Styles()->build();
-
-        if (!empty($css)) {
-            echo "\n<!-- Begin Custom CSS -->\n<style type=\"text/css\" id=\"demo-custom-css\">\n";
-            echo $css;
-            echo "\n</style>\n<!-- End Custom CSS -->\n";
-        }
-    }
-endif;
-
-add_action('wp_head', 'customizer_library_euro_styles', 20);
 ?>

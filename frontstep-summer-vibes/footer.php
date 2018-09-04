@@ -12,10 +12,41 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 ?>
 
 <!-- Main Container -->
-<!-- Main Container -->
-<?php if (!is_front_page()) :?>
+<?php if (!is_front_page() && get_page_template_slug() != "page-templates/contact-page.php") :
+
+$cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+$cta_bg_color = get_theme_mod( 'cta-bkg-color' );
+$cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
+
+$ctabgimgclass = "";
+if($cta_bg_img != "")
+{
+   $ctabgimgclass = "cta_bg_img";
+}
+?>
+<style type="text/css">
+   .cta_bg_img{
+      background: url("<?php echo $cta_bg_img;?>")!important;
+      background-repeat: no-repeat;
+      background-size: cover!important;
+      background-position: center;
+   }
+   .cta_bg_img .col-sm-offset-3,
+   .section.section-cta
+   {
+      background: <?php echo $cta_bg_color;?>;
+      color: <?php echo $cta_bg_txt_colr;?>;
+      padding: 80px 0px!important;
+   }
+   .button-primary
+   {
+      color: <?php echo $cta_bg_txt_colr;?>;
+      border:1px solid <?php echo $cta_bg_txt_colr;?>;
+   }
+
+</style>
 <?php if(get_theme_mod( 'cta-desc' )!=""){ ?>
-<div class="section section-cta">
+<div class="section section-cta <?php echo $ctabgimgclass;?>">
    <div class="container-fluid">
 
       <div class="row">

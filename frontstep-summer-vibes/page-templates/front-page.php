@@ -14,6 +14,17 @@ get_header();?>
     $hero_overlay = get_theme_mod( 'hero-overlay' );
     $hero_overlay_color = get_theme_mod( 'hero-overlay-color' );
     $hero_overlay_opacity = get_theme_mod( 'hero-overlay-opacity' );
+
+    $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+    $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
+    $cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
+
+    $ctabgimgclass = "";
+    if($cta_bg_img != "")
+    {
+    $ctabgimgclass = "cta_bg_img";
+    }
+
     if($hero_overlay == 0)
     { 
        // echo $hero_overlay_opacity."opa";
@@ -21,6 +32,24 @@ get_header();?>
         <style type="text/css">
             .section-hero{background: <?php echo $hero_overlay_color;?>}
             .section-hero .bg-image{opacity: <?php echo '0.'.$hero_overlay_opacity;?>}
+            .cta_bg_img{
+                background: url("<?php echo $cta_bg_img;?>")!important;
+                background-repeat: no-repeat;
+                background-size: cover!important;
+                background-position: center;
+            }
+            .section-cta .container .content-block
+            {
+                background: <?php echo $cta_bg_color;?>;
+                color: <?php echo $cta_bg_txt_colr;?>!important;   
+            }
+            .col-xs-12.col-sm-10.col-sm-offset-1,
+            .section-cta 
+            {
+                background: <?php echo $cta_bg_color;?>;
+                color: <?php echo $cta_bg_txt_colr;?>!important;
+                padding: 80px 0px!important;
+            }
         </style>
         
 <?php } ?>
@@ -90,7 +119,7 @@ get_header();?>
 <?php //endif;?>
 <!-- IMAGE TEXT SECTION -->
 <?php if ( get_theme_mod( 'home-cta-desc' )!="" && get_theme_mod( 'home-cta-desc' )!="") { ?>
-<div class="section section-about">
+<div class="section section-home-cta section-cta <?php echo $ctabgimgclass;?>">
     <div class="bg-image fill" style="background-image: url(<?php echo get_theme_mod( 'home-cta-url' ); ?>);"></div>
 
    
@@ -159,7 +188,7 @@ get_header();?>
         </div>
     </div>
     <div class="btn-block text-center">
-        <a href="<?php echo get_site_url()?>/gallery/" class="button button-white button-red">See Gallery</a>
+        <a href="<?php echo get_site_url()?>/gallery/" class="button button-primary">See Gallery</a>
     </div>   
 </div>
 <?php 

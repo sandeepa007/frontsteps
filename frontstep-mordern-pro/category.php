@@ -58,7 +58,12 @@ $query = new WP_Query($blog_args);
       <div class="row">
          <div class="col-lg-12">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
-               <?php $featured_image = get_the_post_thumbnail_url($post->ID,'full');?>
+               <?php 
+               if(has_post_thumbnail()){
+                  $featured_image = get_the_post_thumbnail_url($post->ID,'full');
+                }else{
+                   $featured_image = get_template_directory_uri().'/img/blog-placeholder.png';}
+               ?>
                <div class="box-block blog-block">
                   <div class="img-block">
                      <a href="<?php echo get_permalink();?>" title="<?php the_title(); ?>"><img src="<?php echo $featured_image;?>" class="img-responsive"></a>

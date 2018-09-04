@@ -13,6 +13,9 @@ function desertsky_customize_register($wp_customize) {
   $wp_customize->remove_control( 'about-section3-desc' );  
   $wp_customize->remove_control( 'gallery-subtitle' );  
   $wp_customize->remove_control( 'gallery-subtitle' );  
+  $wp_customize->remove_section( 'amenities_content' );  
+  $wp_customize->remove_section( 'gallery_content' );  
+  
   
 }
 
@@ -46,13 +49,13 @@ function customizer_library_desertsky_options() {
         'type'    => 'textarea',        
         'default' => 'Nullam Fermentum Tellus Magna'
     );
-    /*$options['home-cta-title'] = array(
+    $options['home-cta-title'] = array(
         'id' => 'home-cta-title',
         'label'   => __( 'Title', 'frontsteps' ),
         'section' => 'home_cta_section',
         'type'    => 'text',        
         'default' => 'Nullam Fermentum Tellus Magna'
-    );*/
+    );
     $panel = 'services_content';
     $panels[] = array(
         'id' => $panel,
@@ -77,6 +80,12 @@ function customizer_library_desertsky_options() {
         'label'   => __( 'Hero Image', 'frontsteps' ),
         'section' => 'services_hero',
         'type'    => 'upload'
+    );
+    $options['cta-bkg-color-2'] = array(
+        'id' => 'cta-bkg-color-2',
+        'label'   => __( 'CTA Background Color 2', 'frontsteps' ),
+        'section' => 'colors',
+        'type'    => 'color'
     );
 
     $panel = 'community_content';

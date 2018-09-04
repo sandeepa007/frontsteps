@@ -54,38 +54,6 @@
 		update_option("resources_page_id", $resourcesID);
 	}
 
-	// Amenties page creation
-	$amenties_page_id = get_option("amenties_page_id");
-	if (!$amenties_page_id) {
-		$amenties_post = array(
-			'post_title' => "Amenities",
-			'post_content' => "",
-			'post_status' => "publish",
-			'post_type' => 'page',
-			);
-		
-		$amentyID = wp_insert_post($amenties_post, $error);
-		update_post_meta($amentyID, "_wp_page_template", "page-templates/amenties-page.php");
-		update_option("amenties_page_id", $amentyID);
-	}
-
-	
-
-	// Gallery page creation
-	$gallery_page_id = get_option("gallery_page_id");
-	if (!$gallery_page_id) {
-		$gallery_post = array(
-			'post_title' => "Gallery",
-			'post_content' => "",
-			'post_status' => "publish",
-			'post_type' => 'page',
-			);
-		
-		$galleryID = wp_insert_post($gallery_post, $error);
-		update_post_meta($galleryID, "_wp_page_template", "page-templates/gallery-page.php");
-		update_option("gallery_page_id", $galleryID);
-	}
-
 	// Contact page creation
 	$contact_page_id = get_option("contact_page_id");
 	if (!$contact_page_id) {
@@ -135,6 +103,70 @@
 			update_option("blog_page_id", $blogID);
 		}
 
+		// Service page creation
+		$services_page_id = get_option("services_page_id");
+		if (!$services_page_id) {
+			$blog_post = array(
+				'post_title' => "Services",
+				'post_content' => "",
+				'post_status' => "publish",
+				'post_type' => 'page',
+				);
+			
+			$servicesID = wp_insert_post($blog_post, $error);
+			update_post_meta($servicesID, "_wp_page_template", "page-templates/services-page.php");
+			update_option("services_page_id", $servicesID);
+		}
+
+		// Service page creation
+		$reqprposl_page_id = get_option("reqprposl_page_id");
+		if (!$reqprposl_page_id) {
+			$blog_post = array(
+				'post_title' => "Request Proposal",
+				'post_content' => "",
+				'post_status' => "publish",
+				'post_type' => 'page',
+				);
+			
+			$reqprpID = wp_insert_post($blog_post, $error);
+			update_post_meta($reqprpID, "_wp_page_template", "page-templates/contact-page.php");
+			update_option("reqprposl_page_id", $reqprpID);
+		}
+
+	}
+	else
+	{
+		// Amenties page creation
+		$amenties_page_id = get_option("amenties_page_id");
+		if (!$amenties_page_id) {
+			$amenties_post = array(
+				'post_title' => "Amenities",
+				'post_content' => "",
+				'post_status' => "publish",
+				'post_type' => 'page',
+				);
+			
+			$amentyID = wp_insert_post($amenties_post, $error);
+			update_post_meta($amentyID, "_wp_page_template", "page-templates/amenties-page.php");
+			update_option("amenties_page_id", $amentyID);
+		}
+
+		
+
+		// Gallery page creation
+		$gallery_page_id = get_option("gallery_page_id");
+		if (!$gallery_page_id) {
+			$gallery_post = array(
+				'post_title' => "Gallery",
+				'post_content' => "",
+				'post_status' => "publish",
+				'post_type' => 'page',
+				);
+			
+			$galleryID = wp_insert_post($gallery_post, $error);
+			update_post_meta($galleryID, "_wp_page_template", "page-templates/gallery-page.php");
+			update_option("gallery_page_id", $galleryID);
+		}
 	}
 
 
@@ -149,10 +181,10 @@
     $menu_id = wp_create_nav_menu($menuname);
 
     // Set up default BuddyPress links and add them to the menu.
-    wp_update_nav_menu_item($menu_id, 0, array(
+    /*wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-title' =>  __('Home'),
         'menu-item-url' => home_url( '/' ), 
-        'menu-item-status' => 'publish'));
+        'menu-item-status' => 'publish'));*/
 
     wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-title' =>  __('About'),
@@ -166,17 +198,46 @@
         'menu-item-url' => home_url( '/resources/' ), 
         'menu-item-status' => 'publish'));
 
-    wp_update_nav_menu_item($menu_id, 0, array(
-        'menu-item-title' =>  __('Amenities'),
-        'menu-item-classes' => '',
-        'menu-item-url' => home_url( '/amenities/' ), 
-        'menu-item-status' => 'publish'));
+    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
+	{
+		wp_update_nav_menu_item($menu_id, 0, array(
+	        'menu-item-title' =>  __('Services'),
+	        'menu-item-classes' => '',
+	        'menu-item-url' => home_url( '/services/' ), 
+	        'menu-item-status' => 'publish'));
 
-    wp_update_nav_menu_item($menu_id, 0, array(
-        'menu-item-title' =>  __('Gallery'),
-        'menu-item-classes' => 'forums',
-        'menu-item-url' => home_url( '/gallery/' ), 
-        'menu-item-status' => 'publish'));
+		wp_update_nav_menu_item($menu_id, 0, array(
+	        'menu-item-title' =>  __('Our Communities'),
+	        'menu-item-classes' => '',
+	        'menu-item-url' => home_url( '/communities/' ), 
+	        'menu-item-status' => 'publish'));
+
+		wp_update_nav_menu_item($menu_id, 0, array(
+	        'menu-item-title' =>  __('Blog'),
+	        'menu-item-classes' => '',
+	        'menu-item-url' => home_url( '/blog/' ), 
+	        'menu-item-status' => 'publish'));
+
+		wp_update_nav_menu_item($menu_id, 0, array(
+	        'menu-item-title' =>  __('Request Proposal'),
+	        'menu-item-classes' => '',
+	        'menu-item-url' => home_url( '/request-p	roposal/' ), 
+	        'menu-item-status' => 'publish'));
+	}
+    else
+    {
+	    wp_update_nav_menu_item($menu_id, 0, array(
+	        'menu-item-title' =>  __('Amenities'),
+	        'menu-item-classes' => '',
+	        'menu-item-url' => home_url( '/amenities/' ), 
+	        'menu-item-status' => 'publish'));
+
+	    wp_update_nav_menu_item($menu_id, 0, array(
+	        'menu-item-title' =>  __('Gallery'),
+	        'menu-item-classes' => 'forums',
+	        'menu-item-url' => home_url( '/gallery/' ), 
+	        'menu-item-status' => 'publish'));
+	}    
 
     wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-title' =>  __('Contact'),
@@ -326,7 +387,8 @@
 	    'post_type' => 'community',
 		);
 		$community_post_id = wp_insert_post($new_community_post);
-		update_post_meta($community_post_id,"community","a:1:{s:3:'url';s:9:'#';}");
+		$url_array = array('url' => '#');
+		update_post_meta($community_post_id,"community",$url_array);
 
 		// Create Demo Accreditation posts
 		$new_accrd_post = array(

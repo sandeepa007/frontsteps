@@ -14,6 +14,17 @@ get_header();?>
     $hero_overlay = get_theme_mod( 'hero-overlay' );
     $hero_overlay_color = get_theme_mod( 'hero-overlay-color' );
     $hero_overlay_opacity = get_theme_mod( 'hero-overlay-opacity' );
+
+    $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+    $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
+    $cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
+
+    $ctabgimgclass = "";
+    if($cta_bg_img != "")
+    {
+    $ctabgimgclass = "cta_bg_img";
+    }
+
     if($hero_overlay == 0)
     { 
        // echo $hero_overlay_opacity."opa";
@@ -21,6 +32,19 @@ get_header();?>
         <style type="text/css">
             .section-hero{background: <?php echo $hero_overlay_color;?>}
             .section-hero .bg-image{opacity: <?php echo '0.'.$hero_overlay_opacity;?>}
+            .cta_bg_img{
+                background: url("<?php echo $cta_bg_img;?>")!important;
+                background-repeat: no-repeat;
+                background-size: cover!important;
+                background-position: center;
+            }
+            .cta_bg_img .col-sm-offset-3,
+            .section.section-home-cta 
+            {
+                background: <?php echo $cta_bg_color;?>;
+                color: <?php echo $cta_bg_txt_colr;?>!important;
+                padding: 80px 0px!important;
+            }
         </style>
         
 <?php } ?>
@@ -84,27 +108,30 @@ get_header();?>
 
 <?php endif; ?>
 <?php //endif;?>
-<!-- IMAGE TEXT SECTION -->
-<?php if ( get_theme_mod( 'home-cta-desc' )!="" && get_theme_mod( 'home-cta-desc' )!="") { ?>
-<div class="section section-about">
-    <div class="bg-image fill" style="background-image: url(<?php echo get_theme_mod( 'home-cta-url' ); ?>);"></div>
+<?php if( get_theme_mod( 'home-cta-desc' ) != '' || get_theme_mod( 'home-cta-button-text') != '' )
+{ ?>
+<!-- Home Call to Actions SECTION -->
+<div class="section section-home-cta <?php echo $ctabgimgclass;?>">
+  <div class="bg-image fill" style=""></div>
 
-   
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="content-block color-white text-center">
-                    <h2 class="h2 text-bold"><?php echo get_theme_mod( 'home-cta-desc' ); ?></h2>
-                    <p></p>
-                                        <div class="btn-block">
-                        <a href="<?php echo get_theme_mod( 'home-cta-button-url' ); ?>" class="button button-white"><?php echo get_theme_mod( 'home-cta-button-text' ); ?></a>
-                    </div>
-                                    </div>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <div class="testimonial-block text-center">
+                   <p><?php echo get_theme_mod( 'home-cta-desc' ); ?></p>
+                    <?php if( get_theme_mod( 'home-cta-button-text' ) != '')
+                        {?>                
+                        <div class="btn-block">
+                            <a href="<?php echo get_theme_mod( 'home-cta-button-url' ); ?>" class="button button-primary"><?php echo get_theme_mod( 'home-cta-button-text' ); ?></a>
+                        </div>
+                    <?php } ?> 
+                </div>
             </div>
         </div>           
     </div>
 </div>
 <?php } ?>
+<!-- Call to Actions SECTION -->
 <div class="section section-gallery">
     <div class="container container-full">
         <div class="row">

@@ -122,7 +122,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
 
                     <div class="img-block">
                        <?php if ( has_post_thumbnail() ) {
-                                the_post_thumbnail(); 
+                                the_post_thumbnail('employee-photo');
                             }else{?>
                             <img src="<?php echo get_template_directory_uri().'/img/team-image-placeholder.png';?>">
                             <?php }?>
@@ -196,7 +196,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
 
                     <div class="img-block">
                        <?php if ( has_post_thumbnail() ) {
-                                the_post_thumbnail(); 
+                                the_post_thumbnail('employee-photo'); 
                             }else{?>
                             <img src="<?php echo get_template_directory_uri().'/img/team-image-placeholder.png';?>">
                             <?php }?>

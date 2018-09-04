@@ -14,6 +14,17 @@ get_header();?>
     $hero_overlay = get_theme_mod( 'hero-overlay' );
     $hero_overlay_color = get_theme_mod( 'hero-overlay-color' );
     $hero_overlay_opacity = get_theme_mod( 'hero-overlay-opacity' );
+
+    $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+    $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
+    $cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
+
+    $ctabgimgclass = "";
+    if($cta_bg_img != "")
+    {
+    $ctabgimgclass = "cta_bg_img";
+    }
+
     if($hero_overlay == 0)
     { 
        // echo $hero_overlay_opacity."opa";
@@ -21,6 +32,19 @@ get_header();?>
         <style type="text/css">
             .section-hero{background: <?php echo $hero_overlay_color;?>}
             .section-hero .bg-image{opacity: <?php echo '0.'.$hero_overlay_opacity;?>}
+            .cta_bg_img{
+                background: url("<?php echo $cta_bg_img;?>")!important;
+                background-repeat: no-repeat;
+                background-size: cover!important;
+                background-position: center;
+            }
+            .cta_bg_img .col-sm-offset-3,
+            .section.section-home-cta 
+            {
+                background: <?php echo $cta_bg_color;?>;
+                color: <?php echo $cta_bg_txt_colr;?>;
+                padding: 80px 0px!important;
+            }
         </style>
         
 <?php } ?>
@@ -116,13 +140,13 @@ endwhile; // end of the loop. ?>
 <?php if( get_theme_mod( 'home-cta-desc' ) != '' || get_theme_mod( 'home-cta-button-text') != '' )
 { ?>
 <!-- Home Call to Actions SECTION -->
-<div class="section section-home-cta">
+<div class="section section-home-cta <?php echo $ctabgimgclass;?>">
   <div class="bg-image fill" style=""></div>
 
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <div class="testimonial-block color-white text-center">
+                <div class="testimonial-block text-center">
                    <p><?php echo get_theme_mod( 'home-cta-desc' ); ?></p>
                     <?php if( get_theme_mod( 'home-cta-button-text' ) != '')
                         {?>                
@@ -164,7 +188,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
   ?>
     <div class="slide">
         <?php if ( has_post_thumbnail() ) {
-                    the_post_thumbnail( 'full' );
+                    the_post_thumbnail( 'accredition-logo' );
                 }else{ ?>
             <img src="<?php echo get_template_directory_uri().'/img/accre-placeholder-img.png';?>">
                    <?php } ?>

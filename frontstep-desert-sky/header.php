@@ -25,16 +25,37 @@ $container = get_theme_mod( 'frontsteps_container_type' );
     	echo '<link rel="shortcut icon" type="image/png" href="'.$faviconUrl.'" />';
 	?>
 
-	<?php wp_head(); ?>
+	<?php 
+	wp_head(); 
+	$colortext = "#FFF";
+	$colorbkg1 ="#98C97E";
+	$colorbkg2 ="#E3860A";
+	if(get_theme_mod( 'cta-text-color' )!=""){
+		$colortext = get_theme_mod( 'cta-text-color' );
+	}
+	if(get_theme_mod( 'cta-bkg-color' )!=""){
+		$colorbkg1 = get_theme_mod( 'cta-bkg-color' );
+	}
+	if(get_theme_mod( 'cta-bkg-color-2' )!=""){
+		$colorbkg2 = get_theme_mod( 'cta-bkg-color-2' );
+	}
+	?>
 	<style type="text/css">
-		.section-testimonials, .section-cta  {		  
-		  background-image: linear-gradient(to right,#8EC172, #E07A0E);
-		  color: #FFF;
+
+		.section-testimonials, .section-cta,
+		.cta_bg_img .col-xs-12.col-sm-6.col-sm-offset-3  {		  
+		  background-image: linear-gradient(to right, <?php echo $colorbkg1;?>,  <?php echo $colorbkg2;?>);
+		  color:<?php echo $colortext;?>;
+		  padding: 80px 0px!important;
 		}
-		.button-primary{
-			background-color: #FFF;
-			color:#000 !important;
-		}
+		.section-cta .button-primary, .section-cta a.button-primary{
+			background: #fff;
+			color:<?php echo $colorbkg1;?>;
+		}	
+		.section-cta .button-primary:hover, .section-cta a.button-primary:hover{
+			background: #fff;
+			color:<?php echo $colorbkg2;?>;
+		}	
 	</style>
 </head>
 

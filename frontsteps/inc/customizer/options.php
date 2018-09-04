@@ -51,7 +51,8 @@ function customizer_options(){
                 ['id' => 'button-hover-color', 'label' => __('Button Color(hover)'), 'type' => 'color', 'default' => $button_hover_color, 'description' => 'This affects the button text color in your site on rollover.'],
                 ['id' => 'button-hover-bkg-color', 'label' => __('Button Background Color(hover)'), 'type' => 'color', 'default' => $button_hover_bkg_color, 'description' => 'This affects the button Background color in your site  on rollover.'],
                 ['id' => 'cta-text-color', 'label' => __('CTA Text Color'), 'type' => 'color', 'default' => $cta_text_color, 'description' => 'This affects the default color for your CTA text on your site.'],
-                ['id' => 'cta-bkg-color', 'label' => __('CTA Background Color'), 'type' => 'color', 'default' => $cta_bkg_color, 'description' => 'This affects the CTA background color for your pages.'], 
+                ['id' => 'cta-bkg-color', 'label' => __('CTA Background Color'), 'type' => 'color', 'default' => $cta_bkg_color, 'description' => 'This affects the CTA background color for your pages.'],
+                ['id' => 'cta-bkg-img', 'label' => __('CTA Background Image'), 'type' => 'upload', 'default' => get_stylesheet_directory_uri() . '/images/hero-about.jpg'],
                 ['id' => 'footer-text-color', 'label' => __('Footer Text Color'), 'type' => 'color', 'default' => $footer_text_color, 'description' => 'This affects the default color for footer text on your site.'],
                 ['id' => 'footer-bkg-color', 'label' => __('Footer Background Color'), 'type' => 'color', 'default' => $footer_bkg_color, 'description' => 'This affects the footer background color for your pages.'],   
                   ['id' => 'box-text-color', 'label' => __('Box Text Color'), 'type' => 'color', 'default' => $box_text_color, 'description' => 'This affects the default color for your box text on your site.'],
@@ -187,7 +188,7 @@ function customizer_library_demo_options() {
         'panel' => $panel
     );
 
-    $options['primary-color'] = array(
+    /*$options['primary-color'] = array(
         'id' => 'primary-color',
         'label'   => __( 'Primary Color', 'frontsteps' ),
         'section' => $section,
@@ -209,7 +210,7 @@ function customizer_library_demo_options() {
         'section' => $section,
         'type'    => 'color',
         'default' => $anchore_color,
-    );
+    );*/
 
     // Background Colors Option
     $section = 'bg-colors';

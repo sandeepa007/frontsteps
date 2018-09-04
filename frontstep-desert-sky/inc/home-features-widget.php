@@ -82,9 +82,8 @@ class home_feature_Widget_urbanchic extends WP_Widget {
         <input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="<?php echo $this->get_field_name('image_uri'); ?>" value="Upload Image" style="margin-top:5px;" />
     </p>
 
-    <p><input class="checkbox" type="checkbox"<?php checked( $is_img_left ); ?> id="<?php echo $this->get_field_id( 'is_img_left' ); ?>" name="<?php echo $this->get_field_name( 'is_img_left' ); ?>" />
-    <label for="<?php echo $this->get_field_id( 'is_img_left' ); ?>"><?php _e( 'Is image left?' ); ?></label></p>
-
+    <!-- <p><input class="checkbox" type="checkbox"< ?php checked( $is_img_left ); ?> id="< ?php echo $this->get_field_id( 'is_img_left' ); ?>" name="< ?php echo $this->get_field_name( 'is_img_left' ); ?>" />
+    <label for="< ?php echo $this->get_field_id( 'is_img_left' ); ?>">< ?php _e( 'Is image left?' ); ?></label></p> -->
       <script type="text/javascript">
   
   jQuery(document).ready( function($) {
@@ -101,9 +100,9 @@ class home_feature_Widget_urbanchic extends WP_Widget {
             _custom_media = true;
             wp.media.editor.send.attachment = function(props, attachment){
                 if ( _custom_media  ) {
-                    $('.custom_media_id').val(attachment.id);
-                    $('.custom_media_url').val(attachment.url);
-                    $('.custom_media_image').attr('src',attachment.url).css('display','block');
+                    $(this).parent().find('.custom_media_id').val(attachment.id);
+                    $(this).parent().find('.custom_media_url').val(attachment.url);
+                    $(this).parent().find('.custom_media_image').attr('src',attachment.url).css('display','block');
                 } else {
                     return _orig_send_attachment.apply( button_id, [props, attachment] );
                 }

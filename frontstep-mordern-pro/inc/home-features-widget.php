@@ -33,7 +33,8 @@ class home_feature_Widget_urbanchic extends WP_Widget {
     $title = apply_filters( 'widget_title', $instance[ 'title' ] );
     $desc = apply_filters( 'widget_title', $instance[ 'desc' ] );
     $image_uri = apply_filters( 'widget_title', $instance[ 'image_uri' ] );
-    $is_img_left = apply_filters( 'widget_title', $instance[ 'is_img_left' ] );
+
+    //$is_img_left = apply_filters( 'widget_title', $instance[ 'is_img_left' ] );
     ?>
     <div class="col-xs-12 col-sm-4">
       <div class="box-block">
@@ -56,7 +57,7 @@ class home_feature_Widget_urbanchic extends WP_Widget {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
     $desc = ! empty( $instance['desc'] ) ? $instance['desc'] : ''; 
     $image_uri = ! empty( $instance['image_uri'] ) ? $instance['image_uri'] : ''; 
-    $is_img_left = isset( $instance['is_img_left'] ) ? (bool) $instance['is_img_left'] : false;
+    //$is_img_left = isset( $instance['is_img_left'] ) ? (bool) $instance['is_img_left'] : false;
     ?>
     <p>
       <label for="<?php echo $this->get_field_id( 'title' ); ?>">Title</label><br />
@@ -82,8 +83,8 @@ class home_feature_Widget_urbanchic extends WP_Widget {
         <input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="<?php echo $this->get_field_name('image_uri'); ?>" value="Upload Image" style="margin-top:5px;" />
     </p>
 
-    <p><input class="checkbox" type="checkbox"<?php checked( $is_img_left ); ?> id="<?php echo $this->get_field_id( 'is_img_left' ); ?>" name="<?php echo $this->get_field_name( 'is_img_left' ); ?>" />
-    <label for="<?php echo $this->get_field_id( 'is_img_left' ); ?>"><?php _e( 'Is image left?' ); ?></label></p>
+   <!--  <p><input class="checkbox" type="checkbox"< ?php checked( $is_img_left ); ?> id="< ?php echo $this->get_field_id( 'is_img_left' ); ?>" name="< ?php echo $this->get_field_name( 'is_img_left' ); ?>" />
+    <label for="< ?php echo $this->get_field_id( 'is_img_left' ); ?>">< ?php _e( 'Is image left?' ); ?></label></p> -->
 
       <script type="text/javascript">
   
@@ -101,9 +102,9 @@ class home_feature_Widget_urbanchic extends WP_Widget {
             _custom_media = true;
             wp.media.editor.send.attachment = function(props, attachment){
                 if ( _custom_media  ) {
-                    $('.custom_media_id').val(attachment.id);
-                    $('.custom_media_url').val(attachment.url);
-                    $('.custom_media_image').attr('src',attachment.url).css('display','block');
+                    $(this).parent().find('.custom_media_id').val(attachment.id);
+                    $(this).parent().find('.custom_media_url').val(attachment.url);
+                    $(this).parent().find('.custom_media_image').attr('src',attachment.url).css('display','block');
                 } else {
                     return _orig_send_attachment.apply( button_id, [props, attachment] );
                 }
@@ -130,7 +131,7 @@ class home_feature_Widget_urbanchic extends WP_Widget {
     $instance[ 'title' ] = strip_tags( $new_instance[ 'title' ] );
     $instance[ 'desc' ] = strip_tags( $new_instance[ 'desc' ] );
     $instance['image_uri'] = strip_tags( $new_instance['image_uri'] );
-    $instance['is_img_left'] = isset( $new_instance['is_img_left'] ) ? (bool) $new_instance['is_img_left'] : false;
+    //$instance['is_img_left'] = isset( $new_instance['is_img_left'] ) ? (bool) $new_instance['is_img_left'] : false;
     return $instance;
   }
 

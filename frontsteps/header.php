@@ -24,8 +24,8 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 		echo '<link rel="apple-touch-icon" href="'.$faviconUrl.'">';
     	echo '<link rel="shortcut icon" type="image/png" href="'.$faviconUrl.'" />';
 	?>
+<?php wp_head(); ?>
 
-	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
