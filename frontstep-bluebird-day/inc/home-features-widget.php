@@ -7,7 +7,7 @@
  * Author:        Jon Penland
  * Author URI:    https://www.jonpenland.com
  */
-class home_feature_Widget_bluebird extends WP_Widget {
+class home_feature_Widget_child extends WP_Widget {
 
 
   // Set up the widget name and description.
@@ -21,7 +21,7 @@ class home_feature_Widget_bluebird extends WP_Widget {
       'width' => 400,
       'height' => 350,
     );
-    parent::__construct( 'home_feature_widget', 'Home Features (FrontSteps)', $widget_options, $control_ops );
+    parent::__construct( 'home_feature_Widget_child', 'Home Features (FrontSteps)', $widget_options, $control_ops );
 
 
   }
@@ -142,9 +142,9 @@ class home_feature_Widget_bluebird extends WP_Widget {
 }
 
 // Register the widget.
-function home_feature_Widget_bluebird() {
-  register_widget( 'home_feature_Widget_bluebird' );
+function home_register_home_features_widget_child() {
+  register_widget( 'home_feature_Widget_child' );
 }
-add_action( 'widgets_init', 'home_feature_Widget_bluebird' );
+add_action( 'widgets_init', 'home_register_home_features_widget_child' );
 
 ?>

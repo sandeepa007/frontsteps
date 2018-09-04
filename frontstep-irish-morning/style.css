@@ -16,9 +16,7 @@
 #header .container-full{
 	background-color: rgba(0,0,0,0.2);
 }
-#header .container .navigation-column .navbar-default .navbar-nav li a{
-	color: #FFFFFF;
-}
+#header .container .navigation-column .navbar-default .navbar-nav li a,
 a.nav-link{
 	color: #FFFFFF;	
 }
@@ -27,4 +25,7 @@ a.nav-link{
 }
 .section-contact .container .gform_wrapper input[type="submit"]{
 	border-radius: 30px;
+}
+#gallery .rsGCaption {
+    display: none;
 }
