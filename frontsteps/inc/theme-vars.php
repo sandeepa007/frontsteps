@@ -1,5 +1,6 @@
 <?php
 
+// Set default variables.
 $logo_id = get_template_directory_uri()."/img/placeholder-logo.png";
 $herohome = get_template_directory_uri()."/img/hero-home.jpg";
 $heroabout = get_template_directory_uri()."/img/about-hero-bg.jpg";

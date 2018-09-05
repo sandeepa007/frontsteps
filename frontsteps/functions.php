@@ -13,7 +13,7 @@ function remove_pages_from_search() {
 add_action('init', 'remove_pages_from_search');
 
 /**
- * Initialize theme default variables
+ * Initialize theme default variables.
  */
 require get_template_directory() . '/inc/theme-vars.php';
 
