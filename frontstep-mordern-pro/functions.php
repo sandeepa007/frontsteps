@@ -6,18 +6,15 @@ require $customizer_path.'/styles.php';
 /**Custom Option for theme**/
 
 
-add_action('customize_register', 'modernpro_customize_register', 20);
-add_action( 'init', 'customizer_library_modernpro_options', 20 );
+add_action('customize_register', 'modernpro_customize_register', 1000);
+
 function modernpro_customize_register($wp_customize) {
   $wp_customize->remove_control( 'about-section2-title' );
   $wp_customize->remove_control( 'about-section2-desc' );
   $wp_customize->remove_control( 'about-section3-title' );
   $wp_customize->remove_control( 'about-section3-desc' );  
-  $wp_customize->remove_control( 'gallery-subtitle' );  
-  $wp_customize->remove_control( 'gallery-subtitle' );  
   $wp_customize->remove_section( 'amenities_content' );  
-  $wp_customize->remove_section( 'gallery_content' );  
-  
+  $wp_customize->remove_section( 'gallery_content' );    
 }
 
 /**
@@ -31,27 +28,7 @@ function customizer_library_modernpro_options($wp_customize) {
     
     $sections = array();
     $panels = array();	
-    $options['amenities-rightcontent'] = array(
-        'id' => 'amenities-rightcontent',
-        'label'   => __( 'Right Content', 'frontsteps' ),
-        'section' => 'amenities_content',
-        'type'    => 'textarea',        
-        'default' => 'Nullam Fermentum Tellus Magna'
-    );
-    $options['gallery-rightcontent'] = array(
-        'id' => 'gallery-rightcontent',
-        'label'   => __( 'Right Content', 'frontsteps' ),
-        'section' => 'gallery_content',
-        'type'    => 'textarea',        
-        'default' => 'Nullam Fermentum Tellus Magna'
-    );
-    $options['gallery-leftcontent'] = array(
-        'id' => 'gallery-leftcontent',
-        'label'   => __( 'Left Content', 'frontsteps' ),
-        'section' => 'gallery_content',
-        'type'    => 'textarea',        
-        'default' => 'Nullam Fermentum Tellus Magna'
-    );
+    
     $options['home-cta-title'] = array(
         'id' => 'home-cta-title',
         'label'   => __( 'Title', 'frontsteps' ),
@@ -59,89 +36,13 @@ function customizer_library_modernpro_options($wp_customize) {
         'type'    => 'text',        
         'default' => 'Nullam Fermentum Tellus Magna'
     );
-    $panel = 'services_content';
-    $panels[] = array(
-        'id' => $panel,
-        'title' => __( 'Services Settings', 'frontsteps' ),
-        'priority' => '200'
-    );
-    $sections[] = array(
-        'id' => "services_hero",
-        'title' => __( 'Services Settings', 'frontsteps' ),
-        'priority' => '30',
-        'panel' => $panel
-    );
-    $options['services-title'] = array(
-        'id' => 'services-title',
-        'label'   => __( 'Title', 'frontsteps' ),
-        'section' => 'services_hero',
-        'type'    => 'text',        
-        'default' => 'Nullam Fermentum Tellus Magna'
-    );
-    $options['services-hero'] = array(
-        'id' => 'services-hero',
-        'label'   => __( 'Hero Image', 'frontsteps' ),
-        'section' => 'services_hero',
-        'type'    => 'upload'
-    );
-    $options['nav-bkg-color'] = array(
-        'id' => 'nav-bkg-color',
-        'label'   => __( 'Nav Background Color ', 'frontsteps' ),
-        'section' => 'colors',
-        'type'    => 'color'
-    );
-    $options['nav-text-color'] = array(
-        'id' => 'nav-text-color',
-        'label'   => __( 'Nav Text Color', 'frontsteps' ),
-        'section' => 'colors',
-        'type'    => 'color'
-    );
-
-    $panel = 'community_content';
-    $panels[] = array(
-        'id' => $panel,
-        'title' => __( 'Communities Settings', 'frontsteps' ),
-        'priority' => '200'
-    );
-    $sections[] = array(
-        'id' => "community_settings",
-        'title' => __( 'Communities Settings', 'frontsteps' ),
-        'priority' => '30',
-        'panel' => $panel
-    );
-    $options['community-title'] = array(
-        'id' => 'community-title',
-        'label'   => __( 'Title', 'frontsteps' ),
-        'section' => 'community_settings',
-        'type'    => 'text',        
-        'default' => 'Nullam Fermentum Tellus Magna'
-    );
-    $options['community-hero'] = array(
-        'id' => 'community-hero',
-        'label'   => __( 'Hero Image', 'frontsteps' ),
-        'section' => 'community_settings',
-        'type'    => 'upload'
-    );
-    $options['community-sub-title'] = array(
-        'id' => 'community-sub-title',
-        'label'   => __( 'Sub Title', 'frontsteps' ),
-        'section' => 'community_settings',
-        'type'    => 'text',        
-        'default' => 'Nullam Fermentum Tellus Magna'
-    );
-    $options['community-info'] = array(
-        'id' => 'community-info',
-        'label'   => __( 'Info', 'frontsteps' ),
-        'section' => 'community_settings',
-        'type'    => 'text',        
-        'default' => 'Nullam Fermentum Tellus Magna'
-    );
+    
     $options['sections'] = $sections;
     $options['panels'] = $panels;
     $customizer_library = Customizer_Library::Instance();
     $customizer_library->add_options( $options );
 }
-
+add_action( 'init', 'customizer_library_modernpro_options', 15 );
 /**
  * Register a custom post type called "Member".
  *

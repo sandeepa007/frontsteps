@@ -23,6 +23,7 @@ if( get_theme_mod( 'community-hero' ) )
             <div class="col-xs-12">
                 <div class="hero-block color-white text-center">
                     <h1 class="h1"><?php echo get_theme_mod( 'community-title' ); ?></h1>
+                     <?php echo get_theme_mod( 'community-sub-title' ); ?>
                 </div>
             </div>
         </div>
@@ -33,12 +34,13 @@ if( get_theme_mod( 'community-hero' ) )
    <div class="container-fluid">
       <div class="row">
          <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
             <div class="intro-block text-center">
-               <?php if(get_theme_mod( 'community-sub-title' )!=""){?>
-               <h2 class="h2"><?php echo get_theme_mod( 'community-sub-title' ); ?></h2>
+               <?php if(get_theme_mod( 'community-info' )!=""){?>
+               <h2 class="h2"><?php echo get_theme_mod( 'community-info' ); ?></h2>
                <?php }?>
-               <?php if(get_theme_mod('community-info')!=""){?>
-               <?php echo get_theme_mod('community-info');?>
+               <?php if(get_theme_mod('community-info-subtitle')!=""){?>
+               <?php echo get_theme_mod('community-info-subtitle');?>
                <?php }?>
             </div>
          </div>

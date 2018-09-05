@@ -45,7 +45,22 @@ if( get_theme_mod( 'about-hero' ) )
       <?php }?>
    </div>
 </div>
-
+<?php
+// If content is there on page fetched this content
+while ( have_posts() ) : the_post();
+    if ( !empty( get_the_content() ) ) { ?>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <?php echo the_content(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>        
+<?php  } 
+endwhile;
+wp_reset_query();  // end of the loop. ?>
 <?php 
 
 $show_bod = get_theme_mod( 'show-team-section-bod' );

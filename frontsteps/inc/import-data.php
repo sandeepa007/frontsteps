@@ -57,9 +57,15 @@
 	// Contact page creation
 	$contact_page_id = get_option("contact_page_id");
 	if (!$contact_page_id) {
+		
+		// import gravity Contact form and insert into contact page
+		$contct_formobj = json_decode('{"title":"Contact Us","description":"","labelPlacement":"top_label","descriptionPlacement":"below","button":{"type":"text","text":"Submit","imageUrl":""},"fields":[{"type":"name","id":1,"label":"Name","adminLabel":"","isRequired":false,"size":"medium","errorMessage":"","visibility":"visible","nameFormat":"advanced","inputs":[{"id":"1.2","label":"Prefix","name":"","choices":[{"text":"Mr.","value":"Mr.","isSelected":false,"price":""},{"text":"Mrs.","value":"Mrs.","isSelected":false,"price":""},{"text":"Miss","value":"Miss","isSelected":false,"price":""},{"text":"Ms.","value":"Ms.","isSelected":false,"price":""},{"text":"Dr.","value":"Dr.","isSelected":false,"price":""},{"text":"Prof.","value":"Prof.","isSelected":false,"price":""},{"text":"Rev.","value":"Rev.","isSelected":false,"price":""}],"isHidden":true,"inputType":"radio"},{"id":"1.3","label":"First","name":"","customLabel":"First Name"},{"id":"1.4","label":"Middle","name":"","isHidden":true},{"id":"1.6","label":"Last","name":"","customLabel":"Last Name"},{"id":"1.8","label":"Suffix","name":"","isHidden":true}],"formId":1,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"email","id":2,"label":"Email","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":1,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","emailConfirmEnabled":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"phone","id":3,"label":"Phone","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"phoneFormat":"standard","formId":1,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","form_id":"","productField":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"textarea","id":4,"label":"Message","adminLabel":"","isRequired":false,"size":"medium","errorMessage":"","visibility":"visible","inputs":null,"formId":1,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","form_id":"","useRichTextEditor":false,"multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false}],"version":"2.3.3.6","id":1,"useCurrentUserAsAuthor":true,"postContentTemplateEnabled":false,"postTitleTemplateEnabled":false,"postTitleTemplate":"","postContentTemplate":"","lastPageButton":null,"pagination":null,"firstPageCssClass":null,"confirmations":[{"id":"5b76a660e365c","name":"Default Confirmation","isDefault":true,"type":"message","message":"Thanks for contacting us! We will get in touch with you shortly.","url":"","pageId":"","queryString":""}],"notifications":[{"id":"5b76a660dc8ac","to":"{admin_email}","name":"Admin Notification","event":"form_submission","toType":"email","subject":"New submission from {form_title}","message":"{all_fields}"}]}', true);
+
+		$contct_form_id = GFAPI::add_form($contct_formobj);
+
 		$contact_post = array(
 			'post_title' => "Contact",
-			'post_content' => "",
+			'post_content' => '[gravityform id="'.$contct_form_id.'" title="false" description="false" ajax="true" tabindex="34"]',
 			'post_status' => "publish",
 			'post_type' => 'page',
 			);
@@ -118,18 +124,24 @@
 			update_option("services_page_id", $servicesID);
 		}
 
-		// Service page creation
+		// Request Proposal page creation
 		$reqprposl_page_id = get_option("reqprposl_page_id");
 		if (!$reqprposl_page_id) {
+
+			// import gravity Contact form and insert into contact page
+		$reqprop_formobj = json_decode('{"title":"Request Proposal","description":"","labelPlacement":"top_label","descriptionPlacement":"below","button":{"type":"text","text":"Submit","imageUrl":""},"fields":[{"type":"text","id":1,"label":"First Name","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"text","id":2,"label":"Last Name","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"email","id":3,"label":"Email","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","emailConfirmEnabled":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"phone","id":4,"label":"Phone","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"phoneFormat":"standard","formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","form_id":"","productField":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"text","id":5,"label":"Address","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"text","id":6,"label":"Address 2","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"text","id":7,"label":"City","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_third","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false},{"type":"text","id":8,"label":"State","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_middle_third","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false},{"type":"text","id":9,"label":"Zip","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_third","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false}],"version":"2.3.3.9","id":2,"useCurrentUserAsAuthor":true,"postContentTemplateEnabled":false,"postTitleTemplateEnabled":false,"postTitleTemplate":"","postContentTemplate":"","lastPageButton":null,"pagination":null,"firstPageCssClass":null,"confirmations":[{"id":"5b8fd6ec035d3","name":"Default Confirmation","isDefault":true,"type":"message","message":"Thanks for contacting us! We will get in touch with you shortly.","url":"","pageId":"","queryString":""}],"notifications":[{"id":"5b8fd6ebdf14a","to":"{admin_email}","name":"Admin Notification","event":"form_submission","toType":"email","subject":"New submission from {form_title}","message":"{all_fields}"}]}', true);
+
+		$reqprop_form_id = GFAPI::add_form($reqprop_formobj);
+
 			$blog_post = array(
 				'post_title' => "Request Proposal",
-				'post_content' => "",
+				'post_content' => '[gravityform id="'.$reqprop_form_id.'" title="false" description="false" ajax="true" tabindex="34"]',
 				'post_status' => "publish",
 				'post_type' => 'page',
 				);
 			
 			$reqprpID = wp_insert_post($blog_post, $error);
-			update_post_meta($reqprpID, "_wp_page_template", "page-templates/contact-page.php");
+			update_post_meta($reqprpID, "_wp_page_template", "page-templates/request-proposal-page.php");
 			update_option("reqprposl_page_id", $reqprpID);
 		}
 
@@ -401,6 +413,21 @@
 		);
 		$accred_post_id = wp_insert_post($new_accrd_post);
 
+		if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
+		{
+			// Create Demo Blog posts
+			$new_post = array(
+		    'post_title' => 'Blog '.$i,
+		    'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a nunc eu erat aliquam convallis sed eget erat. Morbi elit lorem, tristique non dolor et, semper pharetra metus. Nunc rutrum, lectus et vehicula molestie, ligula velit lobortis urna, ut aliquet dui metus ut metus. Sed mattis, metus a tempor suscipit, tortor risus aliquam sapien, vitae viverra augue odio ac ex. Nullam sollicitudin imperdiet quam, at molestie justo efficitur vitae. Ut ac nunc id leo dignissim efficitur. Proin at diam quis magna luctus condimentum. Ut cursus, nunc id tempor gravida, tortor velit gravida odio, a rhoncus diam magna eget orci. Aenean sem enim, dictum ut quam ut, posuere vestibulum lacus. Fusce feugiat tellus vitae mi rutrum egestas. Quisque finibus eu leo at mollis. Fusce nec dolor lacus. Nullam imperdiet elementum odio, et dictum nisi ultricies tempor. Phasellus sed egestas dui, eget convallis quam. Mauris ullamcorper nisi diam, eu aliquet ex consequat nec. Nulla vitae tristique turpis',
+		    'post_status' => 'publish',
+		    'post_date' => date('Y-m-d H:i:s'),
+		    'post_author' => $user_ID,
+		    'post_type' => 'post',
+			);
+			$post_id = wp_insert_post($new_post);
+		
+		}
+
 	}
 
 	$uploadfile = get_template_directory_uri()."/img/placeholder-logo.png";
@@ -409,6 +436,9 @@
 	$heroresources = get_template_directory_uri()."/img/resources-hero-bg.jpg";
 	$heroramenities = get_template_directory_uri()."/img/amenities-hero-bg.jpg";
 	$herorcontact = get_template_directory_uri()."/img/contact-hero-bg.jpg";
+	$herorservice = get_template_directory_uri()."/img/services-hero-bg.jpg";
+	$herocommunities = get_template_directory_uri()."/img/hero-communities-bg.jpg";
+	
 	
 	$media_id = media_sideload_image( $uploadfile,'','','src');
 	//$homehero_id = media_sideload_image( $herohome,'','','src');
@@ -517,4 +547,20 @@
 	set_theme_mod('contact-phone','333-333-3333');
 	set_theme_mod('contact-map','https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.12936626512!2d-104.99519803822619!3d39.764518674878275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C+CO%2C+USA!5e0!3m2!1sen!2sin!4v1535462660990');
 
+	// Services settings
+	set_theme_mod('services-title', 'Services');
+	set_theme_mod('services-subtitle', 'Nullam Fermentum Tellus Magna');
+	set_theme_mod('services-hero',$herorservice);
+
+	// Communities settings
+	set_theme_mod('community-title', 'Our Communities');
+	set_theme_mod('community-sub-title', 'Nullam Fermentum Tellus Magna');
+	set_theme_mod('community-hero',$herocommunities);
+	set_theme_mod('community-info', 'Nullam Fermentum Tellus Magna');
+	set_theme_mod('community-info-subtitle', 'Nullam Fermentum Tellus Magna');
+
+	// Request Proposal settings
+	set_theme_mod('rq_proposal-title', 'Request Proposal');
+	set_theme_mod('rq_proposal-subtitle', 'Nullam Fermentum Tellus Magna');
+	set_theme_mod('rq_proposal-hero',$herorcontact);
 ?>

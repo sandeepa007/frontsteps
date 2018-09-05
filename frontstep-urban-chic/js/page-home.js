@@ -12,6 +12,8 @@ jQuery(document).ready(function () {
      loop : true,
      autoPlay : true,
      singleItem: false,
+     onInitialized  : counter,
+     onTranslated : counter,
      responsive:{
         0:{
            items:1,
@@ -31,5 +33,12 @@ jQuery(document).ready(function () {
         }
      }
    });
+
+function counter(event) {
+   var element   = event.target;         // DOM element, in this example .owl-carousel
+    var items     = event.item.count;     // Number of items
+    var item      = event.item.index + 1;     // Position of the current item
+  $('#owl-counter').html(item+" / "+items)
+  }
 
 });

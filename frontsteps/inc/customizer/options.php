@@ -118,7 +118,7 @@ function customizer_options(){
     // To delete custom mods use: customizer_library_remove_theme_mods();
 }
 
-add_action('init', 'customizer_options', 50);
+add_action('init', 'customizer_options', 10);
 
 
 /*
@@ -423,6 +423,118 @@ function customizer_library_demo_options() {
         'type'    => 'text',
         'default' => '#',
     );
+
+    $my_theme = wp_get_theme();
+    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
+    {
+        // Service settings
+        $section = 'services_content';
+
+        $sections[] = array(
+            'id' => $section,
+            'title' => __( 'Services Settings', 'frontsteps' ),
+            'priority' => '180'
+        );
+
+        $options['services-hero'] = array(
+            'id' => 'services-hero',
+            'label'   => __( 'Hero Image', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'upload',
+            'default' => '',
+        );
+        $options['services-title'] = array(
+            'id' => 'services-title',
+            'label'   => __( 'Title', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'text',
+            'default' => 'Services',
+        );
+        $options['services-subtitle'] = array(
+            'id' => 'services-subtitle',
+            'label'   => __( 'Sub title', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'text',
+            'default' => 'Nullam Fermentum Tellus Magna',
+        );
+        
+        // Communities settings
+        $section = 'community_content';
+        
+        $sections[] = array(
+            'id' => $section,
+            'title' => __( 'Communities Settings', 'frontsteps' ),
+            'priority' => '180'
+        );
+
+        $options['community-hero'] = array(
+            'id' => 'community-hero',
+            'label'   => __( 'Hero Image', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'upload',
+            'default' => '',
+        );
+        $options['community-title'] = array(
+            'id' => 'community-title',
+            'label'   => __( 'Title', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'text', 
+            'default' => 'Our Communities',
+        );
+
+        $options['community-sub-title'] = array(
+            'id' => 'community-sub-title',
+            'label'   => __( 'Sub Title', 'frontsteps-desert-sky' ),
+            'section' => $section,
+            'type'    => 'text',        
+            'default' => 'Nullam Fermentum Tellus Magna'
+        );
+        $options['community-info'] = array(
+            'id' => 'community-info',
+            'label'   => __( 'Info', 'frontsteps-desert-sky' ),
+            'section' => $section,
+            'type'    => 'text',        
+            'default' => 'Nullam Fermentum Tellus Magna'
+        );
+        $options['community-info-subtitle'] = array(
+            'id' => 'community-info-subtitle',
+            'label'   => __( 'Info Subtitle', 'frontsteps-desert-sky' ),
+            'section' => $section,
+            'type'    => 'text',        
+            'default' => 'Nullam Fermentum Tellus Magna'
+        );
+
+        // Request Proposal settings
+        $section = 'rq_proposal';
+
+        $sections[] = array(
+            'id' => $section,
+            'title' => __( 'Request Proposal', 'frontsteps' ),
+            'priority' => '180'
+        );
+
+        $options['rq_proposal-hero'] = array(
+            'id' => 'rq_proposal-hero',
+            'label'   => __( 'Hero Image', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'upload',
+            'default' => '',
+        );
+        $options['rq_proposal-title'] = array(
+            'id' => 'rq_proposal-title',
+            'label'   => __( 'Title', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'text',
+            'default' => 'Request Proposal',
+        );
+        $options['rq_proposal-subtitle'] = array(
+            'id' => 'rq_proposal-subtitle',
+            'label'   => __( 'Sub title', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'text',
+            'default' => 'Nullam Fermentum Tellus Magna',
+        );
+    }
     
     $options['sections'] = $sections;
     $options['panels'] = $panels;
@@ -432,7 +544,7 @@ function customizer_library_demo_options() {
 
     // To delete custom mods use: customizer_library_remove_theme_mods();
 }
-add_action( 'init', 'customizer_library_demo_options', 15 );
+add_action( 'init', 'customizer_library_demo_options', 10 );
 
 add_action('customize_register', 'themename_customize_register');
 

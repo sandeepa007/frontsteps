@@ -67,7 +67,7 @@ if( get_theme_mod( 'about-hero' ) )
 // If content is there on page fetched this content
 while ( have_posts() ) : the_post();
     if ( !empty( get_the_content() ) ) { ?>
-        <div class="bg-lightgrey">
+        <div class="section section-box section-pagecontent">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -77,7 +77,8 @@ while ( have_posts() ) : the_post();
             </div>
         </div>        
 <?php  } 
-endwhile; // end of the loop. ?>
+endwhile;
+wp_reset_query();  // end of the loop. ?>
 
 
 <?php 

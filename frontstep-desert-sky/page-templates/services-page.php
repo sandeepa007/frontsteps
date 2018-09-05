@@ -22,7 +22,8 @@ if( get_theme_mod( 'services-hero' ) )
         <div class="row">
             <div class="col-xs-12">
                 <div class="hero-block color-white text-center">
-                    <h1 class="h1"><?php echo get_theme_mod( 'services-title' ); ?></h1>                    
+                    <h1 class="h1"><?php echo get_theme_mod( 'services-title' ); ?></h1>
+                    <?php echo get_theme_mod( 'services-subtitle' ); ?>
                 </div>
             </div>
         </div>

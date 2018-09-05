@@ -148,6 +148,7 @@ if($loop->have_posts() )
                     endwhile; wp_reset_postdata();
                     ?>                    
                 </div>
+                <div id="owl-counter"></div> 
            </div>
         </div>
     </div>
