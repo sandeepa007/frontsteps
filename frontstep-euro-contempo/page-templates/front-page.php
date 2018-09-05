@@ -12,8 +12,8 @@ get_header();?>
 <?php 
     $hero_slider_active = get_theme_mod( 'is-hero-slider' );
     $hero_overlay = get_theme_mod( 'hero-overlay' );
-    $hero_overlay_color = isset( get_theme_mod( 'hero-overlay-color' ) ) ? get_theme_mod( 'hero-overlay-color' ) : '#4cbdd7';
-    $hero_overlay_opacity = isset( get_theme_mod( 'hero-overlay-opacity' ) ) ? get_theme_mod( 'hero-overlay-opacity' ) : 5;
+    $hero_overlay_color = get_theme_mod( 'hero-overlay-color', '#4cbdd7' );
+    $hero_overlay_opacity = get_theme_mod( 'hero-overlay-opacity', 5 );
 
     $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
     $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
