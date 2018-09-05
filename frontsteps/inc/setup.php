@@ -131,3 +131,54 @@ if ( ! function_exists( 'frontsteps_all_excerpts_get_more_link' ) ) {
 		'frontsteps' ) . '</a></p>';
 	}
 }
+
+add_action( 'tgmpa_register', 'frontsteps_register_required_plugins' );
+/**
+ * Register the required plugins for this theme.
+ *
+ */
+function frontsteps_register_required_plugins() {
+	/*
+	 * Array of plugin arrays. Required keys are name and slug.
+	 * If the source is NOT from the .org repo, then source is also required.
+	 */
+	$plugins = array(
+
+		array(
+			'name'               => 'Gravity Form Plugin',
+			'slug'               => 'gravityforms',
+			'source'             => __DIR__ . '/TGM-Plugin-Activation/plugins/gravityforms.zip', 
+			'required'           => true, 
+			'version'            => '', 
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+			'external_url'       => '', 
+			'is_callable'        => '', 
+		),
+
+	);
+
+	/*
+	 * Array of configuration settings. Amend each line as needed.
+	 *
+	 * TGMPA will start providing localized text strings soon. If you already have translations of our standard
+	 * strings available, please help us make TGMPA even better by giving us access to these translations or by
+	 * sending in a pull-request with .po file(s) with the translations.
+	 *
+	 * Only uncomment the strings in the config array if you want to customize the strings.
+	 */
+	$config = array(
+		'id'           => 'frontsteps', 
+		'default_path' => '', 
+		'menu'         => 'tgmpa-install-plugins',
+		'parent_slug'  => 'themes.php',
+		'capability'   => 'edit_theme_options',
+		'has_notices'  => true,
+		'dismissable'  => true,
+		'dismiss_msg'  => '',  
+		'is_automatic' => false,
+		'message'      => '',  
+	);
+
+	tgmpa( $plugins, $config );
+}

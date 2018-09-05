@@ -23,6 +23,11 @@ require get_template_directory() . '/inc/theme-vars.php';
 require get_template_directory() . '/inc/theme-settings.php';
 
 /**
+ * Register the required plugins for this theme.
+ */
+require get_template_directory() . '/inc/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
+
+/**
  * Theme setup and custom theme supports.
  */
 require get_template_directory() . '/inc/setup.php';
