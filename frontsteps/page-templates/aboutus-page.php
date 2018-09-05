@@ -83,7 +83,7 @@ wp_reset_query();  // end of the loop. ?>
 
 <?php 
 $show_bod = get_theme_mod( 'show-team-section-bod' );
-$show_employee = get_theme_mod( 'show-team-section-emplye' );
+$show_employee = get_theme_mod( 'show-team-section-emplye' ) ;
 ?>
 
 <?php if($show_bod == 1)

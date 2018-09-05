@@ -498,8 +498,8 @@ img.rsImg {
 
 
 .rsDefault .rsThumbsArrowDisabled {
-	opacity: 0.5;
-    xdisplay: none!important
+    opacity: 0.5;
+    display: none!important
 }
 
 .rsDefault .rsTabs {
@@ -725,9 +725,9 @@ img.rsImg {
 }
 
 @media screen and (min-width:0px) and (max-width: 991px) {
-	.rsDefault .rsThumbsArrowIcn {
-		background-size: 15px 28px!important;
-	}
+    .rsDefault .rsThumbsArrowIcn {
+        background-size: 15px 28px!important;
+    }
     .rsDefault .rsThumb {
         width: 100px;
         height: 67px
