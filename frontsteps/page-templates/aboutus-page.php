@@ -81,8 +81,8 @@ endwhile; // end of the loop. ?>
 
 
 <?php 
-$show_bod = get_theme_mod( 'show-team-section-bod' );
-$show_employee = get_theme_mod( 'show-team-section-emplye' );
+$show_bod = isset(get_theme_mod( 'show-team-section-bod' )) ? get_theme_mod( 'show-team-section-bod' ) : 1;
+$show_employee = isset(get_theme_mod( 'show-team-section-emplye' )) ? get_theme_mod( 'show-team-section-emplye' ) : 0;
 ?>
 
 <?php if($show_bod == 1)
