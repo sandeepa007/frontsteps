@@ -654,8 +654,8 @@
 
 		if($my_theme == "Citrus Pop" || $my_theme == "Summer Vibes" || $my_theme == "Blanco Breeze" ) {
 			
-			$img1 = get_template_directory_uri()."/img/widget/hoa/hoa1.jpg";
-			$img2 = get_template_directory_uri()."/img/widget/hoa/hoa2.jpg";
+			$img1 = get_template_directory_uri()."/img/widget/hoa/hoa1.png";
+			$img2 = get_template_directory_uri()."/img/widget/hoa/hoa2.png";
 			$title = "Nullam Parturient Tortor Lorem Ligula";
 			$desc = "Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.  Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet."; 
 
