@@ -26,19 +26,6 @@ function customizer_options(){
     );
 
     $customizer_structure = [
-         /* Social Settings */
-        ['id' => 'social_settings', 'title' => __('Social Settings'), 'options' => [
-            ['id' => 'url-facebook', 'label' => __('Facebook URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-            ['id' => 'url-twitter', 'label' => __('Twitter URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-            ['id' => 'url-google', 'label' => __('Google+ URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-            ['id' => 'url-youtube', 'label' => __('Youtube URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-            ['id' => 'url-pinterest', 'label' => __('Pinterest URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-            ['id' => 'url-linkedin', 'label' => __('Linkedin URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-            ['id' => 'url-instagram', 'label' => __('Instagram URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-            ['id' => 'url-yelp', 'label' => __('Yelp URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-            ['id' => 'url-blog', 'label' => __('Blog URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
-
-        ]],
         /* Site Style Options */
         ['id' => 'style_options', 'title' => __('Site Style Options'), 'sections' => [
             ['id' => 'colors', 'title' => __('Colors'), 'options' => [
@@ -58,11 +45,24 @@ function customizer_options(){
                   ['id' => 'box-text-color', 'label' => __('Box Text Color'), 'type' => 'color', 'default' => $box_text_color, 'description' => 'This affects the default color for your box text on your site.'],
                 ['id' => 'box-bkg-color', 'label' => __('Box Background Color'), 'type' => 'color', 'default' => $box_bkg_color, 'description' => 'This affects the box background color for your pages.'],            
             ]],
+            /* Social Settings */
+            ['id' => 'social_settings', 'title' => __('Social Settings'), 'options' => [
+                ['id' => 'url-facebook', 'label' => __('Facebook URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+                ['id' => 'url-twitter', 'label' => __('Twitter URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+                ['id' => 'url-google', 'label' => __('Google+ URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+                ['id' => 'url-youtube', 'label' => __('Youtube URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+                ['id' => 'url-pinterest', 'label' => __('Pinterest URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+                ['id' => 'url-linkedin', 'label' => __('Linkedin URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+                ['id' => 'url-instagram', 'label' => __('Instagram URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+                ['id' => 'url-yelp', 'label' => __('Yelp URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+                ['id' => 'url-blog', 'label' => __('Blog URL'), 'type' => 'url', 'description' => '(Leave empty to hide it)'],
+
+            ]],
             ['id' => 'typography', 'title' => __('Typography'), 'options' => [
                 ['id' => 'title-font', 'label' => __('Title Font'), 'type' => 'select', 'choices' => $font_choices, 'default' => 'Roboto Slab', 'description' => 'Default: Roboto Slab'],
                 ['id' => 'body-font', 'label' => __('Body Font'), 'type' => 'select', 'choices' => $font_choices, 'default' => 'Open Sans', 'description' => 'Default: Open Sans' ],
             ]],
-        ]],
+            ]],
        
         /* About Us Page */
             ['id' => 'aboutus_content', 'title' => __('About Us Settings'), 'options' => [
@@ -177,14 +177,14 @@ function customizer_library_demo_options() {
     $panels[] = array(
         'id' => $panel,
         'title' => __( 'Site Style Options', 'frontsteps' ),
-        'priority' => '10'
+        'priority' => '15'
     );
     // Color Option
     $section = 'colors';
     $sections[] = array(
         'id' => $section,
         'title' => __( 'Colors', 'frontsteps' ),
-        'priority' => '10',
+        'priority' => '30',
         'panel' => $panel
     );
 
@@ -433,7 +433,7 @@ function customizer_library_demo_options() {
         $sections[] = array(
             'id' => $section,
             'title' => __( 'Services Settings', 'frontsteps' ),
-            'priority' => '180'
+            'priority' => '400'
         );
 
         $options['services-hero'] = array(
@@ -464,7 +464,7 @@ function customizer_library_demo_options() {
         $sections[] = array(
             'id' => $section,
             'title' => __( 'Communities Settings', 'frontsteps' ),
-            'priority' => '180'
+            'priority' => '400'
         );
 
         $options['community-hero'] = array(
@@ -510,7 +510,7 @@ function customizer_library_demo_options() {
         $sections[] = array(
             'id' => $section,
             'title' => __( 'Request Proposal', 'frontsteps' ),
-            'priority' => '180'
+            'priority' => '400'
         );
 
         $options['rq_proposal-hero'] = array(

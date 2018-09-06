@@ -43,13 +43,6 @@ get_header();?>
                 background: <?php echo $cta_bg_color;?>;
                 color: <?php echo $cta_bg_txt_colr;?>!important;   
             }
-            .col-xs-12.col-sm-10.col-sm-offset-1,
-            .section-cta 
-            {
-                background: <?php echo $cta_bg_color;?>;
-                color: <?php echo $cta_bg_txt_colr;?>!important;
-                padding: 80px 0px!important;
-            }
         </style>
         
 <?php } ?>
@@ -134,7 +127,7 @@ if($loop->have_posts() )
 <div class="section section-testimonials">
    <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div id="owl-testimonials" class="owl-carousel testimonials-slider owl-loaded owl-drag">               
                     <?php
                     while ( $loop->have_posts() ) : $loop->the_post();

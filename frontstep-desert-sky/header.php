@@ -46,7 +46,7 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 		.cta_bg_img .col-xs-12.col-sm-6.col-sm-offset-3  {		  
 		  background-image: linear-gradient(to right, <?php echo $colorbkg1;?>,  <?php echo $colorbkg2;?>);
 		  color:<?php echo $colortext;?>;
-		  padding: 80px 0px!important;
+		  padding: 40px 0px!important;
 		}
 		.section-cta .button-primary, .section-cta a.button-primary{
 			background: #fff;

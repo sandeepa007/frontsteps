@@ -50,7 +50,7 @@ if($cta_bg_img != "")
    <div class="container-fluid">
 
       <div class="row">
-         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
             <div class="cta-block text-center">
                <p><?php echo get_theme_mod( 'cta-desc' ); ?></p>
             </div>

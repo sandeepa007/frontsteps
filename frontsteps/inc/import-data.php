@@ -498,6 +498,8 @@
 	}
 	set_theme_mod('frontsteps_home_section1_title', 'Connections that last');
 	set_theme_mod('frontsteps_home_section1_description', 'We pride ourselves on keeping our residents connected through events and activities. Our on-site manager is engaged with the community, and through our website and mobile app keeps everyone informed about area happenings, maintenance, security, and more.');
+	
+	set_theme_mod('home-cta-title', 'Commitment and Experience');
 	set_theme_mod('home-cta-desc', 'We’d love to tell you our story and answer any questions about life in our community.');
 	set_theme_mod('home-cta-button-text', 'More About us');
 	set_theme_mod('home-cta-button-url', '#');
