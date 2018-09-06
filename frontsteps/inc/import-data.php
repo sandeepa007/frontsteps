@@ -517,4 +517,112 @@
 	set_theme_mod('contact-phone','333-333-3333');
 	set_theme_mod('contact-map','https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.12936626512!2d-104.99519803822619!3d39.764518674878275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C+CO%2C+USA!5e0!3m2!1sen!2sin!4v1535462660990');
 
+	// Widget Import code - Ashok
+	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
+	{
+
+		$imgleft = get_template_directory_uri()."/img/widget/pmc/image-left.jpg";
+		$imgcenter = get_template_directory_uri()."/img/widget/pmc/image-center.jpg";
+		$imgright = get_template_directory_uri()."/img/widget/pmc/image-right.jpg";
+
+		$widgetArr = array(
+			"wp_inactive_widgets" => array(),
+			"home-features" => array(
+				0 => "home_feature_widget-2",
+				1 => "home_feature_widget-3",
+				2 => "home_feature_widget-4",
+			),
+			"right-sidebar" => array(
+				0 => "search-2",
+				1 => "recent-posts-2",
+				2 => "recent-comments-2",
+				3 => "archives-2",
+				4 => "categories-2",
+				5 => "meta-2",
+			),
+			"left-sidebar" => array(),
+			"footer-left" => array(),
+			"footer-right" => array(),
+			"array_version" => 3,
+		);
+		update_option('sidebars_widgets', maybe_unserialize($widgetArr) );
+
+		$homefeatureArr = array(
+			2 => array(
+				"title" => "Homeowners Associations", 
+				"desc" => "We provide comprehensive property management services for HOAs including online dues and fees payments, resident engagement, security, and document storage.",
+				"image_uri" => $imgleft,
+			),
+			3 => array(
+				"title" => "Condominium Associations", 
+				"desc" => "There are many moving parts in COAs and we’re here to help you manage these unique properties with features like pass-on logs, visitor management, parking permits, and package delivery.",
+				"image_uri" => $imgcenter,
+			),
+			4 => array(
+				"title" => "Homeowners Associations", 
+				"desc" => "Collect dues and fees payments online through our NACHA-compliant payments platform. No more paper checks, bank lockboxes, and missing coupons.",
+				"image_uri" => $imgright,
+			),
+			"_multiwidget" => 1,
+		);
+		update_option('widget_home_feature_widget', maybe_unserialize($homefeatureArr) );
+	
+	} else {
+
+		$img1 = get_template_directory_uri()."/img/widget/coa/coa1.jpg";
+		$img2 = get_template_directory_uri()."/img/widget/coa/coa2.jpg";
+		$title = "Ultricies Euismod";
+		// 1 - Modern Living, 2 - Room To Breathe
+		$desc = "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna.";
+		// 1 - Each unit has been lovingly built with modern conveniences and special touches that welcome you and make you feel at home in every room. Any maintenance issues are quickly resolved with a few clicks on our site. Plus, residents can pay dues and fees online or from their mobile device, too.
+		// 2 - Our open spaces and awesome amenities make living here even more special. It’s easy to login to our website or with a few clicks on your phone, and reserve the party room, tennis courts, or BBQ area.
+
+		if($my_theme == "Citrus Pop" || $my_theme == "Summer Vibes" || $my_theme == "Blanco Breeze" ) {
+			
+			$img1 = get_template_directory_uri()."/img/widget/hoa/hoa1.jpg";
+			$img2 = get_template_directory_uri()."/img/widget/hoa/hoa2.jpg";
+			$title = "Nullam Parturient Tortor Lorem Ligula";
+			$desc = "Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.  Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet."; 
+
+		}
+
+		$widgetArr = array(
+			"wp_inactive_widgets" => array(),
+			"home-features" => array(
+				0 => "home_feature_widget-2",
+				1 => "home_feature_widget-3",
+			),
+			"right-sidebar" => array(
+				0 => "search-2",
+				1 => "recent-posts-2",
+				2 => "recent-comments-2",
+				3 => "archives-2",
+				4 => "categories-2",
+				5 => "meta-2",
+			),
+			"left-sidebar" => array(),
+			"footer-left" => array(),
+			"footer-right" => array(),
+			"array_version" => 3,
+		);
+		update_option('sidebars_widgets', maybe_unserialize($widgetArr) );
+
+		$homefeatureArr = array(
+			2 => array(
+				"title" => $title, 
+				"desc" => $desc,
+				"image_uri" => $img1,
+				"is_img_left" => false,
+			),
+			3 => array(
+				"title" => $title, 
+				"desc" => $desc,
+				"image_uri" => $img2,
+				"is_img_left" => true,
+			),
+			"_multiwidget" => 1,
+		);
+		update_option('widget_home_feature_widget', maybe_unserialize($homefeatureArr) );
+
+	}
 ?>
