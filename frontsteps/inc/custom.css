@@ -585,3 +585,20 @@ iframe {
   height: 100%;
   width: auto;
 }
+/* 404 Page css*/
+h3.not_found_heading
+{
+    font-size: 9em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.not_found_heading
+{
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.fa.fa-check.thank
+{
+    font-size: 2.5em;
+    color: #72B98C;
+}

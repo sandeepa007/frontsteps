@@ -11,7 +11,7 @@
 $container = get_theme_mod( 'frontsteps_conainer_type' );
 ?>
 <!-- Main Container -->
-<?php if (!is_front_page() && get_page_template_slug() != "page-templates/contact-page.php") :
+<?php if (!is_front_page() && get_page_template_slug() != "page-templates/contact-page.php" && !is_404()  && get_page_template_slug() != "page-templates/thank-you.php") :
 
 $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
 $cta_bg_color = get_theme_mod( 'cta-bkg-color' );

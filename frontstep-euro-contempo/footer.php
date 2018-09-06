@@ -12,7 +12,7 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 ?>
 
 <!-- Main Container -->
-<?php if (!is_front_page() && get_page_template_slug() != "page-templates/contact-page.php") :
+<?php if (!is_front_page() && get_page_template_slug() != "page-templates/contact-page.php" && !is_404()  && get_page_template_slug() != "page-templates/thank-you.php") :
 $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
 $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
 $cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );

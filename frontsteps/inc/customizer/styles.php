@@ -218,10 +218,20 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                 'selectors' => array(
                     '.section-home-cta',
                     '.section-cta',
-                    '.modal-team .modal-dialog .modal-content'
+                    '.modal-team .modal-dialog .modal-content',
                 ),
                 'declarations' => array(
                     'background' => $color
+                )
+            ));
+
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '.not_found_heading',
+                    '.not_found_cotent p'
+                ),
+                'declarations' => array(
+                    'color' => $color
                 )
             ));
         }

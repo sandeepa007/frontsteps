@@ -108,6 +108,21 @@ function customizer_options(){
             ['id' => 'contact-phone', 'label' => __('Contact Phone'), 'type' => 'text'],
             ['id' => 'contact-map', 'label' => __('Map (Embed Code URL)'), 'type' => 'textarea'],
         ]],
+        /* 404 Page */
+        ['id' => '404_content', 'title' => __('404 Page Setting'), 'options' => [
+            ['id' => '404_desc', 'label' => __('Page Content'), 'type' => 'textarea', 'default' => __('Oops.. We couldn’t find this page.')],
+            ['id' => '404_button_text', 'label' => __('Button Text'), 'type' => 'text','default' => __('Go Home')],
+            ['id' => '404_button_link', 'label' => __('Button Link'), 'type' => 'text','default' => __('#')],
+            
+        ]],
+
+         /* Thank You Page */
+        ['id' => 'ty_content', 'title' => __('Thank You Page Setting'), 'options' => [
+            ['id' => 'ty_desc', 'label' => __('Page Content'), 'type' => 'textarea', 'default' => __('We will look over your message and get back to you.')],
+            ['id' => 'ty_button_text', 'label' => __('Button Text'), 'type' => 'text','default' => __('Go Home')],
+            ['id' => 'ty_button_link', 'label' => __('Button Link'), 'type' => 'text','default' => __('#')],
+            
+        ]],
     ];
 
     $options = process_customizer_hirearchy($customizer_structure);
