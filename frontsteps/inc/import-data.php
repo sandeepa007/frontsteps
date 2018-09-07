@@ -616,7 +616,9 @@
 				5 => "meta-2",
 			),
 			"left-sidebar" => array(),
-			"footer-left" => array(),
+			"footer-left" => array(
+				0 => "text-2",
+			),
 			"footer-right" => array(),
 			"array_version" => 3,
 		);
@@ -641,6 +643,18 @@
 			"_multiwidget" => 1,
 		);
 		update_option('widget_home_feature_widget', maybe_unserialize($homefeatureArr) );
+
+		$footertextArr = array(
+			1 => array(),
+			2 => array(
+				"title" => "Your Company", 
+				"text" => "1234 Any Street, Denver, CO 80202",
+				"filter" => true,
+				"visual" => true,
+			),
+			"_multiwidget" => 1,
+		);
+		update_option('widget_text', maybe_unserialize($footertextArr) );
 	
 	} else {
 
@@ -676,7 +690,9 @@
 				5 => "meta-2",
 			),
 			"left-sidebar" => array(),
-			"footer-left" => array(),
+			"footer-left" => array(
+				0 => "text-2",
+			),
 			"footer-right" => array(),
 			"array_version" => 3,
 		);
@@ -698,6 +714,18 @@
 			"_multiwidget" => 1,
 		);
 		update_option('widget_home_feature_widget', maybe_unserialize($homefeatureArr) );
+
+		$footertextArr = array(
+			1 => array(),
+			2 => array(
+				"title" => "Your Company", 
+				"text" => "1234 Any Street, Denver, CO 80202",
+				"filter" => true,
+				"visual" => true,
+			),
+			"_multiwidget" => 1,
+		);
+		update_option('widget_text', maybe_unserialize($footertextArr) );
 
 	}
 ?>
