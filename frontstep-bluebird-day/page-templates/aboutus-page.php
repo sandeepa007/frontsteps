@@ -119,11 +119,18 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
             <div class="col-xs-12 col-sm-4">
                 <div class="box-block team-block text-center">
 
-<?php if ( has_post_thumbnail() ) { ?>
-                    <div class="img-block">
-                       <?php the_post_thumbnail(); ?>
-                    </div>
-<?php }?>
+                    <?php if ( has_post_thumbnail() ) { ?>
+                            <div class="img-block">
+                                <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">
+                                   <?php the_post_thumbnail(); ?>
+                               </a>
+                            </div>
+                        <?php }else{?>
+                             <div class="img-block">
+                                <img src="<?php echo get_template_directory_uri().'/img/team-image-placeholder.png';?>">
+                              </div>  
+                            <?php }?>
+
                     <div class="info-block">
                         <h5 class="h5 color-dark text-center"><?php the_title(); ?></h5>
                         <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
@@ -136,7 +143,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <a class="modal-close" href="" data-dismiss="modal">
-                            <img src="<?php bloginfo('template_directory'); ?>/images/close-icon.png" class="img-responsive">
+                            <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
                         </a>
 
                         <div class="modal-body text-center">
@@ -191,11 +198,18 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
             <div class="col-xs-12 col-sm-4">
                 <div class="box-block team-block text-center">
 
-<?php if ( has_post_thumbnail() ) { ?>
-                    <div class="img-block">
-                       <?php the_post_thumbnail(); ?>
-                    </div>
-<?php }?>
+                    <?php if ( has_post_thumbnail() ) { ?>
+                            <div class="img-block">
+                                <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">
+                                   <?php the_post_thumbnail(); ?>
+                               </a>
+                            </div>
+                        <?php }else{?>
+                             <div class="img-block">
+                                <img src="<?php echo get_template_directory_uri().'/img/team-image-placeholder.png';?>">
+                              </div>  
+                            <?php }?>
+
                     <div class="info-block">
                         <h5 class="h5 color-dark text-center"><?php the_title(); ?></h5>
                         <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
@@ -208,7 +222,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <a class="modal-close" href="" data-dismiss="modal">
-                            <img src="<?php bloginfo('template_directory'); ?>/images/close-icon.png" class="img-responsive">
+                            <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
                         </a>
 
                         <div class="modal-body text-center">

@@ -44,8 +44,8 @@
 /*------------- HEADINGS---------------*/
 h1
 {
-	  color: #ffffff;
-  font-family: Heebo;
+	/*color: #ffffff;
+  font-family: Heebo;*/
   font-size: 42px;
   font-style: normal;
   font-stretch: normal;
@@ -58,8 +58,8 @@ h1
 
 h2
 {
-  color: #ffffff;
-  font-family: Heebo;
+  /*color: #ffffff;
+  font-family: Heebo;*/
   font-size: 36px;
   font-style: normal;
   font-stretch: normal;
@@ -72,8 +72,8 @@ h2
 
 h3
 {
-  color: #2f3542;
-  font-family: Heebo;
+  /*color: #ffffff;
+  font-family: Heebo;*/
   font-size: 30px;
   font-style: normal;
   font-stretch: normal;
@@ -86,8 +86,8 @@ h3
 
 h4
 {
-  color: #ffffff;
-  font-family: "Open Sans";
+  /*color: #ffffff;
+  font-family: "Open Sans";*/
   font-size: 26px;
   font-style: normal;
   font-stretch: normal;
@@ -100,8 +100,8 @@ h4
 
 h5
 {
-  color: #2f3542;
-  font-family: Heebo;
+  /*color: #ffffff;
+  font-family: Heebo;*/
   font-size: 24px;
   font-style: normal;
   font-stretch: normal;
@@ -114,8 +114,8 @@ h5
 
 h6
 {
-  color: #20333f;
-  font-family: Heebo;
+  /*color: #ffffff;
+  font-family: Heebo;*/
   font-size: 22px;
   font-style: normal;
   font-stretch: normal;
@@ -351,4 +351,28 @@ footer .widget { margin-bottom: 20px; }
 /*** Contact Form Styling ***/
 .gform_wrapper .field_sublabel_above .ginput_complex.ginput_container label {
     font-size: 16px!important;
+}
+.navbar-header .navbar-toggle .icon-bar
+
+{
+  background :#ffffff!important;
+}
+#header .container .navigation-column .navbar-default
+{
+  background:#333333;
+}
+@media (max-width: 991px)
+{
+  #header .container .navigation-column .navbar-default .navbar-nav li a {
+      border-bottom: 1px solid #ffffff;
+  }
+}
+.modal-team .modal-dialog .modal-content
+{
+  background: #ffffff;
+}
+.modal-team .modal-dialog .modal-body,
+.modal.modal-team .content-block p
+{
+  color: #2F3542;  
 }

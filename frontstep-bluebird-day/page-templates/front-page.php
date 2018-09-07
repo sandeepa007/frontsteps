@@ -69,7 +69,7 @@ get_header();?>
                 <img class="rsImg lazy" dat="<?php echo ${"hero_slide_$i"}?>" src="<?php echo ${"hero_slide_$i"}?>" alt="<?php echo ${"hero_title_$i"};?>"/>
                 <figure class="rsCaption">
                     <h1 class="h1"><?php echo ${"hero_title_$i"};?></h1>
-                    <p><?php echo ${"hero_subtitle_$i"};?></p>
+                    <p class="color-white"><?php echo ${"hero_subtitle_$i"};?></p>
                 </figure>
             </div>    
 
@@ -89,7 +89,7 @@ get_header();?>
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                 <div class="hero-block color-white text-center">
                     <h1 class="h1"><?php echo get_theme_mod( 'home-hero-title' ); ?></h1>
-                    <p><?php echo get_theme_mod( 'home-hero-desc' ); ?></p>
+                    <p class="color-white"><?php echo get_theme_mod( 'home-hero-desc' ); ?></p>
                 </div>
             </div>
         </div>
@@ -148,7 +148,7 @@ endwhile; // end of the loop. ?>
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="testimonial-block text-center">
                    <p id="abt-us-content" class="text-center"><?php echo get_theme_mod( 'home-cta-desc' ); ?></p>
                     <?php if( get_theme_mod( 'home-cta-button-text' ) != '')
