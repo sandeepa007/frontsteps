@@ -428,9 +428,12 @@ footer .footer-menu ul li a:after {content: ''; width: 1px; height: 12px; positi
 footer .footer-menu ul li:last-child a:after {display: none;}
 
 @media (max-width: 768px) {
-  footer {padding: 40px 0; }
-
-  footer .credits {text-align: left; margin-top: 20px;}
+  /*footer {padding: 40px 0; } */
+  footer, footer .credits {
+    margin: 0 auto;
+    text-align: center;
+  }
+  footer .credits { margin-top: 20px;} 
 
 }
 
