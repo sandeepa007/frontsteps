@@ -8,6 +8,11 @@
 */
 #header .container .right-column ul li.login a{
 	border-radius: 5px;
+	color:#727272;
+}
+#header .container .right-column ul li.login a:hover {
+	background:#4CBDD7;
+	color:#ffffff;
 }
 .button-primary {
     overflow: hidden;
@@ -17,4 +22,14 @@
 }
 .section-intro {
 	background: #F9F9F9;
+}
+#header .container .navigation-column .navbar-default .navbar-nav li a, #header .container .right-column ul li a {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+@media only screen and (max-width: 600px) {
+  .slick-slide img {
+    width: auto;
+	margin:0 auto;
+  }
 }
