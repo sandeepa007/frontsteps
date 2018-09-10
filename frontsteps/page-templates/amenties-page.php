@@ -101,11 +101,12 @@ endwhile; // end of the loop. ?>
             <div class="col-xs-12 <?php echo $center_class?>">
                 <div class="box-block">
                     <div class="img-block">
-                        <?php if(the_post_thumbnail( 'full' )){ ?>
-                        <img src="<?php  the_post_thumbnail( 'full' )?>" class="img-responsive">
-                        <?php }else{?>
+                        <?php 
+                        if( has_post_thumbnail() ) { 
+                            the_post_thumbnail( 'full' );
+                        } else { ?>
                          <img src="<?php echo get_template_directory_uri().'/img/amenities-placeholder-image.png';?>" class="img-responsive">
-                     <?php } ?>
+                        <?php } ?>
                     </div>
                     <div class="info-block">
                         <h3 class="h3 color-dark"><?php the_title(); ?></h3>

@@ -1423,18 +1423,26 @@ footer {
     width: 100%; } }
 @media (max-width: 768px) {
   .error404 .original {
-    display: none; }
+    display: none; 
+  }
   .error404 .slide.headroom--top {
     display: block;
     visibility: visible;
     opacity: 1;
     transform: none;
-    background: #fff; }
-    .error404 .slide.headroom--top .logo {
-      background: url("../images/vanta-logo.png") no-repeat center center;
-      background-size: 100%; }
-    .error404 .slide.headroom--top .navbar-default .navbar-toggle .icon-bar {
-      background: #505050; } }
+    background: #fff; 
+  }
+  .error404 .slide.headroom--top .logo {
+    background: url("../images/vanta-logo.png") no-repeat center center;
+    background-size: 100%; 
+  }
+  .error404 .slide.headroom--top .navbar-default .navbar-toggle .icon-bar {
+    background: #505050; 
+  } 
+  footer .section-footer .container .footer-menu{
+    width:100%;
+  }
+}
 @media (max-width: 520px) {
   .error404 #header.original {
     display: none; }
