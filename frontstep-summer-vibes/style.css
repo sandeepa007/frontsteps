@@ -157,7 +157,7 @@ li {
   margin-bottom: 40px; }
   @media (max-width: 768px) {
     .title-block {
-      margin-bottom: 20px; } }
+      margin-bottom: 0px; } }
 
 .section-parallax {
   position: relative; }
@@ -487,8 +487,8 @@ li {
             background: none; }
             #header .container .navigation-column .navbar-default .navbar-nav li a:hover {
               opacity: 0.7; }
-          #header .container .navigation-column .navbar-default .navbar-nav li.active a {
-            color: #E24C3E; }
+          /*#header .container .navigation-column .navbar-default .navbar-nav li.active a {
+            color: #E24C3E; }*/
           #header .container .navigation-column .navbar-default .navbar-nav li.dropdown > a:after {
             content: "\f107";
             position: absolute;
@@ -892,13 +892,29 @@ body .section-intro {
     .section-intro {
       padding: 30px 0; }
       .section-intro .container .intro-block {
-        margin: 15px 0; }
+        margin: 0px; }
         .section-intro .container .intro-block .content-block .title-block {
           max-width: inherit; }
         .section-intro .container .intro-block .content-block.right-text {
           margin: 0px; }
         .section-intro .container .intro-block .image-block {
-          margin-bottom: 40px; } }
+          margin-bottom: 40px; } 
+        .intro-block,.image-block, .text-block {
+          text-align: center;
+        }
+        .image-block .img-responsive {
+          display: unset;
+        }
+        h2
+        {
+          padding-bottom: 0px;
+        }
+        .section-team
+        {
+          padding: 5px!important;
+        }
+        .page-template-gallery-page
+        }
 
 /* About Section */
 .section-about {
@@ -942,7 +958,13 @@ body .section-intro {
       padding-right: 50px; }
   @media (max-width: 768px) {
     .section-resources {
-      padding: 60px 0 30px 0; } }
+      padding: 60px 0 30px 0; }
+    .col-xs-12
+    {
+      float: none;
+      text-align: center;
+    }
+       }
 
 /* Gallery Section */
 .section.section-gallery {
@@ -988,7 +1010,7 @@ body .section-intro {
         background: #444444 url(images/arrow-right.png) center no-repeat; }
   @media (max-width: 768px) {
     .section-gallery {
-      padding: 50px 0; } }
+      padding: 10px 0!important ; } }
 
 /* Dark Section */
 .section-testimonials {
@@ -1391,7 +1413,7 @@ footer {
       margin-left: 10px; }
   @media (max-width: 768px) {
     footer .section-footer {
-      padding: 50px 0 40px 0; }
+      padding: 10px 0 5px 0; }
       footer .section-footer .container .footer-block {
         margin-bottom: 20px; }
       footer .section-footer .container .footer-menu, footer .section-footer .container .credit-block {
@@ -1441,7 +1463,13 @@ footer {
       background: url("../images/vanta-logo.png") no-repeat center center;
       background-size: 100%; }
     .error404 .slide.headroom--top .navbar-default .navbar-toggle .icon-bar {
-      background: #505050; } }
+      background: #505050; } 
+
+      body .section-intro {
+        padding: 0px;
+      }
+
+    }
 @media (max-width: 520px) {
   .error404 #header.original {
     display: none; }

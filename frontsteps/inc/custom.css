@@ -390,10 +390,15 @@ footer .section-footer .container .credit-block img { display: inline-block; ver
   footer .section-footer .container .credit-block { text-align: center; } 
   .text-xs-center{
     text-align: center;
+    float: none;
   }
   .footer-social{
     margin-top: 25px;
     margin-bottom: 10px;
+  }
+  footer
+  {
+    padding: 10px 0px;
   }
 
 }

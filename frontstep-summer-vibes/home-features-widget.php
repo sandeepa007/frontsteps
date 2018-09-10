@@ -39,19 +39,25 @@ class home_feature_Widget extends WP_Widget {
         $img_pos = "image-left";
       ?>
       <div class="intro-block">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6 hidden-xs">
           <div class="image-block">
             <img src="<?php echo $image_uri;?>" alt="img" class="img-responsive">
           </div>
         </div>     
         <div class="col-xs-12 col-sm-6">
-          <div class="content-block">
+          <div class="content-block right-text">
               <div class="title-block">
                   <h2 class="h2 color-dark text-bold"><?php echo $title;?></h2>
               </div>
               <p><?php echo $desc;?></p>
           </div>
         </div>
+
+        <div class="col-xs-12 col-sm-6 visible-xs">
+                    <div class="image-block">
+                        <img src="<?php echo $image_uri;?>" alt="img" class="img-responsive">
+                    </div>
+                </div>
                
       </div>    
       <?php

@@ -504,6 +504,7 @@
 	set_theme_mod('home-hero-desc', 'A Modern Community in the Heart of the City');
 	set_theme_mod('hero-overlay-color', '#000000');
 	set_theme_mod('hero-overlay-opacity', '50');
+	set_theme_mod('home-hide-gallery', '1');
 	set_theme_mod('home-hero-image',$herohome);
 	for( $i=1 ; $i<=3 ; $i++){ 
 		set_theme_mod('home-hero-slide'.$i, get_template_directory_uri()."/img/home-hero-slier-".$i.".jpg");

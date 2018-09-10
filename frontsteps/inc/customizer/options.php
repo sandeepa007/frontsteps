@@ -359,6 +359,13 @@ function customizer_library_demo_options() {
         'priority' => '30',
         'panel' => $panel
     );
+    $options['home-hide-gallery'] = array(
+        'id' => 'home-hide-gallery',
+        'label'   => __( 'Show Gallery Section', 'frontsteps' ),
+        'section' => $section,
+        'type'    => 'checkbox',
+        'default' => 0,
+    );
     $options['home-section1-title'] = array(
         'id' => 'frontsteps_home_section1_title',
         'label'   => __( 'Section 1 Title', 'frontsteps' ),

@@ -14,6 +14,7 @@ get_header();?>
     $hero_overlay = get_theme_mod( 'hero-overlay' );
     $hero_overlay_color = get_theme_mod( 'hero-overlay-color' );
     $hero_overlay_opacity = get_theme_mod( 'hero-overlay-opacity' );
+    $show_gallery = get_theme_mod( 'home-hide-gallery' );
 
     $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
     $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
@@ -136,6 +137,10 @@ get_header();?>
     </div>
 </div>
 <?php } ?>
+
+<?php if( $show_gallery == 1)
+    {
+?>
 <div class="section section-gallery">
     <div class="container container-full">
         <div class="row">
@@ -189,6 +194,7 @@ get_header();?>
         <a href="<?php echo get_site_url()?>/gallery/" class="button button-white button-red">See Gallery</a>
     </div>   
 </div>
+<?php } ?>
 <?php 
 $args = array( 'post_type' => 'accreditation', 'posts_per_page' => -1 );
 $loop = new WP_Query( $args );
