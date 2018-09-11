@@ -465,46 +465,54 @@
 
   	/*$query1 = "SELECT ID FROM {$wpdb->posts} WHERE guid='$homehero_id'";
   	$homehero_name = $wpdb->get_var($query1);*/
-  	
+	
+  	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
+	{
+		require get_template_directory() . '/inc/import-data-pmc.php';
+	}elseif($my_theme == "Citrus Pop" || $my_theme == "Blanco Breeze" || $my_theme == "Summer Vibes" ){
+		require get_template_directory() . '/inc/import-data-hoa.php';
+	}else{
+		require get_template_directory() . '/inc/import-data-coa.php';
+	}
 	
 	// insert default values in cutomization
-	set_theme_mod('primary-color', '#4CBDD7');
-	set_theme_mod('secondary-color', '#428FBB');
-	set_theme_mod('tertiary-color', '#67afe1');
-	set_theme_mod('text-color', '#33343C');
-	set_theme_mod('body-color', '#FFFFFF');
-	set_theme_mod('anchore-color', '#2D3340');
-	set_theme_mod('anchore-hover-color', '#4ABDD9');
-	set_theme_mod('button-color', '#FFFFFF');
-	set_theme_mod('button-bkg-color', '#4BBDD7');
-	set_theme_mod('button-hover-color', '#FFFFFF');
-	set_theme_mod('button-hover-bkg-color', '#2F3543');
-	set_theme_mod('cta-text-color', '#FFFFFF');
-	set_theme_mod('cta-bkg-color', '#2F3543');
-	set_theme_mod('footer-text-color', '#33343C');
-	set_theme_mod('footer-bkg-color', '#F8F9FD');
-	set_theme_mod('box-text-color', '#33343C');
-	set_theme_mod('box-bkg-color', '#F8F9FD');
-	set_theme_mod('title-font', 'Oswald');
-	set_theme_mod('body-font', 'Nunito');
+	set_theme_mod('primary-color', $primary_color);
+	set_theme_mod('secondary-color', $secondary_color);
+	set_theme_mod('tertiary-color', $tertiary_color);
+	set_theme_mod('text-color', $text_color);
+	set_theme_mod('body-color', $body_color);
+	set_theme_mod('anchore-color', $anchore_color);
+	set_theme_mod('anchore-hover-color', $anchore_hover_color);
+	set_theme_mod('button-color', $button_color);
+	set_theme_mod('button-bkg-color', $button_bkg_color);
+	set_theme_mod('button-hover-color', $button_hover_color);
+	set_theme_mod('button-hover-bkg-color', $button_hover_bkg_color);
+	set_theme_mod('cta-text-color', $cta_text_color);
+	set_theme_mod('cta-bkg-color', $cta_bkg_color);
+	set_theme_mod('footer-text-color', $footer_text_color);
+	set_theme_mod('footer-bkg-color', $footer_bkg_color);
+	set_theme_mod('box-text-color', $box_text_color);
+	set_theme_mod('box-bkg-color', $box_bkg_color);
+	set_theme_mod('title-font', $title_font);
+	set_theme_mod('body-font', $body_font);
 	set_theme_mod( 'custom_logo',$logo_id);
-	set_theme_mod('cta-desc','We’d love to tell you our story and answer any questions about life in our community.');
-	set_theme_mod('cta-button-text', 'Contact Us');
-	set_theme_mod('cta-button-url', '#');
+	set_theme_mod('cta-desc',$cta_desc);
+	set_theme_mod('cta-button-text', $cta_button_text);
+	set_theme_mod('cta-button-url', $cta_button_url);
 	
-	set_theme_mod('url-facebook', '#');
-	set_theme_mod('url-twitter', '#');
-	set_theme_mod('url-google', '#');
-	set_theme_mod('url-linkedin', '#');
-	
+	set_theme_mod('url-facebook', $url_facebook);
+	set_theme_mod('url-twitter', $url_twitter);
+	set_theme_mod('url-google', $url_google);
+	set_theme_mod('url-linkedin', $url_linkedin);
 	
 
+
 	// home hero settings
-	set_theme_mod('home-hero-title', 'Welcome Home');
-	set_theme_mod('home-hero-desc', 'A Modern Community in the Heart of the City');
-	set_theme_mod('hero-overlay-color', '#000000');
-	set_theme_mod('hero-overlay-opacity', '50');
-	set_theme_mod('home-hide-gallery', '1');
+	set_theme_mod('home-hero-title', $home_hero_title);
+	set_theme_mod('home-hero-desc', $home_hero_desc);
+	set_theme_mod('hero-overlay-color', $hero_overlay_color);
+	set_theme_mod('hero-overlay-opacity', $hero_overlay_opacity);
+	set_theme_mod('home-hide-gallery', $home_hide_gallery);
 	set_theme_mod('home-hero-image',$herohome);
 	for( $i=1 ; $i<=3 ; $i++){ 
 		set_theme_mod('home-hero-slide'.$i, get_template_directory_uri()."/img/home-hero-slier-".$i.".jpg");
@@ -512,85 +520,84 @@
 		set_theme_mod('home-hero-slider-subtitle'.$i, 'Slider Subtitle '.$i);
 		
 	}
-	set_theme_mod('frontsteps_home_section1_title', 'Connections that last');
-	set_theme_mod('frontsteps_home_section1_description', 'We pride ourselves on keeping our residents connected through events and activities. Our on-site manager is engaged with the community, and through our website and mobile app keeps everyone informed about area happenings, maintenance, security, and more.');
+	set_theme_mod('frontsteps_home_section1_title', $frontsteps_home_section1_title);
+	set_theme_mod('frontsteps_home_section1_description', $frontsteps_home_section1_description);
 	
-	set_theme_mod('home-cta-title', 'Commitment and Experience');
-	set_theme_mod('home-cta-desc', 'We’d love to tell you our story and answer any questions about life in our community.');
-	set_theme_mod('home-cta-button-text', 'More About us');
-	set_theme_mod('home-cta-button-url', '#');
+	set_theme_mod('home-cta-title', $home_cta_title);
+	set_theme_mod('home-cta-desc', $home_cta_desc);
+	set_theme_mod('home-cta-button-text', $home_cta_button_text);
+	set_theme_mod('home-cta-button-url', $home_cta_button_url);
 	
 	// about settings
 	set_theme_mod('about-hero',$heroabout);
-	set_theme_mod('about-title', 'About Us');
-	set_theme_mod('about-subtitle', 'Communication, connections, and quality of life are the tenants we stand by.');
-	set_theme_mod('about-section1-title', 'Value');
-	set_theme_mod('about-section1-desc', 'You’ll quickly discover that our team is committed to making sure your investment is a good one.');
-	set_theme_mod('about-section2-title', 'Integrity');
-	set_theme_mod('about-section2-desc', 'We are good stewards of your money and have complete transparency when it comes to where your dues and fees are going.');
-	set_theme_mod('about-section3-title', 'Experience ');
-	set_theme_mod('about-section3-desc', 'With over 25 years of commitment to the management industry, our team has the experience needed to help keep our condo running smoothly.er that our team is committed to making sure your investment is a good one.');
-	set_theme_mod('show-team-section-bod', '1');
-	set_theme_mod('bod-section-title', 'Board of Directors');
-	set_theme_mod('emplyee-section-title', 'Employee');
+	set_theme_mod('about-title', $about_title);
+	set_theme_mod('about-subtitle', $about_subtitle);
+	set_theme_mod('about-section1-title', $about_section1_title);
+	set_theme_mod('about-section1-desc', $about_section1_desc);
+	set_theme_mod('about-section2-title', $about_section2_title);
+	set_theme_mod('about-section2-desc', $about_section2_desc);
+	set_theme_mod('about-section3-title', $about_section3_title);
+	set_theme_mod('about-section3-desc', $about_section3_desc);
+	set_theme_mod('show-team-section-bod', $show_team_section_bod);
+	set_theme_mod('bod-section-title', $bod_section_title);
+	set_theme_mod('emplyee-section-title', $emplyee_section_title);
 	
 	// Resources settings
-	set_theme_mod('resources-title', 'Resources');
-	set_theme_mod('resources-title2', 'Nullam Fermentum Tellus Magna');
-	set_theme_mod('resources-leftcontent', 'Nullam Fermentum Tellus Magna');
-	set_theme_mod('resources-rightcontent', 'Nullam Fermentum Tellus Magna');
-	set_theme_mod('resources-subtitle', 'Check our resources pages for helpful information and community updates');
+	set_theme_mod('resources-title', $resources_title);
+	set_theme_mod('resources-title2', $resources_title2);
+	set_theme_mod('resources-leftcontent', $resources_leftcontent);
+	set_theme_mod('resources-rightcontent', $resources_rightcontent);
+	set_theme_mod('resources-subtitle', $resources_subtitle);
 	set_theme_mod('resources-hero',$heroresources);
 
 	// Amenities settings
-	set_theme_mod('amenities-rightcontent', 'Nullam Fermentum Tellus Magna');
-	set_theme_mod('amenities-title', 'Amenities');
-	set_theme_mod('amenities-subtitle', 'Take advantage of the unique facilities our community shares with each other');
+	set_theme_mod('amenities-rightcontent', $amenities_rightcontent);
+	set_theme_mod('amenities-title', $amenities_title);
+	set_theme_mod('amenities-subtitle', $amenities_subtitle);
 	set_theme_mod('amenities-hero',$heroramenities);
-	set_theme_mod('amenities-section1-title', 'Nulla vitae elit libero, a pharetra augue dolor nibh.');
-	set_theme_mod('amenities-section1-subtitle', 'Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-		Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+	set_theme_mod('amenities-section1-title', $amenities_section1_title);
+	set_theme_mod('amenities-section1-subtitle', $amenities_section1_subtitle);
 	
 	// Gallery settings
-	set_theme_mod('gallery-rightcontent', 'Nullam Fermentum Tellus Magna');
-	set_theme_mod('gallery-leftcontent', 'Nullam Fermentum Tellus Magna');
-	set_theme_mod('gallery-title', 'Explore our community');
-	set_theme_mod('gallery-subtitle', 'We know location is important, but our community is special in many other ways. Take a look at some photos from our recent events! You’ll quickly get a sense of what it’s like to live here.');
+	set_theme_mod('gallery-rightcontent', $gallery_rightcontent);
+	set_theme_mod('gallery-leftcontent', $gallery_leftcontent);
+	set_theme_mod('gallery-title', $gallery_title);
+	set_theme_mod('gallery-subtitle', $gallery_subtitle);
 
 	// Contact settings
-	set_theme_mod('contact-title', 'Contact Us');
-	set_theme_mod('contact-subtitle', 'What Makes Us Unique.');
+	set_theme_mod('contact-title', $contact_title);
+	set_theme_mod('contact-subtitle', $contact_subtitle);
 	set_theme_mod('contact-hero',$herorcontact);
-	set_theme_mod('contact-address','1234 Any Street, Denver, CO 80202');
-	set_theme_mod('contact-phone','333-333-3333');
-	set_theme_mod('contact-map','https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.12936626512!2d-104.99519803822619!3d39.764518674878275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C+CO%2C+USA!5e0!3m2!1sen!2sin!4v1535462660990');
+	set_theme_mod('contact-address',$contact_address);
+	set_theme_mod('contact-phone',$contact_phone);
+	set_theme_mod('contact-map',$contact_map);
 
 	// Services settings
-	set_theme_mod('services-title', 'Services');
-	set_theme_mod('services-subtitle', 'Nullam Fermentum Tellus Magna');
+	set_theme_mod('services-title', $services_title);
+	set_theme_mod('services-subtitle', $services_subtitle);
 	set_theme_mod('services-hero',$herorservice);
 
 	// Communities settings
-	set_theme_mod('community-title', 'Our Communities');
-	set_theme_mod('community-sub-title', 'Nullam Fermentum Tellus Magna');
+	set_theme_mod('community-title', $community_title);
+	set_theme_mod('community-sub-title', $community_sub_title);
 	set_theme_mod('community-hero',$herocommunities);
-	set_theme_mod('community-info', 'Nullam Fermentum Tellus Magna');
-	set_theme_mod('community-info-subtitle', 'Nullam Fermentum Tellus Magna');
+	set_theme_mod('community-info', $community_info);
+	set_theme_mod('community-info-subtitle', $community_info_subtitle);
 
 	// Request Proposal settings
-	set_theme_mod('rq_proposal-title', 'Request Proposal');
-	set_theme_mod('rq_proposal-subtitle', 'Nullam Fermentum Tellus Magna');
+	set_theme_mod('rq_proposal-title', $rq_proposal_title);
+	set_theme_mod('rq_proposal-subtitle', $rq_proposal_subtitle);
 	set_theme_mod('rq_proposal-hero',$herorcontact);
 
 	// 404 Page settings
-	set_theme_mod('404_desc', 'Oops.. We couldn’t find this page.');
-	set_theme_mod('404_button_text', 'Go Back');
-	set_theme_mod('404_button_link', '#');
+	set_theme_mod('404_desc', $404_desc);
+	set_theme_mod('404_button_text', $404_button_text);
+	set_theme_mod('404_button_link', $404_button_link);
 
 	// Thank you Page settings
-	set_theme_mod('ty_desc', 'We will look over your message and get back to you.');
-	set_theme_mod('ty_button_text', 'Go Home');
-	set_theme_mod('ty_button_link', '#');
+	set_theme_mod('ty_desc', $ty_desc);
+	set_theme_mod('ty_button_text', $ty_button_text);
+	set_theme_mod('ty_button_link', $ty_button_link);
 	
 
 	// Widget Import code - Ashok
