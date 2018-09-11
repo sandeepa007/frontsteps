@@ -116,9 +116,9 @@ $rq_proposal_subtitle =  'Nullam Fermentum Tellus Magna';
 $rq_proposal_hero = $herorcontact;
 
 // 404 Page settings
-$404_desc =  'Oops.. We couldn’t find this page.';
-$404_button_text =  'Go Back';
-$404_button_link =  '#';
+$desc_404 =  'Oops.. We couldn’t find this page.';
+$button_text_400 =  'Go Back';
+$button_link_400 =  '#';
 
 // Thank you Page settings
 $ty_desc =  'We will look over your message and get back to you.';

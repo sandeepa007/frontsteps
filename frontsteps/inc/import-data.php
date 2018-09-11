@@ -590,9 +590,9 @@
 	set_theme_mod('rq_proposal-hero',$herorcontact);
 
 	// 404 Page settings
-	set_theme_mod('404_desc', $404_desc);
-	set_theme_mod('404_button_text', $404_button_text);
-	set_theme_mod('404_button_link', $404_button_link);
+	set_theme_mod('404_desc', $desc_404);
+	set_theme_mod('404_button_text', $button_text_400);
+	set_theme_mod('404_button_link', $button_link_400);
 
 	// Thank you Page settings
 	set_theme_mod('ty_desc', $ty_desc);
