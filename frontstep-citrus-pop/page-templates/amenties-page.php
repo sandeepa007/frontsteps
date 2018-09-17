@@ -43,19 +43,33 @@ if( get_theme_mod( 'amenities-hero' ) )
         </div>
 
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
+           <?php
+            $full_class = "col-sm-12";
+            
+            if(get_theme_mod( 'amenities-section1-subtitle')!="" && get_theme_mod( 'amenities-rightcontent')!="")
+            {
+              $full_class = "col-sm-6";
+            }
+          ?>
+          <?php  if(get_theme_mod( 'amenities-section1-subtitle')!="")
+          { ?> 
+
+            <div class="col-xs-12 <?php echo $full_class;?>">
 
                 <div class="text-block">
                     <p><?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6">
+           <?php } ?>
+          <?php  if(get_theme_mod( 'amenities-rightcontent')!="")
+          { ?>
+            <div class="col-xs-12 <?php echo $full_class;?>">
 
                 <div class="text-block">
                     <p><?php echo get_theme_mod( 'amenities-rightcontent' ); ?></p>
                 </div>
             </div>
-
+            <?php } ?>
         </div>
     </div>
 </div>

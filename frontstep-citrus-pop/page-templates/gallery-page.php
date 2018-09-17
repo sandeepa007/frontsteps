@@ -61,17 +61,30 @@ get_header(); ?>
                     <h2 class="h2 color-dark text-bold"><?php echo get_theme_mod( 'gallery-title' ); ?></h2>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6">
+            <?php
+            $full_class = "col-sm-12";
+        
+            if(get_theme_mod( 'gallery-leftcontent')!="" && get_theme_mod( 'gallery-rightcontent')!="")
+            {
+              $full_class = "col-sm-6";
+            }
+            ?>
+            <?php  if(get_theme_mod( 'gallery-leftcontent')!="")
+            { ?>
+            <div class="col-xs-12 <?php echo $full_class;?>">
                 <div class="content-block">
                     <p><?php echo get_theme_mod( 'gallery-leftcontent' ); ?></p>
                 </div>
             </div>
-
-            <div class="col-xs-12 col-sm-6">
+            <?php } ?>
+              <?php  if(get_theme_mod( 'gallery-rightcontent')!="")
+              { ?>
+            <div class="col-xs-12 <?php echo $full_class;?>">
                 <div class="content-block">
                     <p><?php echo get_theme_mod( 'gallery-rightcontent' ); ?></p>
                 </div>
             </div>
+            <?php } ?>
 
         </div>
     </div>

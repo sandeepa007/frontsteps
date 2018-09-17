@@ -27,42 +27,48 @@ function customizer_library_citrus_options() {
         'label'   => __( 'Title 2', 'frontsteps' ),
         'section' => 'resources_content',
         'type'    => 'text',        
-        'default' => 'Nullam Fermentum Tellus Magna'
+        'default' => 'Nullam Fermentum Tellus Magna',
+        'priority' => '500'
     );
     $options['resources-leftcontent'] = array(
         'id' => 'resources-leftcontent',
         'label'   => __( 'Left Content', 'frontsteps' ),
         'section' => 'resources_content',
         'type'    => 'textarea',        
-        'default' => 'Nullam Fermentum Tellus Magna'
+        'default' => 'Nullam Fermentum Tellus Magna',
+        'priority' => '500'
     );
     $options['resources-rightcontent'] = array(
         'id' => 'resources-rightcontent',
         'label'   => __( 'Right Content', 'frontsteps' ),
         'section' => 'resources_content',
         'type'    => 'textarea',        
-        'default' => 'Nullam Fermentum Tellus Magna'
+        'default' => 'Nullam Fermentum Tellus Magna',
+        'priority' => '500'
     );
     $options['amenities-rightcontent'] = array(
         'id' => 'amenities-rightcontent',
         'label'   => __( 'Right Content', 'frontsteps' ),
         'section' => 'amenities_content',
         'type'    => 'textarea',        
-        'default' => 'Nullam Fermentum Tellus Magna'
+        'default' => 'Nullam Fermentum Tellus Magna',
+        'priority' => '500'
     );
     $options['gallery-rightcontent'] = array(
         'id' => 'gallery-rightcontent',
         'label'   => __( 'Right Content', 'frontsteps' ),
         'section' => 'gallery_content',
         'type'    => 'textarea',        
-        'default' => 'Nullam Fermentum Tellus Magna'
+        'default' => 'Nullam Fermentum Tellus Magna',
+        'priority' => '500'
     );
     $options['gallery-leftcontent'] = array(
         'id' => 'gallery-leftcontent',
         'label'   => __( 'Left Content', 'frontsteps' ),
         'section' => 'gallery_content',
         'type'    => 'textarea',        
-        'default' => 'Nullam Fermentum Tellus Magna'
+        'default' => 'Nullam Fermentum Tellus Magna',
+        'priority' => '500'
     );
     $customizer_library = Customizer_Library::Instance();
     $customizer_library->add_options( $options );

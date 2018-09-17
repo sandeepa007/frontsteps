@@ -1,4 +1,20 @@
 <?php 
+$selected_theme = wp_get_theme();
+
+/*if( $selected_theme == "Urban Chic" || $selected_theme == "Modern Pro")
+{*/
+
+	$herohome = get_stylesheet_directory_uri()."/img/hero-home.jpg";
+	$heroabout = get_stylesheet_directory_uri()."/img/about-hero-bg.jpg";
+	$heroresources = get_stylesheet_directory_uri()."/img/resources-hero-bg.jpg";
+	$heroramenities = get_stylesheet_directory_uri()."/img/amenities-hero-bg.jpg";
+	$herorcontact = get_stylesheet_directory_uri()."/img/contact-hero-bg.jpg";
+	$herorservice = get_stylesheet_directory_uri()."/img/services-hero-bg.jpg";
+	$herocommunities = get_stylesheet_directory_uri()."/img/hero-communities-bg.jpg";
+
+/*}*/
+echo $herohome;
+
 $primary_color =  '#4CBDD7';
 $secondary_color =  '#428FBB';
 $tertiary_color =  '#67afe1';
@@ -38,12 +54,10 @@ $hero_overlay_opacity =  '50';
 $home_hide_gallery =  '1';
 
 $frontsteps_home_section1_title =  'Commitment and Experience';
-$frontsteps_home_section1_description =  'The [Company Name] team prides itself on building long-term relationships with our clients and providing best-in-class service for our communities—from budgets to operations, maintenance, and
-resident engagement—we provide an exceptional experience for you, and most importantly, your
-residents.';
+$frontsteps_home_section1_description =  'The [Company Name] team prides itself on building long-term relationships with our clients and providing best-in-class service for our communities—from budgets to operations, maintenance, and resident engagement—we provide an exceptional experience for you, and most importantly, your residents.';
 
 $home_cta_title =  'Commitment and Experience';
-$home_cta_desc =  'We’d love to tell you our story and answer any questions about life in our community.';
+$home_cta_desc =  'The [Company Name] team prides itself on building long-term relationships with our clients and providing best-in-class service for our communities—from budgets to operations, maintenance, and resident engagement—we provide an exceptional experience for you, and most importantly, your residents.';
 $home_cta_button_text =  'More About us';
 $home_cta_button_url =  '#';
 

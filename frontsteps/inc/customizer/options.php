@@ -366,6 +366,13 @@ function customizer_library_demo_options() {
         'type'    => 'checkbox',
         'default' => 0,
     );
+    $options['home-hide-accreditation'] = array(
+        'id' => 'home-hide-accreditation',
+        'label'   => __( 'Show Accreditation Section', 'frontsteps' ),
+        'section' => $section,
+        'type'    => 'checkbox',
+        'default' => 0,
+    );
     $options['home-section1-title'] = array(
         'id' => 'frontsteps_home_section1_title',
         'label'   => __( 'Section 1 Title', 'frontsteps' ),

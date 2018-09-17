@@ -1,4 +1,19 @@
 <?php 
+$selected_theme = wp_get_theme();
+
+/*if( $selected_theme == "Urban Chic" || $selected_theme == "Modern Pro")
+{*/
+
+	$herohome = get_template_directory_uri()."/img/hero-home.jpg";
+	$heroabout = get_template_directory_uri()."/img/about-hero-bg.jpg";
+	$heroresources = get_template_directory_uri()."/img/resources-hero-bg.jpg";
+	$heroramenities = get_template_directory_uri()."/img/amenities-hero-bg.jpg";
+	$herorcontact = get_template_directory_uri()."/img/contact-hero-bg.jpg";
+	$herorservice = get_template_directory_uri()."/img/services-hero-bg.jpg";
+	$herocommunities = get_template_directory_uri()."/img/hero-communities-bg.jpg";
+
+/*}*/
+
 $primary_color =  '#4CBDD7';
 $secondary_color =  '#428FBB';
 $tertiary_color =  '#67afe1';
@@ -69,9 +84,7 @@ $emplyee_section_title =  'Employee';
 // Resources settings
 $resources_title =  'Resources';
 $resources_title2 =  'Get More Out of Community Living';
-$resources_leftcontent =  'We’re here to help make your experience living in our community nothing short of exceptional.
-From details on how to submit work orders to recommendations on the best local restaurants,
-browse our comprehensive list of resources below.';
+$resources_leftcontent =  'We’re here to help make your experience living in our community nothing short of exceptional. From details on how to submit work orders to recommendations on the best local restaurants, browse our comprehensive list of resources below.';
 $resources_rightcontent =  '';
 $resources_subtitle =  '';
 $resources_hero = $heroresources;
@@ -108,8 +121,8 @@ $services_hero = $herorservice;
 $community_title =  'Our Communities';
 $community_sub_title =  'Nullam Fermentum Tellus Magna';
 $community_hero = $herocommunities;
-$community_info =  'Nullam Fermentum Tellus Magna';
-$community_info_subtitle =  'Nullam Fermentum Tellus Magna';
+$community_info =  'Our community portfolio ranges from homes to high-rises.';
+$community_info_subtitle =  'Visit some of the premiere properties that we manage.';
 
 // Request Proposal settings
 $rq_proposal_title =  'Request Proposal';

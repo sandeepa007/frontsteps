@@ -1,4 +1,19 @@
 <?php 
+$selected_theme = wp_get_theme();
+
+/*if( $selected_theme == "Urban Chic" || $selected_theme == "Modern Pro")
+{*/
+
+	$herohome = get_template_directory_uri()."/img/hero-home.jpg";
+	$heroabout = get_template_directory_uri()."/img/about-hero-bg.jpg";
+	$heroresources = get_template_directory_uri()."/img/resources-hero-bg.jpg";
+	$heroramenities = get_template_directory_uri()."/img/amenities-hero-bg.jpg";
+	$herorcontact = get_template_directory_uri()."/img/contact-hero-bg.jpg";
+	$herorservice = get_template_directory_uri()."/img/services-hero-bg.jpg";
+	$herocommunities = get_template_directory_uri()."/img/hero-communities-bg.jpg";
+
+/*}*/
+
 $primary_color =  '#4CBDD7';
 $secondary_color =  '#428FBB';
 $tertiary_color =  '#67afe1';

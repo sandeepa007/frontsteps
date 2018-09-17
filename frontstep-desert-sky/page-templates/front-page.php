@@ -148,36 +148,41 @@ if($loop->have_posts() )
 </div>
 <?php
 } ?> 
-<?php 
-$args = array( 'post_type' => 'accreditation', 'posts_per_page' => -1 );
-$loop = new WP_Query( $args );
+<?php
+$show_accredition = get_theme_mod( 'home-hide-accreditation' );
+if($show_accredition ==1 )
+{ 
+    $args = array( 'post_type' => 'accreditation', 'posts_per_page' => -1 );
+    $loop = new WP_Query( $args );
 
-if ( $loop->have_posts() ) {
-?>
-<!-- ACCREDIDATIONS SECTION -->
-<div class="section section-accredidations">
-   <div class="container">
-      <div class="row">
-<div class="accredidations-logos">
-<?php
-while ( $loop->have_posts() ) : $loop->the_post();
-  ?>
-    <div class="slide">
-        <?php if ( has_post_thumbnail() ) {
-                    the_post_thumbnail( 'accredition-logo' );
-                }else{ ?>
-            <img src="<?php echo get_template_directory_uri().'/img/accre-placeholder-img.png';?>">
-                   <?php } ?>
+    if ( $loop->have_posts() ) {
+    ?>
+    <!-- ACCREDIDATIONS SECTION -->
+    <div class="section section-accredidations">
+       <div class="container">
+          <div class="row">
+    <div class="accredidations-logos">
+    <?php
+    while ( $loop->have_posts() ) : $loop->the_post();
+      ?>
+        <div class="slide">
+            <?php if ( has_post_thumbnail() ) {
+                        the_post_thumbnail( 'accredition-logo' );
+                    }else{ ?>
+                <img src="<?php echo get_template_directory_uri().'/img/accre-placeholder-img.png';?>">
+                       <?php } ?>
+        </div>
+    <?php
+    endwhile; wp_reset_postdata();
+    ?>
     </div>
-<?php
-endwhile; wp_reset_postdata();
+          </div>
+       </div>
+    </div>
+    <!-- ACCREDIDATIONS SECTION -->
+    <?php } 
+}
 ?>
-</div>
-      </div>
-   </div>
-</div>
-<!-- ACCREDIDATIONS SECTION -->
-<?php } ?>
 
 
 <?php get_footer(); ?>

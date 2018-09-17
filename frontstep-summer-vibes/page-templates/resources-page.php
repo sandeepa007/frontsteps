@@ -40,16 +40,30 @@ if( get_theme_mod( 'resources-hero' ) )
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-          <div class="text-block">
-            <p><?php echo get_theme_mod( 'resources-leftcontent' ); ?></p>
-          </div>
-      </div>
-        <div class="col-xs-12 col-sm-6">
+      <?php
+        $full_class = "col-sm-12";
+        
+        if(get_theme_mod( 'resources-leftcontent')!="" && get_theme_mod( 'resources-rightcontent')!="")
+        {
+          $full_class = "col-sm-6";
+        }
+      ?>
+      <?php  if(get_theme_mod( 'resources-leftcontent')!="")
+      { ?>
+        <div class="col-xs-12 <?php echo $full_class;?>">
             <div class="text-block">
-                <p><?php echo get_theme_mod( 'resources-rightcontent' ); ?></p>
+              <p><?php echo get_theme_mod( 'resources-leftcontent' ); ?></p>
             </div>
         </div>
+    <?php } ?>
+      <?php  if(get_theme_mod( 'resources-rightcontent')!="")
+      { ?>
+      <div class="col-xs-12 <?php echo $full_class;?>">
+          <div class="text-block">
+              <p><?php echo get_theme_mod( 'resources-rightcontent' ); ?></p>
+          </div>
+      </div>
+      <?php } ?>
     </div>
 
   </div>

@@ -4,8 +4,9 @@
 	include_once( $parse_uri[0] . 'wp-admin/includes/media.php' );
 	include_once( $parse_uri[0] . 'wp-admin/includes/file.php' );
 	include_once( $parse_uri[0] . 'wp-admin/includes/image.php' );
-		
-	
+	$my_theme = wp_get_theme();	
+	global $wpdb;
+
 	// Home page creation
 	$home_page_id = get_option("home_page_id");
 	
@@ -90,7 +91,6 @@
 		update_option("contact_page_id", $contactID);
 	}
 
-	$my_theme = wp_get_theme();
 	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
 	{
 
@@ -444,34 +444,24 @@
 		}
 
 	}
-
+	
+	//paste code above from this line
+	
 	$uploadfile = get_template_directory_uri()."/img/placeholder-logo.png";
-	$herohome = get_template_directory_uri()."/img/hero-home.jpg";
-	$heroabout = get_template_directory_uri()."/img/about-hero-bg.jpg";
-	$heroresources = get_template_directory_uri()."/img/resources-hero-bg.jpg";
-	$heroramenities = get_template_directory_uri()."/img/amenities-hero-bg.jpg";
-	$herorcontact = get_template_directory_uri()."/img/contact-hero-bg.jpg";
-	$herorservice = get_template_directory_uri()."/img/services-hero-bg.jpg";
-	$herocommunities = get_template_directory_uri()."/img/hero-communities-bg.jpg";
-	
-	
 	$media_id = media_sideload_image( $uploadfile,'','','src');
 	//$homehero_id = media_sideload_image( $herohome,'','','src');
 	
-	global $wpdb;
-  	
   	$query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$media_id'";
   	$logo_id = $wpdb->get_var($query);
 
-  	/*$query1 = "SELECT ID FROM {$wpdb->posts} WHERE guid='$homehero_id'";
-  	$homehero_name = $wpdb->get_var($query1);*/
-	
   	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
 	{
 		require get_template_directory() . '/inc/import-data-pmc.php';
-	}elseif($my_theme == "Citrus Pop" || $my_theme == "Blanco Breeze" || $my_theme == "Summer Vibes" ){
+	}elseif($my_theme == "Citrus Pop" || $my_theme == "Blanco Breeze" || $my_theme == "Summer Vibes" )
+	{
 		require get_template_directory() . '/inc/import-data-hoa.php';
-	}else{
+	}else
+	{
 		require get_template_directory() . '/inc/import-data-coa.php';
 	}
 	
@@ -644,7 +634,7 @@
 				"image_uri" => $imgcenter,
 			),
 			4 => array(
-				"title" => "Homeowners Associations", 
+				"title" => "Online Payments", 
 				"desc" => "Collect dues and fees payments online through our NACHA-compliant payments platform. No more paper checks, bank lockboxes, and missing coupons.",
 				"image_uri" => $imgright,
 			),

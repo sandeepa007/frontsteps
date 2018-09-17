@@ -185,7 +185,7 @@ function wpdocs_codex_testimonial_init() {
 
     unregister_post_type( "amenity" );
     unregister_post_type( "frontsteps-gallery");
-    unregister_post_type( "accreditation");
+    //unregister_post_type( "accreditation");
 
 }
 add_filter('enter_title_here', 'my_title_place_holder' , 20 , 2 );
