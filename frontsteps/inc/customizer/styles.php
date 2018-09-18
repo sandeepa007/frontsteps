@@ -74,10 +74,19 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
 
             Customizer_Library_Styles()->add(array(
                 'selectors' => array(
-                    'a'
+                    'a',
+                    '.section-testimonials .testimonial-block .icon-block',
                 ),
                 'declarations' => array(
                     'color' => $color
+                )
+            ));
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '#header',
+                ),
+                'declarations' => array(
+                    'border-bottom' => '1px solid '.$color
                 )
             ));
         }
@@ -95,7 +104,8 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                     'a:hover',
                     'footer .company-details .fa:hover',
                     'footer .footer-menu ul li a:hover',
-                    '#header .container .navigation-column .navbar-default .navbar-nav li a:hover'
+                    '#header .container .navigation-column .navbar-default .navbar-nav li a:hover',
+                    '#header .container .navigation-column .navbar-default .navbar-nav li.active a'
                 ),
                 'declarations' => array(
                     'color' => $color

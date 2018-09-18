@@ -300,7 +300,7 @@ li {
 .button-primary {
   overflow: hidden;
   transition: all 0.3s;
-  color: #ffffff !important;
+  /*color: #ffffff !important;*/
   background: #4CBDD7;
   border-radius: 4px;
   
@@ -366,8 +366,8 @@ li {
   .button-white:focus {
     outline: none; }
 .button-black{
-  color: #FFFFFF;
-  background: #000000;
+  color: #FFFFFF!important;
+  background: #000000!important;
 }
 .button-black:hover {
     color: #000;
@@ -875,7 +875,7 @@ body .section-intro {
           max-width: 380px; }
           .section-intro .container .intro-block .content-block .title-block .h2 {
             font-size: 24px;
-            line-height: normal; }
+            line-height: normal; text-align: left;}
         .section-intro .container .intro-block .content-block.right-text {
           margin: 60px; }
         .section-intro .container .intro-block .content-block p {
@@ -1504,3 +1504,6 @@ footer {
     font-weight: 400; }
 
 /* Parent Overwrites */
+.section-intro .container .title-block {
+    margin-left: 0px!important;
+}

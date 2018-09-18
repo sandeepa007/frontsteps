@@ -278,7 +278,7 @@ li { margin: 0; }
 .section-team {padding-top: 0;}
 
 .modal-team {}
-.modal-team .modal-dialog {width: 100%; max-width: 720px; margin-top: 20%;}
+.modal-team .modal-dialog {width: 100%; max-width: 720px; /*margin-top: 20%;*/}
 .modal-team .modal-dialog .modal-content {box-shadow: none; background: #39ADD1; border-radius: 0; border: none;}
 .modal-team .modal-dialog .modal-close {position: absolute; top: 25px; right: 25px; width: 17px; z-index: 1;}
 .modal-team .modal-dialog .modal-body {padding: 68px;}
@@ -288,7 +288,7 @@ li { margin: 0; }
 
 .modal-backdrop {background-color: #000;}
 .modal-backdrop.in {opacity: 0.8;}
-
+.modal.modal-team .content-block p{ color: #000000; }
 @media (max-width: 768px) {
   .modal-team .modal-dialog {margin-top: 30px;}
   .modal-team .modal-dialog .modal-body {padding: 30px;}
@@ -422,7 +422,7 @@ footer .credits p img{display: inline-block; margin-left: 10px; vertical-align: 
 footer .footer-menu {margin-top: 20px;}
 footer .footer-menu ul {padding: 0; margin: 0; }
 footer .footer-menu ul li {display: inline-block; margin-right: 5px;}
-footer .footer-menu ul li a {font-size: 12px; line-height: 20px; position: relative; padding-right: 10px;transition: all 0.3s;}
+footer .footer-menu ul li a {font-size: 12px; line-height: 20px; position: relative; padding-right: 10px;transition: all 0.3s;color: #ffffff!important;}
 footer .footer-menu ul li a:hover {color: #39ADD1;}
 footer .footer-menu ul li a:after {content: ''; width: 1px; height: 12px; position: absolute; background: #808080; right: 0; top: 0px;}
 footer .footer-menu ul li:last-child a:after {display: none;}

@@ -11,7 +11,8 @@ function desertsky_customize_register($wp_customize) {
   $wp_customize->remove_control( 'about-section3-title' );
   $wp_customize->remove_control( 'about-section3-desc' );  
   $wp_customize->remove_section( 'amenities_content' );  
-  $wp_customize->remove_section( 'gallery_content' );  
+  $wp_customize->remove_section( 'gallery_content' );
+  $wp_customize->remove_control( 'home-hide-gallery');
 }
 
 /**

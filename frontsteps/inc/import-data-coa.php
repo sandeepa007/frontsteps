@@ -51,6 +51,7 @@ $home_hero_desc =  'A Modern Community in the Heart of the City';
 $hero_overlay_color =  '#000000';
 $hero_overlay_opacity =  '50';
 $home_hide_gallery =  '1';
+$home_hide_accrediation =  '1';
 
 $frontsteps_home_section1_title =  'Connections that last';
 $frontsteps_home_section1_description =  'We pride ourselves on keeping our residents connected through events and activities.

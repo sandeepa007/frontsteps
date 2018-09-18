@@ -14,6 +14,9 @@ function my_theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
-
+add_action('customize_register', 'bluebird_customize_register', 1000);
+function bluebird_customize_register($wp_customize) {
+ 	$wp_customize->remove_control( 'home-hide-gallery' );
+}
 
 ?>

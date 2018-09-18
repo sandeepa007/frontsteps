@@ -105,7 +105,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <a class="modal-close" href="" data-dismiss="modal">
-                            <img src="<?php bloginfo('template_directory'); ?>/images/close-icon.png" class="img-responsive">
+                            <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
                         </a>
 
                         <div class="modal-body text-center">
@@ -182,7 +182,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <a class="modal-close" href="" data-dismiss="modal">
-                            <img src="<?php bloginfo('template_directory'); ?>/images/close-icon.png" class="img-responsive">
+                            <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
                         </a>
 
                         <div class="modal-body text-center">

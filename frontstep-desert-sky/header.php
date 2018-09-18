@@ -55,7 +55,21 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 		.section-cta .button-primary:hover, .section-cta a.button-primary:hover{
 			background: #fff;
 			color:<?php echo $colorbkg2;?>;
-		}	
+		}
+		/*.page-template-front-page .section-cta
+		{
+			background:transparent;
+		   color:transparent;
+		}
+		.page-template-front-page .section-cta .button-primary, .section-cta a.button-primary{
+			background: transparent;
+			color:transparent;
+		}
+		.page-template-front-page .section-cta .button-primary:hover, .section-cta a.button-primary:hover{
+			background: transparent;
+			color:transparent;
+		}*/
+		
 	</style>
 </head>
 

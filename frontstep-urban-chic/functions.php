@@ -9,9 +9,10 @@ function urbunchick_customize_register($wp_customize) {
     $wp_customize->remove_control( 'about-section2-title' );
     $wp_customize->remove_control( 'about-section2-desc' );
     $wp_customize->remove_control( 'about-section3-title' );
-    $wp_customize->remove_control( 'about-section3-desc' );  
-    $wp_customize->remove_section( 'amenities_content' );  
-    $wp_customize->remove_section( 'gallery_content' ); 
+    $wp_customize->remove_control( 'about-section3-desc' );
+    $wp_customize->remove_section( 'amenities_content' );
+    $wp_customize->remove_section( 'gallery_content' );
+    $wp_customize->remove_control( 'home-hide-gallery');
 }
 
 /**
@@ -31,6 +32,15 @@ function customizer_library_urbun_options($wp_customize) {
         'section' => 'home_cta_section',
         'type'    => 'text',        
         'default' => 'Nullam Fermentum Tellus Magna'
+    );
+
+    $options['testimonial-bg'] = array(
+        'id' => 'testimonial-bg',
+        'label'   => __( 'Testimonial Background', 'frontsteps-desert-sky' ),
+        'section' => 'home_other_section',
+        'type'    => 'upload',        
+        'default' => '',
+        'priority' => '400'
     );
     
     $options['sections'] = $sections;

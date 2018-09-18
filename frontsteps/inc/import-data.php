@@ -345,12 +345,19 @@
 	// Create Custom Posts
 	global $user_ID;
 	
-	for($i=1 ;$i<=6 ;$i++)
+	$team_array = 
+			array(	"Jane Smith, Founder", 
+					"David Harris, Founder", 
+					"Liz Jenkins, Founder",
+					"Jane Smith, Founder"
+				  );
+
+	for($i=0 ;$i<count($team_array) ;$i++)
 	{
 		// Create Demo Team posts
 		$new_team_post = array(
-	    'post_title' => 'Member '.$i,
-	    'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at felis vitae velit scelerisque laoreet. Maecenas a fringilla leo, et malesuada dolor. Ut feugiat laoreet dui, sed suscipit ligula sodales non. Sed ultricies massa eu ante facilisis, in molestie justo dapibus. Nullam ex massa, ornare nec dolor vitae, congue semper massa. Nullam dui ipsum, blandit nec dui tristique, tincidunt condimentum eros. In hac habitasse platea dictumst.',
+	    'post_title' => $team_array[$i],
+	    'post_content' => 'Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
 	    'post_status' => 'publish',
 	    'post_date' => date('Y-m-d H:i:s'),
 	    'post_author' => $user_ID,
@@ -360,20 +367,39 @@
 		$member_type = array ('member_board_of_directors','member_employee');
 		wp_set_object_terms($team_post_id,$member_type,'member_type');
 
-		// Create Demo Amenity posts
-		$new_amnty_post = array(
-	    'post_title' => 'Amenity '.$i,
+	}
+	//exit;
+	// Create Demo Community posts
+	$comenity_array = 
+			array(	"Naperville", 
+					"Oak Park", 
+					"Western Springs",
+					"Naperville",
+					"Buffalo Grove",
+					"Clarendon Hills",
+				 );
+
+	for($x=0 ;$x<count($comenity_array) ;$x++)
+	{
+
+		$new_community_post = array(
+	    'post_title' => $comenity_array[$x],
 	    'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at felis vitae velit scelerisque laoreet. Maecenas a fringilla leo, et malesuada dolor. Ut feugiat laoreet dui, sed suscipit ligula sodales non. Sed ultricies massa eu ante facilisis, in molestie justo dapibus. Nullam ex massa, ornare nec dolor vitae, congue semper massa. Nullam dui ipsum, blandit nec dui tristique, tincidunt condimentum eros. In hac habitasse platea dictumst.',
 	    'post_status' => 'publish',
 	    'post_date' => date('Y-m-d H:i:s'),
 	    'post_author' => $user_ID,
-	    'post_type' => 'amenity',
+	    'post_type' => 'community',
 		);
-		$amnt_post_id = wp_insert_post($new_amnty_post);
-
+		$community_post_id = wp_insert_post($new_community_post);
+		$url_array = array('url' => '#');
+		update_post_meta($community_post_id,"community",$url_array);
+	}
+	
+	for($i=1 ;$i<=5 ;$i++)
+	{
 		// Create Demo Resource posts
 		$new_rsource_post = array(
-	    'post_title' => 'Resource '.$i,
+	    'post_title' => 'Nulla vitae elit libero',
 	    'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at felis vitae velit scelerisque laoreet. Maecenas a fringilla leo, et malesuada dolor. Ut feugiat laoreet dui, sed suscipit ligula sodales non. Sed ultricies massa eu ante facilisis, in molestie justo dapibus. Nullam ex massa, ornare nec dolor vitae, congue semper massa. Nullam dui ipsum, blandit nec dui tristique, tincidunt condimentum eros. In hac habitasse platea dictumst.',
 	    'post_status' => 'publish',
 	    'post_date' => date('Y-m-d H:i:s'),
@@ -404,18 +430,16 @@
 		);
 		$service_post_id = wp_insert_post($new_service_post);
 
-		// Create Demo Community posts
-		$new_community_post = array(
-	    'post_title' => 'Community '.$i,
+		// Create Demo Amenity posts
+		$new_amnty_post = array(
+	    'post_title' => 'Amenity'.$i,
 	    'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at felis vitae velit scelerisque laoreet. Maecenas a fringilla leo, et malesuada dolor. Ut feugiat laoreet dui, sed suscipit ligula sodales non. Sed ultricies massa eu ante facilisis, in molestie justo dapibus. Nullam ex massa, ornare nec dolor vitae, congue semper massa. Nullam dui ipsum, blandit nec dui tristique, tincidunt condimentum eros. In hac habitasse platea dictumst.',
 	    'post_status' => 'publish',
 	    'post_date' => date('Y-m-d H:i:s'),
 	    'post_author' => $user_ID,
-	    'post_type' => 'community',
+	    'post_type' => 'amenity',
 		);
-		$community_post_id = wp_insert_post($new_community_post);
-		$url_array = array('url' => '#');
-		update_post_meta($community_post_id,"community",$url_array);
+		$amnt_post_id = wp_insert_post($new_amnty_post);
 
 		// Create Demo Accreditation posts
 		$new_accrd_post = array(
@@ -449,9 +473,7 @@
 	
 	$uploadfile = get_template_directory_uri()."/img/placeholder-logo.png";
 	$media_id = media_sideload_image( $uploadfile,'','','src');
-	//$homehero_id = media_sideload_image( $herohome,'','','src');
-	
-  	$query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$media_id'";
+	$query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$media_id'";
   	$logo_id = $wpdb->get_var($query);
 
   	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
@@ -503,6 +525,8 @@
 	set_theme_mod('hero-overlay-color', $hero_overlay_color);
 	set_theme_mod('hero-overlay-opacity', $hero_overlay_opacity);
 	set_theme_mod('home-hide-gallery', $home_hide_gallery);
+	set_theme_mod('home-hide-accreditation', $home_hide_accrediation);
+	
 	set_theme_mod('home-hero-image',$herohome);
 	for( $i=1 ; $i<=3 ; $i++){ 
 		set_theme_mod('home-hero-slide'.$i, get_template_directory_uri()."/img/home-hero-slier-".$i.".jpg");
@@ -517,7 +541,8 @@
 	set_theme_mod('home-cta-desc', $home_cta_desc);
 	set_theme_mod('home-cta-button-text', $home_cta_button_text);
 	set_theme_mod('home-cta-button-url', $home_cta_button_url);
-	
+	set_theme_mod('testimonial-bg',$imgtestimonial);
+
 	// about settings
 	set_theme_mod('about-hero',$heroabout);
 	set_theme_mod('about-title', $about_title);
@@ -577,7 +602,7 @@
 	// Request Proposal settings
 	set_theme_mod('rq_proposal-title', $rq_proposal_title);
 	set_theme_mod('rq_proposal-subtitle', $rq_proposal_subtitle);
-	set_theme_mod('rq_proposal-hero',$herorcontact);
+	set_theme_mod('rq_proposal-hero',$herorreqproposl);
 
 	// 404 Page settings
 	set_theme_mod('404_desc', $desc_404);
@@ -593,10 +618,6 @@
 	// Widget Import code - Ashok
 	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
 	{
-
-		$imgleft = get_template_directory_uri()."/img/widget/pmc/image-left.jpg";
-		$imgcenter = get_template_directory_uri()."/img/widget/pmc/image-center.jpg";
-		$imgright = get_template_directory_uri()."/img/widget/pmc/image-right.jpg";
 
 		$widgetArr = array(
 			"wp_inactive_widgets" => array(),
@@ -656,8 +677,8 @@
 	
 	} else {
 
-		$img1 = get_template_directory_uri()."/img/widget/coa/coa1.jpg";
-		$img2 = get_template_directory_uri()."/img/widget/coa/coa2.jpg";
+		//$img1 = get_template_directory_uri()."/img/widget/coa/coa1.jpg";
+		//$img2 = get_template_directory_uri()."/img/widget/coa/coa2.jpg";
 		$title = "Ultricies Euismod";
 		// 1 - Modern Living, 2 - Room To Breathe
 		$desc = "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna.";
@@ -666,8 +687,6 @@
 
 		if($my_theme == "Citrus Pop" || $my_theme == "Summer Vibes" || $my_theme == "Blanco Breeze" ) {
 			
-			$img1 = get_template_directory_uri()."/img/widget/hoa/hoa1.png";
-			$img2 = get_template_directory_uri()."/img/widget/hoa/hoa2.png";
 			$title = "Nullam Parturient Tortor Lorem Ligula";
 			$desc = "Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.  Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet."; 
 
@@ -717,7 +736,7 @@
 			1 => array(),
 			2 => array(
 				"title" => "Your Company", 
-				"text" => "1234 Any Street, Denver, CO 80202",
+				"text" => "1234 Any Street, <br>Denver, CO 80202",
 				"filter" => true,
 				"visual" => true,
 			),

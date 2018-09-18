@@ -275,8 +275,8 @@ li { margin: 0; }
 .section-team {padding-top: 0;}
 
 .modal-team {}
-.modal-team .modal-dialog {width: 100%; max-width: 720px; margin-top: 20%;}
-.modal-team .modal-dialog .modal-content {box-shadow: none; background: #39ADD1; border-radius: 0; border: none;}
+.modal-team .modal-dialog {width: 100%; max-width: 720px; /*margin-top: 20%;*/}
+.modal-team .modal-dialog .modal-content {box-shadow: none; background: #39ADD1!important; border-radius: 0; border: none;}
 .modal-team .modal-dialog .modal-close {position: absolute; top: 25px; right: 25px; width: 17px; z-index: 1;}
 .modal-team .modal-dialog .modal-body {padding: 68px;}
 .modal-team .modal-dialog .modal-body .title-block {margin-bottom: 30px;}

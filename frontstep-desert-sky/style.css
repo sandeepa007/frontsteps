@@ -242,8 +242,10 @@ li { margin: 0; }
 .section-testimonials { padding: 100px 0; background: #F9F9F9;}
 .section-testimonials .testimonial-block {}
 .section-testimonials .testimonial-block .icon-block {font-size: 56px; font-weight: bold;  text-align: center;}
-.section-testimonials .testimonial-block p {font-size: 24px; line-height: 36px; margin-bottom: 30px;}
-.section-testimonials .testimonial-block .h5 { font-weight: normal;}
+.section-testimonials .testimonial-block p {font-size: 24px; line-height: 36px; margin-bottom: 30px;color: #ffffff!important;}
+.section-testimonials .testimonial-block .h5 { font-weight: normal;color: #ffffff!important;}
+#owl-counter,.section-testimonials .testimonial-block .icon-block{color: #ffffff!important;}
+
 .section-testimonials .owl-nav {text-align: center; margin-top: 30px;}
 .section-testimonials .owl-nav button span {display: none;}
 .section-testimonials .owl-nav button.owl-next,
@@ -276,8 +278,9 @@ li { margin: 0; }
 .section-team {padding-top: 0;}
 
 .modal-team {}
-.modal-team .modal-dialog {width: 100%; max-width: 720px; margin-top: 20%;}
-.modal-team .modal-dialog .modal-content {box-shadow: none; background: #39ADD1; border-radius: 0; border: none;}
+.modal-team .modal-dialog h3 {color: #ffffff;}
+.modal-team .modal-dialog {width: 100%; max-width: 720px; /*margin-top: 20%;*/}
+.modal-team .modal-dialog .modal-content {box-shadow: none; background: #E3850D; border-radius: 0; border: none;}
 .modal-team .modal-dialog .modal-close {position: absolute; top: 25px; right: 25px; width: 17px; z-index: 1;}
 .modal-team .modal-dialog .modal-body {padding: 68px;}
 .modal-team .modal-dialog .modal-body .title-block {margin-bottom: 30px;}

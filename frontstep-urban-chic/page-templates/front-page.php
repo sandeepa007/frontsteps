@@ -16,6 +16,7 @@ get_header();?>
     $hero_overlay_opacity = get_theme_mod( 'hero-overlay-opacity' );
 
     $cta_bg_img = get_theme_mod( 'cta-bkg-img' );
+    $testmnil_bg_img = get_theme_mod( 'testimonial-bg' );
     $cta_bg_color = get_theme_mod( 'cta-bkg-color' );
     $cta_bg_txt_colr = get_theme_mod( 'cta-text-color' );
 
@@ -32,17 +33,6 @@ get_header();?>
         <style type="text/css">
             .section-hero{background: <?php echo $hero_overlay_color;?>}
             .section-hero .bg-image{opacity: <?php echo '0.'.$hero_overlay_opacity;?>}
-            .cta_bg_img{
-                background: url("<?php echo $cta_bg_img;?>")!important;
-                background-repeat: no-repeat;
-                background-size: cover!important;
-                background-position: center;
-            }
-            .section-about .container .content-block
-            {
-                background: <?php echo $cta_bg_color;?>;
-                color: <?php echo $cta_bg_txt_colr;?>!important;   
-            }
             /*.col-xs-12.col-sm-10.col-sm-offset-1,
             .section-cta 
             {
@@ -53,6 +43,26 @@ get_header();?>
         </style>
         
 <?php } ?>
+<style type="text/css">
+    .cta_bg_img{
+                background: url("<?php echo $cta_bg_img;?>")!important;
+                background-repeat: no-repeat;
+                background-size: cover!important;
+                background-position: center;
+            }
+            .section-about .container .content-block
+            {
+                background: <?php echo $cta_bg_color;?>;
+                color: <?php echo $cta_bg_txt_colr;?>!important;   
+            }
+            <?php if($testmnil_bg_img != ""){?>
+            .section.section-testimonials
+            {
+                background: url("<?php echo $testmnil_bg_img;?>")!important;
+            }
+        <?php } ?>
+
+</style>
 <?php if($hero_slider_active == 1)
 {?>
     <!--Homes Slider-->
