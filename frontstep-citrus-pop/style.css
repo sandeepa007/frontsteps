@@ -557,13 +557,13 @@ li {
             color: #E24C3E; }
         #header .container .right-column ul li.login a {
           margin-top: 18px;
-          color: #E24C3E;
+          color: #E24C3E!important;
           line-height: 36px;
           padding: 0 20px;
           min-width: 120px;
           border-radius: 20px;
           border: 1px solid #E24C3E;
-          background: #ffffff; }
+          background: #ffffff!important; }
           #header .container .right-column ul li.login a:hover {
             color: #ffffff;
             background: #E24C3E; }
@@ -1486,3 +1486,13 @@ footer {
     font-weight: 400; }
 
 /* Parent Overwrites */
+.section-cta .button-primary
+{
+      background: #E14E3F;
+      color: #ffffff!important;
+      border: 1px solid #ffffff;
+}
+.section-footer p
+{
+  line-height: 2!important;
+}

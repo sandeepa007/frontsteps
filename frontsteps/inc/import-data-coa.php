@@ -1,36 +1,34 @@
 <?php 
 $selected_theme = wp_get_theme();
 
-/*if( $selected_theme == "Urban Chic" || $selected_theme == "Modern Pro")
-{*/
+if( $selected_theme == "Irish Morning")
+{
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#5DBC7A';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#5DBC7A';
+	$cta_text_color =  '#ffffff';$cta_bkg_color =  '#5DBC7A';$footer_text_color =  '#242626';$footer_bkg_color =  '#F9F9F9';$box_text_color =  '#ffffff';$box_bkg_color =  '#3B473E';
+	set_theme_mod('cta-bkg-img', get_stylesheet_directory_uri()."/img/cta.jpg");
+}
+if( $selected_theme == "Bluebird Day")
+{
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#4EBCD6';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#4EBCD6'; $cta_text_color =  '#333844'; $cta_bkg_color = '#ffffff';$footer_text_color =  '#ffffff';$footer_bkg_color =  '#363636';$box_text_color =  '#242626';$box_bkg_color =  '#F7F9FC';
+}
+if( $selected_theme == "Euro Contempo")
+{
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#4EBCD6';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#4EBCD6';
+	$cta_text_color =  '#ffffff';$cta_bkg_color =  '#333844';$footer_text_color =  '#242626';$footer_bkg_color =  '#F7F9FC';$box_text_color =  '#242626';$box_bkg_color =  '#F7F9FC';
+}
 
-	$herohome = get_template_directory_uri()."/img/hero-home.jpg";
-	$heroabout = get_template_directory_uri()."/img/about-hero-bg.jpg";
-	$heroresources = get_template_directory_uri()."/img/resources-hero-bg.jpg";
-	$heroramenities = get_template_directory_uri()."/img/amenities-hero-bg.jpg";
-	$herorcontact = get_template_directory_uri()."/img/contact-hero-bg.jpg";
-	$herorservice = get_template_directory_uri()."/img/services-hero-bg.jpg";
-	$herocommunities = get_template_directory_uri()."/img/hero-communities-bg.jpg";
 
-/*}*/
+	$herohome = get_stylesheet_directory_uri()."/img/home/home-hero.jpg";
+	$heroabout = get_stylesheet_directory_uri()."/img/about/hero-header.jpg";
+	$heroresources = get_stylesheet_directory_uri()."/img/resources/hero-header.jpg";
+	$herorcontact = get_stylesheet_directory_uri()."/img/contact-us/hero-header.jpg";
+	$heroramenities = get_stylesheet_directory_uri()."/img/amenities/hero-header.jpg";
+	
+	// home featured section image
+	$img1 = get_stylesheet_directory_uri()."/img/home/hoa1.jpg";
+	$img2 = get_stylesheet_directory_uri()."/img/home/hoa2.jpg";
 
-$primary_color =  '#4CBDD7';
-$secondary_color =  '#428FBB';
-$tertiary_color =  '#67afe1';
-$text_color =  '#33343C';
-$body_color =  '#FFFFFF';
-$anchore_color =  '#2D3340';
-$anchore_hover_color =  '#4ABDD9';
-$button_color =  '#FFFFFF';
-$button_bkg_color =  '#4BBDD7';
-$button_hover_color =  '#FFFFFF';
-$button_hover_bkg_color =  '#2F3543';
-$cta_text_color =  '#FFFFFF';
-$cta_bkg_color =  '#2F3543';
-$footer_text_color =  '#33343C';
-$footer_bkg_color =  '#F8F9FD';
-$box_text_color =  '#33343C';
-$box_bkg_color =  '#F8F9FD';
+
 $title_font =  'Oswald';
 $body_font =  'Nunito';
 $custom_logo = $logo_id;
@@ -111,7 +109,7 @@ $contact_title =  'Won’t You be Our Neighbor?';
 $contact_subtitle =  '';
 $contact_hero = $herorcontact;
 $contact_address = '1234 Any Street, Denver, CO 80202';
-$contact_phone = '333_333_3333';
+$contact_phone = '333-333-3333';
 $contact_map = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.12936626512!2d_104.99519803822619!3d39.764518674878275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C+CO%2C+USA!5e0!3m2!1sen!2sin!4v1535462660990';
 
 // Services settings

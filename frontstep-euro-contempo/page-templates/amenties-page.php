@@ -89,7 +89,7 @@ endwhile; // end of the loop. ?>
 
 ?>
 
-<div class="section section-box bg-lightgrey">
+<div class="section section-box">
     <div class="container">
         <div class="row">
             <?php

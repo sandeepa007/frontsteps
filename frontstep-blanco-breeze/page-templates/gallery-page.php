@@ -62,7 +62,7 @@ get_header(); ?>
                 </div>
             </div>
             <?php
-            $full_class = "col-sm-12";
+            $full_class = "col-sm-12 text-center";
         
             if(get_theme_mod( 'gallery-leftcontent')!="" && get_theme_mod( 'gallery-rightcontent')!="")
             {

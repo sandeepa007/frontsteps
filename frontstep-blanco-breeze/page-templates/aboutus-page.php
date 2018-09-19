@@ -41,17 +41,31 @@ if( get_theme_mod( 'about-hero' ) )
                 </div>
             </div>
         </div>
+        <?php
+        $full_class = "col-sm-12 text-center";
+        
+        if(get_theme_mod( 'about-section1-desc')!="" && get_theme_mod( 'about-section2-desc')!="")
+        {
+          $full_class = "col-sm-6";
+        }
+      ?>
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
+             <?php  if(get_theme_mod( 'about-section1-desc')!="")
+            { ?>
+                <div class="col-xs-12 <?php echo $full_class;?>">
+                    <div class="text-block">
+                      <p><?php echo get_theme_mod( 'about-section1-desc' ); ?></p>
+                    </div>
+                </div>
+            <?php } ?>
+              <?php  if(get_theme_mod( 'about-section2-desc')!="")
+              { ?>    
+            <div class="col-xs-12 <?php echo $full_class;?>">
                 <div class="text-block">
-                  <p><?php echo get_theme_mod( 'about-section1-desc' ); ?></p>
+                    <p><?php echo get_theme_mod( 'about-section2-desc' ); ?></p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="text-block">
-                    <p><?php echo get_theme_mod( 'about-section3-desc' ); ?></p>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </div>

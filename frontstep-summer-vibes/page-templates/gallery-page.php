@@ -29,11 +29,11 @@ get_header(); ?>
         <?php 
             }else
             { 
-                for( $i=1; $i<=4 ; $i++)
+                for( $i=1; $i<=5 ; $i++)
                 { ?>
 
-                    <a class="rsImg" data-rsw="848" data-rsh="500" data-rsBigImg="<?php echo get_template_directory_uri().'/img/gallery-'.$i.'.jpg'; ?>" href="<?php echo get_template_directory_uri().'/img/gallery-'.$i.'.jpg'; ?>">
-                    <img class="rsTmb lazy" data-original="<?php echo get_template_directory_uri().'/img/gallery-'.$i.'.jpg'; ?>" src="<?php echo get_template_directory_uri().'/img/gallery-'.$i.'.jpg'; ?>" alt="<?php echo "gallery-".$i; ?>" >
+                    <a class="rsImg" data-rsw="848" data-rsh="500" data-rsBigImg="<?php echo get_stylesheet_directory_uri().'/img/gallery/gallery-'.$i.'.jpg'; ?>" href="<?php echo get_stylesheet_directory_uri().'/img/gallery/gallery-'.$i.'.jpg'; ?>">
+                    <img class="rsTmb lazy" data-original="<?php echo get_stylesheet_directory_uri().'/img/gallery/gallery-'.$i.'.jpg'; ?>" src="<?php echo get_stylesheet_directory_uri().'/img/gallery/gallery-'.$i.'.jpg'; ?>" alt="<?php echo "gallery-".$i; ?>" >
                 </a>
 
                 <?php 
@@ -62,7 +62,7 @@ get_header(); ?>
                 </div>
             </div>
             <?php
-            $full_class = "col-sm-12";
+            $full_class = "col-sm-12 text-center";
         
             if(get_theme_mod( 'gallery-leftcontent')!="" && get_theme_mod( 'gallery-rightcontent')!="")
             {

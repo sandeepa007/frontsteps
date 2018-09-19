@@ -12,7 +12,7 @@ get_header(); ?>
 $style = "background-image: url(".get_template_directory_uri()."/img/default-hero-bg.jpg)";
 if( get_theme_mod( 'contact-hero' ) )
 {
-    $style = "background-image: url(".get_theme_mod( 'contact-hero' ).")";
+    $style = "background-image: url(".get_theme_mod( 'contact-hero' ).")!important";
 }?>
 <div class="section section-hero section-inner-hero">
     <div class="bg-image fill" style="<?php echo $style;?>"></div>

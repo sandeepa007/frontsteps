@@ -3,12 +3,12 @@
  * Template Name: Amenties Page Template
  *
  * Description: A page template that provides a key component of WordPress as a CMS
- * by meeting the need for a carefully crafted introductory page. The front page template
+ * by meeting the need for a carefully crafted introductory page. The Amenties page template
  */
 
 get_header(); ?>
 <!-- HERO SECTION -->
-<?php 
+<?php
 $style = "background-image: url(".get_template_directory_uri()."/img/default-hero-bg.jpg)";
 if( get_theme_mod( 'amenities-hero' ) )
 {
@@ -22,8 +22,8 @@ if( get_theme_mod( 'amenities-hero' ) )
         <div class="row">
             <div class="col-xs-12">
                 <div class="hero-block color-white text-center">
-                    <h1 class="h1"><?php echo get_theme_mod( 'amenities-title' ); ?></h1>
-                    <?php echo get_theme_mod( 'amenities-subtitle' ); ?>
+                    <h2 class="h2"><?php echo get_theme_mod( 'amenities-title' ); ?></h2>
+                    <p id="page-sub-heading"><?php echo get_theme_mod( 'amenities-subtitle' ); ?></p>
                 </div>
             </div>
         </div>
@@ -42,8 +42,8 @@ while ( have_posts() ) : the_post();
                     </div>
                 </div>
             </div>
-        </div>        
-<?php  } 
+        </div>
+<?php  }
 endwhile; // end of the loop. ?>
 
 
@@ -57,15 +57,12 @@ endwhile; // end of the loop. ?>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div class="title-block">
-                    <h3 class="h4 color-dark"><?php echo get_theme_mod( 'amenities-section1-title' ); ?></h3>
+                    <h5><?php echo get_theme_mod( 'amenities-section1-title' ); ?></h5>
                 </div>
             </div>
-
             <div class="col-xs-12 col-sm-6">
                 <div class="content-block">
-                    <div>
-						<p><?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p>
-					</div>
+                    <div><p><?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p></div>
                 </div>
             </div>
         </div>
@@ -75,11 +72,11 @@ endwhile; // end of the loop. ?>
 
 <?php
     $args = array( 'post_type' => 'amenity', 'posts_per_page' => -1 );
-    $loop = new WP_Query( $args ); 
+    $loop = new WP_Query( $args );
     if ( $loop->have_posts() ) {
 
     $center_class = "col-sm-4";
-    
+
     if($loop->post_count == 1)
     {
         $center_class = "col-sm-12 text-center";
@@ -89,11 +86,11 @@ endwhile; // end of the loop. ?>
     {
         $center_class = "col-sm-6 text-center";
     }
-    
+
 ?>
 
-<div class="section section-box no-padding-top no-padding-bottom">
-    <div class="container">          
+<div class="section section-box bg-lightgrey">
+    <div class="container">
         <div class="row">
             <?php
             while ( $loop->have_posts() ) : $loop->the_post();
@@ -109,16 +106,17 @@ endwhile; // end of the loop. ?>
                         <?php } ?>
                     </div>
                     <div class="info-block">
-                        <h3 class="h3 color-dark"><?php the_title(); ?></h3>
-                        <p><?php the_content(); ?></p>
+                        <h5 class="h5 color-dark"><?php the_title(); ?></h5>
+                        <?php the_content(); ?>
                     </div>
                 </div>
-            </div>            
+            </div>
             <?php
             endwhile; wp_reset_postdata();
             ?>
-        </div>        
+        </div>
     </div>
 </div>
 <?php } ?>
+
 <?php get_footer(); ?>

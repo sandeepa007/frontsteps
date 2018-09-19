@@ -89,7 +89,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
 {
 ?>
 <!-- BOD SECTION -->
-<div class="section section-box section-team bg-lightgrey">
+<div class="section section-box section-team">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">

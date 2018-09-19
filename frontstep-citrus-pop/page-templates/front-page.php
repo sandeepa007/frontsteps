@@ -23,7 +23,7 @@ get_header();?>
     $ctabgimgclass = "";
     if($cta_bg_img != "")
     {
-    $ctabgimgclass = "cta_bg_img";
+        $ctabgimgclass = "cta_bg_img";
     }
 
     if($hero_overlay == 0)
@@ -175,8 +175,8 @@ get_header();?>
                     { 
                         for( $i=1; $i<=4 ; $i++)
                         { ?>
-                            <div class="image-block gallery-block">                            
-                                <img src="<?php echo get_template_directory_uri().'/img/gallery-'.$i.'.jpg'; ?>" alt="<?php echo "gallery-".$i; ?>" >                        
+                            <div class="image-block gallery-block">                    
+                                <img src="<?php echo get_stylesheet_directory_uri().'/img/gallery/gallery-'.$i.'.jpg'; ?>" alt="<?php echo "gallery-".$i; ?>" >                        
                             </div>
 
                         <?php 

@@ -450,3 +450,8 @@ footer .footer-menu ul li:last-child a:after {display: none;}
   text-decoration: none;
 }
 .pagination ul.page-numbers li a:hover {color: #fff; background: #39ADD1;border-color: #39ADD1;text-decoration: none;}
+#header .container .navigation-column .navbar-default .navbar-nav li.active a,
+#header .container .navigation-column .navbar-default .navbar-nav li:hover a
+{
+  color: #73CB8C!important;
+}

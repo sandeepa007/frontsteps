@@ -5,6 +5,17 @@ if( $selected_theme == "Blanco Breeze")
 	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#242626';$button_bkg_color =  '#ffffff';$button_hover_color =  '#242626';$button_hover_bkg_color =  '#ffffff';
 	$cta_text_color =  '#ffffff';$cta_bkg_color =  '#242626';$footer_text_color =  '#242626';$footer_bkg_color =  '#ffffff';$box_text_color =  '#242626';$box_bkg_color =  '#F9F9F9';
 }
+if( $selected_theme == "Summer Vibes")
+{
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#5F8ED5';$button_bkg_color =  '#5F8ED5';$button_hover_color =  '#5F8ED5';$button_hover_bkg_color =  '#5f96d5';
+	$cta_text_color =  '#ffffff';$cta_bkg_color = '#5F8ED5';$footer_text_color =  '#242626';$footer_bkg_color =  '#ffffff';$box_text_color =  '#242626';$box_bkg_color =  '#F9F9F9';
+}
+if( $selected_theme == "Citrus Pop")
+{
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#E14E3F';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#E14E3F';
+	$cta_text_color =  '#ffffff';$cta_bkg_color = '#E14E3F';$footer_text_color =  '#242626';$footer_bkg_color =  '#ffffff';$box_text_color =  '#242626';$box_bkg_color =  '#F9F9F9';
+	set_theme_mod('cta-bkg-img', get_stylesheet_directory_uri()."/img/cta.jpg");
+}
 
 	$herohome = get_stylesheet_directory_uri()."/img/home/home-hero.jpg";
 	$heroabout = get_stylesheet_directory_uri()."/img/about/hero-header.jpg";
@@ -95,7 +106,7 @@ if( $selected_theme == "Blanco Breeze")
 	$contact_subtitle =  '';
 	$contact_hero = $herorcontact;
 	$contact_address = '1234 Any Street, Denver, CO 80202';
-	$contact_phone = '333_333_3333';
+	$contact_phone = '333-333-3333';
 	$contact_map = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.12936626512!2d_104.99519803822619!3d39.764518674878275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C+CO%2C+USA!5e0!3m2!1sen!2sin!4v1535462660990';
 
 	// Services settings

@@ -47,7 +47,7 @@ while ( have_posts() ) : the_post();
 endwhile; // end of the loop. ?>
 
 
-<?php if( get_theme_mod( 'amenities-section1-title' ) != '' && get_theme_mod( 'amenities-section1-subtitle') != '')
+<?php if( get_theme_mod( 'amenities-section1-title' ) != '' || get_theme_mod( 'amenities-section1-subtitle') != '')
 { ?>
 <!-- INTRO SECTION -->
 <div class="section section-intro">

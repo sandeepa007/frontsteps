@@ -41,7 +41,7 @@ if( get_theme_mod( 'resources-hero' ) )
     </div>
     <div class="row">
       <?php
-        $full_class = "col-sm-12";
+        $full_class = "col-sm-12 text-center";
         
         if(get_theme_mod( 'resources-leftcontent')!="" && get_theme_mod( 'resources-rightcontent')!="")
         {

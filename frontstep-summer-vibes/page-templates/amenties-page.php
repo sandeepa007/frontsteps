@@ -44,7 +44,7 @@ if( get_theme_mod( 'amenities-hero' ) )
 
         <div class="row">
            <?php
-            $full_class = "col-sm-12";
+            $full_class = "col-sm-12 text-center";
             
             if(get_theme_mod( 'amenities-section1-subtitle')!="" && get_theme_mod( 'amenities-rightcontent')!="")
             {

@@ -187,10 +187,11 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                 'selectors' => array(
                     '.button-primary:hover',
                     '#header .container .right-column ul li.login a:hover',
-                    '.section-contact .container .gform_wrapper input[type="submit"]:hover'
+                    '.section-contact .container .gform_wrapper input[type="submit"]:hover',
+                    //'.section-resources:nth-child(odd)'
                 ),
                 'declarations' => array(
-                    'background' => $color
+                    'background' => $color."!important;"
                 )
             ));
         }
@@ -208,9 +209,11 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                     '.section-home-cta',
                     '.section-cta',
                     '.modal-team .modal-dialog .modal-body',
+                    '.page-template-aboutus-page .billboard-section h3.color-dark',
+                    '.page-template-aboutus-page .billboard-section p'
                 ),
                 'declarations' => array(
-                    'color' => $color
+                    'color' => $color."!important;"
                 )
             ));
            
@@ -229,6 +232,7 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                     '.section-home-cta',
                     '.section-cta',
                     '.modal-team .modal-dialog .modal-content',
+                    '.page-template-aboutus-page .billboard-section'
                 ),
                 'declarations' => array(
                     'background' => $color
@@ -295,7 +299,7 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
             Customizer_Library_Styles()->add(array(
                 'selectors' => array(
                     '.section-image-text',
-                    '.section-resources:nth-child(odd)'
+                    //'.section-resources:nth-child(odd)'
                 ),
                 'declarations' => array(
                     'color' => $color
@@ -316,11 +320,20 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                 'selectors' => array(
                     '.section-image-text',
                     '.bg-lightgrey',
-                    '.section-resources:nth-child(odd)',
-                    '.section-accredidations'
+                    /*'.section-resources:nth-child(odd)',*/
+                    /*'.section-accredidations'*/
                 ),
                 'declarations' => array(
                     'background' => $color
+                )
+            ));
+
+           Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '.section-resources:nth-child(odd)',
+                ),
+                'declarations' => array(
+                    'background' => '#F7F9FC'
                 )
             ));
         }

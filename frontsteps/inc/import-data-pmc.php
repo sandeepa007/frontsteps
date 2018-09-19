@@ -112,7 +112,7 @@ if( $selected_theme == "Desert Sky")
 	$contact_subtitle =  'What Makes Us Unique.';
 	$contact_hero = $herorcontact;
 	$contact_address = '1234 Any Street, Denver, CO 80202';
-	$contact_phone = '333_333_3333';
+	$contact_phone = '333-333-3333';
 	$contact_map = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.12936626512!2d_104.99519803822619!3d39.764518674878275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C+CO%2C+USA!5e0!3m2!1sen!2sin!4v1535462660990';
 
 	// Services settings

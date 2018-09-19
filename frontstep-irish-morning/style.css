@@ -29,3 +29,21 @@ a.nav-link{
 #gallery .rsGCaption {
     display: none;
 }
+#abt-us-content,.cta_bg_img .col-sm-offset-3
+{
+	background: transparent!important;
+}
+.section-home-cta .button-primary
+{
+	background:#ffffff!important;
+	color: #5DBC7A!important;
+}
+#header .container .navigation-column .navbar-default .navbar-nav li.active a,
+#header .container .navigation-column .navbar-default .navbar-nav li:hover a
+{
+	color: #5DBC7A;
+}
+.section-resources:nth-child(odd)
+{
+	color: #3B473E!important;
+}

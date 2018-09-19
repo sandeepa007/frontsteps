@@ -1507,3 +1507,27 @@ footer {
 .section-intro .container .title-block {
     margin-left: 0px!important;
 }
+#right-main li:first-child a
+{
+  border: 1px solid #242626!important;
+  background: #ffffff!important;  
+}
+#right-main li:first-child a:hover
+{
+  color: #ffffff!important;
+  background: #242626!important; 
+}
+#right-main li.login a
+{
+  color: #ffffff!important;
+  background: #242626!important;
+}
+#right-main li.login a:hover,
+.button-black:hover
+{
+  border: 1px solid #242626!important;
+  background: #ffffff!important; 
+}
+.button-primary{
+  border-radius: 50px;
+}
