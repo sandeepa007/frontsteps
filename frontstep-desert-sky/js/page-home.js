@@ -34,11 +34,29 @@ jQuery(document).ready(function () {
      }
    });
 
-function counter(event) {
-   var element   = event.target;         // DOM element, in this example .owl-carousel
-    var items     = event.item.count;     // Number of items
-    var item      = event.item.index + 1;     // Position of the current item
-  $('#owl-counter').html(item+" / "+items)
+function counter(e) {
+   //var element   = event.target;         // DOM element, in this example .owl-carousel
+    var count = e.item.count;
+    
+    // When carousel is infinite,
+    // there's a certain offset to the first item.
+    // We'll try to remove it to do our calculations.
+    var offset = Math.floor((count + 1) / 2);
+    //alert(offset);
+    // This posittion index includes some offset.
+    var index = e.item.index+1;
+    //alert(index);
+    if (index > 0) {
+      index -= offset;
+    }
+    // If the index is still bigger than the number of items
+    // (or equal, since it starts at 0),
+    // It must be the first element, so let's remove that offset, too.
+    if (index > count) {
+      index -= count;
+    }
+    
+   $('#owl-counter').html(index+" / "+count)
 }
 
 });

@@ -46,29 +46,67 @@ while ( have_posts() ) : the_post();
 <?php  }
 endwhile; // end of the loop. ?>
 
-
-<?php if( get_theme_mod( 'amenities-section1-title' ) != '' || get_theme_mod( 'amenities-section1-subtitle') != '')
-{ ?>
-<!-- INTRO SECTION -->
 <div class="section section-intro">
+  <div class="bg-image fill" style=""></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="title-block text-center">
+          <h2 class="h2 color-dark"><?php echo get_theme_mod( 'amenities-section1-title' ); ?></h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <?php
+        $full_class = "col-sm-12 text-center";
+        
+        if(get_theme_mod( 'amenities-section1-subtitle')!="" && get_theme_mod( 'amenities-rightcontent')!="")
+        {
+          $full_class = "col-sm-6";
+        }
+      ?>
+      <?php  if(get_theme_mod( 'amenities-section1-subtitle')!="")
+      { ?>
+        <div class="col-xs-12 <?php echo $full_class;?>">
+            <div class="text-block">
+              <p><?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p>
+            </div>
+        </div>
+    <?php } ?>
+      <?php  if(get_theme_mod( 'amenities-rightcontent')!="")
+      { ?>
+      <div class="col-xs-12 <?php echo $full_class;?>">
+          <div class="text-block">
+              <p><?php echo get_theme_mod( 'amenities-rightcontent' ); ?></p>
+          </div>
+      </div>
+      <?php } ?>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- INTRO SECTION -->
+<!-- <div class="section section-intro">
     <div class="bg-image fill" style=""></div>
 
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div class="title-block">
-                    <h5><?php echo get_theme_mod( 'amenities-section1-title' ); ?></h5>
+                    <h5>< ?php echo get_theme_mod( 'amenities-section1-title' ); ?></h5>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <div class="content-block">
-                    <div><p><?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p></div>
+                    <div><p>< ?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<?php } ?>
+</div> -->
+
 
 <?php
     $args = array( 'post_type' => 'amenity', 'posts_per_page' => -1 );
