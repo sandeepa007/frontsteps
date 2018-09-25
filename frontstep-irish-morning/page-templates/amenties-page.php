@@ -55,16 +55,27 @@ endwhile; // end of the loop. ?>
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <div class="title-block">
+			<?php 
+			if( get_theme_mod( 'amenities-section1-subtitle') != '' ) : 
+				$divclass = "col-sm-6";
+				$style = "";
+			else :
+				$divclass = "col-sm-12";
+				$style = "style=\"max-width:100%;text-align:center;\"";
+			endif;
+			?>
+			<div class="col-xs-12 <?php echo $divclass; ?>">
+                <div class="title-block" <?php echo $style; ?>>
                     <h5><?php echo get_theme_mod( 'amenities-section1-title' ); ?></h5>
                 </div>
             </div>
+			<?php if( get_theme_mod( 'amenities-section1-subtitle') != '' ) : ?>
             <div class="col-xs-12 col-sm-6">
                 <div class="content-block">
                     <div><p><?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p></div>
                 </div>
             </div>
+			<?php endif; ?>
         </div>
     </div>
 </div>
