@@ -84,11 +84,15 @@ require get_template_directory() . '/inc/frontsteps-gallery/index.php';
  */
 require get_template_directory() . '/inc/post-types-order/post-types-order.php';
 
-/**
- * Load Csv Importer.
- */
-require get_template_directory() . '/inc/wp-csv-importer.php';
 
+$my_theme = wp_get_theme();
+if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
+  {
+  /**
+   * Load Csv Importer.
+   */
+    require get_template_directory() . '/inc/wp-csv-importer.php';
+  }
 /**
  * Load custom WordPress nav walker.
  */
