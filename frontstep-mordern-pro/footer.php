@@ -119,13 +119,75 @@ if($cta_bg_img != "")
       </div>
    </div>
 </footer>
+<!-- Community Serach Modal -->
+   <div class="modal modal-team fade" id="community-search-modal">
+       <div class="modal-dialog" role="document">
+           <div class="modal-content">
+               <a class="modal-close" href="" data-dismiss="modal">
+                   <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
+               </a>
+               <div class="modal-body text-center">
+                   
 
+                   <form role="search" method="get" class="CommSrchForm"  action="<?php echo home_url( '/' ); ?>">
+                     <p><i class="fa fa-search" aria-hidden="true"></i></p>
+                     <p><input type="text" class="community_list" placeholder="Search Community" name="s" value="<?php echo get_search_query() ?>" ></p>
+                     <input type="hidden" name="post_type" value="community" />
+                     <p><input class="button button-primary" type="submit" value="Search"></p>
+                   </form>
+               </div>
+            </div>
+       </div>
+   </div>
+<!-- Modal -->
+<?php
+   $args = array( 'post_type' => 'community', 'posts_per_page' => -1 );
+   $loop = new WP_Query( $args );
+   $availableTags = "";
+   while ( $loop->have_posts() ) : $loop->the_post();
 
-
-
-
+      $meta = get_post_meta(get_the_id(), 'community', true );
+      $linkurl = $meta['url'] ? $meta['url'] : "#";
+      $openin = "_self";
+      if(isset($meta['openin']) && $meta['openin']==1){
+          $openin = "_blank";
+      }
+      
+      /*{ value: "www.foo.com",
+      label: "Spencer Kline"
+      },*/
+      //$title_link = '<a href="'.$linkurl.'">get_the_title()</a>';
+      
+      $availableTags .= '{ link:"'.$linkurl.'",
+                           label:"'.get_the_title().'"},';
+      
+   endwhile; wp_reset_postdata();
+ ?>        
 </div>
 <!-- Main Container -->
+
+<script>
+$(document).ready(function(){
+    
+    var availableTags = [<?php echo $availableTags;?>];
+   $(".community_list").autocomplete({
+         source: availableTags,
+         select: function( event, ui ) { 
+            window.open(ui.item.link,'_blank');
+            //window.location.href 
+        }
+   });
+   
+   $(".community_list").autocomplete( "option", "appendTo", ".CommSrchForm" );
+   
+   $(".search_communities a").click(function(){
+        $("#community-search-modal").modal();
+    });
+});
+</script>
+
+<link rel='stylesheet' href='<?php echo get_template_directory_uri(); ?>/css/jquery-ui.css' type='text/css' media='all' />
+<script src='<?php echo get_template_directory_uri(); ?>/js/jquery-ui.js'></script>
 <script src='<?php echo get_stylesheet_directory_uri(); ?>/js/owl-slider.js'></script>
 <?php if (is_front_page()) :?>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/page-home.js"></script>    
@@ -134,4 +196,3 @@ if($cta_bg_img != "")
 </body>
 
 </html>
-

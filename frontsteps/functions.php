@@ -85,6 +85,11 @@ require get_template_directory() . '/inc/frontsteps-gallery/index.php';
 require get_template_directory() . '/inc/post-types-order/post-types-order.php';
 
 /**
+ * Load Csv Importer.
+ */
+require get_template_directory() . '/inc/wp-csv-importer.php';
+
+/**
  * Load custom WordPress nav walker.
  */
 require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
@@ -135,4 +140,18 @@ function add_blog_to_pagination( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'add_blog_to_pagination' );
+
+
+/*function search_filter($query) {
+
+  if ( !is_admin() && $query->is_main_query() ) {
+    if ($query->is_search) {
+      //echo $_GET['s'];exit;
+      $query->set('post_type', array( 'post', 'movie' ) );
+    }
+  }
+}
+
+add_action('pre_get_posts','search_filter');*/
+
 ?>

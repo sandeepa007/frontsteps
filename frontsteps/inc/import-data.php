@@ -212,65 +212,82 @@
         'menu-item-title' =>  __('Home'),
         'menu-item-url' => home_url( '/' ), 
         'menu-item-status' => 'publish'));*/
-
     wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-title' =>  __('About'),
-        'menu-item-classes' => '',
-        'menu-item-url' => home_url( '/about/' ), 
-        'menu-item-status' => 'publish'));
+        'menu-item-object-id' => $aboutID,
+	    'menu-item-object' => 'page',
+	    'menu-item-status' => 'publish',
+	    'menu-item-type' => 'post_type'
+		));
 
     wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-title' =>  __('Resources'),
-        'menu-item-classes' => '',
-        'menu-item-url' => home_url( '/resources/' ), 
-        'menu-item-status' => 'publish'));
+        'menu-item-object-id' => $resourcesID,
+	    'menu-item-object' => 'page',
+	    'menu-item-status' => 'publish',
+	    'menu-item-type' => 'post_type'
+    	));
 
     if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
 	{
 		wp_update_nav_menu_item($menu_id, 0, array(
 	        'menu-item-title' =>  __('Services'),
-	        'menu-item-classes' => '',
-	        'menu-item-url' => home_url( '/services/' ), 
-	        'menu-item-status' => 'publish'));
+	        'menu-item-object-id' => $servicesID,
+		    'menu-item-object' => 'page',
+		    'menu-item-status' => 'publish',
+		    'menu-item-type' => 'post_type'));
 
-		wp_update_nav_menu_item($menu_id, 0, array(
+		/*wp_update_nav_menu_item($menu_id, 0, array(
 	        'menu-item-title' =>  __('Our Communities'),
 	        'menu-item-classes' => '',
 	        'menu-item-url' => home_url( '/communities/' ), 
+	        'menu-item-status' => 'publish'));*/
+
+		wp_update_nav_menu_item($menu_id, 0, array(
+	        'menu-item-title' =>  __('Find Communities'),
+	        'menu-item-classes' => 'search_communities',
+	        'menu-item-url' => 'javascript:void(0)', 
 	        'menu-item-status' => 'publish'));
+
+
 
 		wp_update_nav_menu_item($menu_id, 0, array(
 	        'menu-item-title' =>  __('Blog'),
-	        'menu-item-classes' => '',
-	        'menu-item-url' => home_url( '/blog/' ), 
-	        'menu-item-status' => 'publish'));
+	        'menu-item-object-id' => $blogID,
+		    'menu-item-object' => 'page',
+		    'menu-item-status' => 'publish',
+		    'menu-item-type' => 'post_type'));
 
 		wp_update_nav_menu_item($menu_id, 0, array(
 	        'menu-item-title' =>  __('Request Proposal'),
-	        'menu-item-classes' => '',
-	        'menu-item-url' => home_url( '/request-p	roposal/' ), 
-	        'menu-item-status' => 'publish'));
+	        'menu-item-object-id' => $reqprpID,
+		    'menu-item-object' => 'page',
+		    'menu-item-status' => 'publish',
+		    'menu-item-type' => 'post_type'));
 	}
     else
     {
 	    wp_update_nav_menu_item($menu_id, 0, array(
 	        'menu-item-title' =>  __('Amenities'),
-	        'menu-item-classes' => '',
-	        'menu-item-url' => home_url( '/amenities/' ), 
-	        'menu-item-status' => 'publish'));
+	        'menu-item-object-id' => $amentyID,
+		    'menu-item-object' => 'page',
+		    'menu-item-status' => 'publish',
+		    'menu-item-type' => 'post_type'));
 
 	    wp_update_nav_menu_item($menu_id, 0, array(
 	        'menu-item-title' =>  __('Gallery'),
-	        'menu-item-classes' => 'forums',
-	        'menu-item-url' => home_url( '/gallery/' ), 
-	        'menu-item-status' => 'publish'));
+	        'menu-item-object-id' => $galleryID,
+		    'menu-item-object' => 'page',
+		    'menu-item-status' => 'publish',
+		    'menu-item-type' => 'post_type'));
 	}    
 
     wp_update_nav_menu_item($menu_id, 0, array(
-        'menu-item-title' =>  __('Contact'),
-        'menu-item-classes' => '',
-        'menu-item-url' => home_url( '/contact/' ), 
-        'menu-item-status' => 'publish'));
+	        'menu-item-title' =>  __('Contact'),
+	        'menu-item-object-id' => $contactID,
+		    'menu-item-object' => 'page',
+		    'menu-item-status' => 'publish',
+		    'menu-item-type' => 'post_type'));
 
 	    // Grab the theme locations and assign our newly-created menu
 	    if( !has_nav_menu( $primrymenulocation ) ){

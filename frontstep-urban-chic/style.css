@@ -456,3 +456,7 @@ footer .footer-menu ul li:last-child a:after {display: none;}
   text-decoration: none;
 }
 .pagination ul.page-numbers li a:hover {color: #fff; background: #39ADD1;border-color: #39ADD1;text-decoration: none;}
+
+h3.not_found_heading,.not_found_cotent p{
+    color: #4C4C4C!important;
+}

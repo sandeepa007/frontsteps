@@ -653,3 +653,40 @@ h3.not_found_heading
 {
   text-align: center;
 }
+/* Community Search css*/
+#community-search-modal .fa.fa-search
+{
+  font-size: 45px;
+}
+#community-search-modal input[type="text"] {
+    width: 100%;
+    padding: 6px 15px;
+}
+.ui-autocomplete {
+    z-index: 999999999999!important;
+}
+ul.ui-autocomplete li a:hover
+{
+  color: #3CABD0!important;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
+{
+  border: none!important;
+  background: #F1F1F1!important;
+}
+.search-content h3
+{
+  font-size: 5em;
+}
+/*#community-search-modal .modal-dialog .modal-close img
+{
+    background: #000000;
+    padding: 30px;
+    top: 0px;
+    right: 0px;
+}*/
+/*#community-search-modal .modal-dialog .modal-close img
+{
+  height: 34px!important;
+  width: 34px!important;
+}*/

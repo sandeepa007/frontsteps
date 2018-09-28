@@ -387,6 +387,8 @@ function frontsteps_create_menu() {
 	add_menu_page( ( 'Frontsteps sites Settings' ), ( 'Frontsteps' ), 'administrator', $parentSlug, '', get_template_directory_uri().'/img/fs-icon.png');
 	
 	add_submenu_page( $parentSlug, 'Install Demo Data','Install Demo Data','administrator','site_settings_sync',function(){ require get_template_directory().'/inc/setup-sync.php';} );
+
+	//add_submenu_page( $parentSlug, 'Import Communities','Import Communities','administrator','site_import_communities',function(){ require get_template_directory().'/inc/import-communities.php';} );
 	
 }
 add_action('admin_menu', 'frontsteps_create_menu');

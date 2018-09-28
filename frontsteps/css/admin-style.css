@@ -16,3 +16,14 @@
 {
 	width: 100%;
 }
+
+.importer-form,
+.importer-help 
+{
+	width: 48%;
+	float: left;
+}
+.importer-help img
+{
+	width: 100%;
+}
