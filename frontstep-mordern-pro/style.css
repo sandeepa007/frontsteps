@@ -455,3 +455,7 @@ footer .footer-menu ul li:last-child a:after {display: none;}
 {
   color: #73CB8C!important;
 }
+#community-search-modal .button-primary:hover
+{
+  background: #343434!important;
+}

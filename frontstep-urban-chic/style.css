@@ -460,3 +460,7 @@ footer .footer-menu ul li:last-child a:after {display: none;}
 h3.not_found_heading,.not_found_cotent p{
     color: #4C4C4C!important;
 }
+#community-search-modal input[type="text"]
+{
+  color:#343434!important;
+}

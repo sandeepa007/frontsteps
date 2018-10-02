@@ -66,13 +66,13 @@ class WpCsvImporter {
 	<div class="wrap importer-form">
 	    <h1>Import Community</h1><hr />
 		<p>
-			<a href="<?php echo get_template_directory_uri(); ?>/sample/sample.csv" target="_blank">Download Sample File </a>
+			<a href="<?php echo get_template_directory_uri(); ?>/sample/community-list.zip" target="_blank">Download Sample Zip </a>
 		</p>
 	    <form class="add:the-list: validate" method="post" enctype="multipart/form-data">
 			<div class="wpimporter-setting">
 				<!-- General Setting -->	
 				<div class="first wpimporter-tab" id="div-wpimporter-general">
-					<h2>Upload CSV</h2>
+					<h2>Upload zip which contain images and csv</h2>
 				   <?php wp_nonce_field( 've_import_csv_action', 've_csv_nonce_field' ); ?>
 				<p><label for="csv_import">Upload file:</label>
 		        	<input name="csv_import" id="csv_import" type="file" value="" aria-required="true" /></p>
@@ -89,9 +89,6 @@ class WpCsvImporter {
 				<img src="<?php echo get_template_directory_uri(); ?>/sample/csv-help-1.png">
 			</a>
 		</p>
-		<!-- <a href="< ?php echo get_template_directory_uri(); ?>/sample/csv-help-2.png" target="_blank">
-			<img src="< ?php echo get_template_directory_uri(); ?>/sample/csv-help-2.png">
-		</a> -->
 	</div>
 	<!-- end wrap -->
 	<!-- General Setting -->	
@@ -160,7 +157,25 @@ function print_messages() {
      * @return void
      */
     function post($options) {
-       
+    	/*WP_Filesystem();
+		$destination = wp_upload_dir();
+		print_r($destination);
+		exit;
+		$destination_path = $destination['path'];
+		$unzipfile = unzip_file( $destination_path.'/filename.zip', $destination_path);
+   
+	   if ( is_wp_error( $unzipfile ) ) {
+	         echo 'There was an error unzipping the file.'; 
+	   } else {
+	      echo 'Successfully unzipped the file!';       
+	   }*/
+       $destination = wp_upload_dir();
+	   if ( ! isset( $_POST['ve_csv_nonce_field'] ) || ! wp_verify_nonce( $_POST['ve_csv_nonce_field'], 've_import_csv_action' ) ) {
+				 $this->log['error'][] = 'Invalid attempt';
+                 $this->print_messages();
+				return;
+			}
+
         if ( ! isset( $_POST['ve_csv_nonce_field'] ) || ! wp_verify_nonce( $_POST['ve_csv_nonce_field'], 've_import_csv_action' ) ) {
 				 $this->log['error'][] = 'Invalid attempt';
                  $this->print_messages();
@@ -192,22 +207,44 @@ function print_messages() {
             return;
         }
         
-        $csv_file = $_FILES['csv_import']['tmp_name']; 
+        $filename = $_FILES["csv_import"]["name"];
+		$source = $_FILES["csv_import"]["tmp_name"];
+		$type = $_FILES["csv_import"]["type"];
+
+	    $target_path = $destination['path'].'/'.$filename;  // change this to the correct site path
+	    //echo $target_path;exit;
+	if(move_uploaded_file($source, $target_path)) {
+		$zip = new ZipArchive();
+		$x = $zip->open($target_path);
+		if ($x === true) {
+			$zip->extractTo($destination['path']); // change this to the correct site path
+			$zip->close();
+			unlink($target_path);
+		}
+	} else {
+		$this->log['error'][] = 'There was a problem with the upload. Please try again.';
+	    $this->print_messages();
+	    return;
+	}
+
+
+        //$csv_file = $_FILES['csv_import']['tmp_name']; 
+		$csv_file = $destination['path'].'/community-list/import.csv'; 
 		//echo $csv_file = sanitize_file_name($csv_file); 
 		$filename = sanitize_file_name($_FILES['csv_import']['name']); 
 		$type = strtolower(substr($filename,-3));
 		//$type = sanitize_file_name($type); 
-        if ($type!='csv') {
+        if ($type!='zip') {
             $this->log['error'][] = 'File format is wrong.';
             $this->print_messages();
             return;
         }
         
-     if (! is_file( $csv_file )) {
-            $this->log['error'][] = 'Failed to load file';
-            $this->print_messages();
-            return;
-        }
+	    if (! is_file( $csv_file )) {
+	            $this->log['error'][] = 'Failed to load CSV file. Re-check for filename in, zip it must be set as import.csv inside folder /community-list';
+	            $this->print_messages();
+	            return;
+	        }
 
 $pageType=$_POST['page_type'];
 /** 
@@ -225,7 +262,8 @@ $fldAry=array("custom_id",
 			  'meta_title',
 			  'meta_desc',
 			  'meta_key',
-			  'meta_link'
+			  'meta_link',
+			  'featured_image'
 			  );
 	$arry=$this->csvIndexArray($csv_file, ",", $fldAry, 0);
 	$skipped = 0;
@@ -283,8 +321,9 @@ $fldAry=array("custom_id",
 						'post_author'  => $user_id,
 					);
 			// Insert the post into the database
-				//echo "<pre>"; print_r($new_post); //exit;
+			//echo "<pre>"; print_r($new_post); //exit;
 			$existpost_id = wp_insert_post($new_post);
+			$this->Generate_Featured_Image($destination['path'].'/community-list/'.$data['featured_image'],$existpost_id);
 			$url_array = array('url' => $data['meta_link'],
 						'openin' => 'openin');
 			update_post_meta($existpost_id,"community",$url_array);
@@ -303,11 +342,9 @@ $fldAry=array("custom_id",
 				wp_update_post($update_post);
 				$url_array = array('url' => $data['meta_link'],
 						'openin' => 'openin');
-			update_post_meta($existpost_id,"community",$url_array);
+				update_post_meta($existpost_id,"community",$url_array);
 				$checkpoststatus='1';
 			}
-			
-			
 			
 			/* Start custom meta fields */
 			
@@ -391,7 +428,11 @@ $fldAry=array("custom_id",
         if (file_exists($csv_file)) {
             @unlink($csv_file);
         }
+        if (is_dir($destination['path'].'/community-list/')) {
+            $this->deleteDirectory($destination['path'].'/community-list/');
+        }
 
+        
         $exec_time = microtime(true) - $time_start;
 
         if ($skipped) {
@@ -453,6 +494,63 @@ function csvIndexArray($filePath='', $delimiter='|', $header = null, $skipLines 
         }
         return $dataList;
     }
+
+public function Generate_Featured_Image( $image_url, $post_id  ){
+    $upload_dir = wp_upload_dir();
+    $this->log = array();
+    if (file_exists($image_url))
+    {
+    	$image_data = file_get_contents($image_url);
+    	$filename = basename($image_url);
+	    if(wp_mkdir_p($upload_dir['path']))     $file = $upload_dir['path'] . '/' . $filename;
+	    else                                    $file = $upload_dir['basedir'] . '/' . $filename;
+    	file_put_contents($file, $image_data);
+
+	    $wp_filetype = wp_check_filetype($filename, null );
+	    $attachment = array(
+	        'post_mime_type' => $wp_filetype['type'],
+	        'post_title' => sanitize_file_name($filename),
+	        'post_content' => '',
+	        'post_status' => 'inherit'
+	    );
+
+	    $attach_id = wp_insert_attachment( $attachment, $file, $post_id );
+	    require_once(ABSPATH . 'wp-admin/includes/image.php');
+	    $attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+	    $res1= wp_update_attachment_metadata( $attach_id, $attach_data );
+	    $res2= set_post_thumbnail( $post_id, $attach_id );
+	}
+	else
+	{
+		$this->log['error'][] = '#'.$post_id.' Featured image not assign to post. Image listed in CSV not found';
+        $this->print_messages();
+        return;
+	}
+}
+
+public function deleteDirectory($dir) {
+    if (!file_exists($dir)) {
+        return true;
+    }
+
+    if (!is_dir($dir)) {
+        return unlink($dir);
+    }
+
+    foreach (scandir($dir) as $item) {
+        if ($item == '.' || $item == '..') {
+            continue;
+        }
+
+        if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+            return false;
+        }
+
+    }
+
+    return rmdir($dir);
+}
+
 }
 
 
@@ -491,3 +589,26 @@ function init_wp_csv_importer_admin_scripts()
 	</script>'  ;
 }
 endif;
+
+function deleteDirectory($dir) {
+    if (!file_exists($dir)) {
+        return true;
+    }
+
+    if (!is_dir($dir)) {
+        return unlink($dir);
+    }
+
+    foreach (scandir($dir) as $item) {
+        if ($item == '.' || $item == '..') {
+            continue;
+        }
+
+        if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+            return false;
+        }
+
+    }
+
+    return rmdir($dir);
+}

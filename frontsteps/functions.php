@@ -145,6 +145,13 @@ function add_blog_to_pagination( $query ) {
 }
 add_action( 'pre_get_posts', 'add_blog_to_pagination' );
 
+add_filter('upload_mimes', 'custom_upload_mimes');
+function custom_upload_mimes ( $existing_mimes=array() ) {
+    // add your extension to the mimes array as below
+    $existing_mimes['zip'] = 'application/zip';
+    $existing_mimes['gz'] = 'application/x-gzip';
+    return $existing_mimes;
+}
 
 /*function search_filter($query) {
 
