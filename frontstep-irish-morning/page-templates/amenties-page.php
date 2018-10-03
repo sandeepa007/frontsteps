@@ -47,7 +47,7 @@ while ( have_posts() ) : the_post();
 endwhile; // end of the loop. ?>
 
 
-<?php if( get_theme_mod( 'amenities-section1-title' ) != ''|| get_theme_mod( 'amenities-section1-subtitle') != '')
+<?php if( get_theme_mod( 'amenities-section1-title' ) != '' && get_theme_mod( 'amenities-section1-subtitle') != '')
 { ?>
 <!-- INTRO SECTION -->
 <div class="section section-intro">
@@ -64,7 +64,7 @@ endwhile; // end of the loop. ?>
 				$style = "style=\"max-width:100%;text-align:center;\"";
 			endif;
 			?>
-			<div class="col-xs-12 <?php echo $divclass; ?>">
+            <div class="col-xs-12 <?php echo $divclass; ?>">
                 <div class="title-block" <?php echo $style; ?>>
                     <h5><?php echo get_theme_mod( 'amenities-section1-title' ); ?></h5>
                 </div>
@@ -104,6 +104,7 @@ endwhile; // end of the loop. ?>
     <div class="container">
         <div class="row">
             <?php
+            $count = 1;
             while ( $loop->have_posts() ) : $loop->the_post();
             ?>
             <div class="col-xs-12 <?php echo $center_class?>">
@@ -122,8 +123,13 @@ endwhile; // end of the loop. ?>
                     </div>
                 </div>
             </div>
+            <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+            <?php } ?>
             <?php
-            endwhile; wp_reset_postdata();
+            $count++; 
+            endwhile; 
+            wp_reset_postdata();
             ?>
         </div>
     </div>

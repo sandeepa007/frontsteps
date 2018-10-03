@@ -30,10 +30,9 @@ if( get_theme_mod( 'about-hero' ) )
     </div>
 </div>
 <!-- HERO SECTION -->
-
+<?php if(get_theme_mod( 'about-section1-title' )!=""){ ?>
 <div class="section section-intro">
    <div class="container-fluid">
-      <?php if(get_theme_mod( 'about-section1-title' )!=""){ ?>
       <div class="row">
          <div class="col-xs-12 col-sm-10 col-sm-offset-1">
             <div class="intro-block text-center">
@@ -42,25 +41,9 @@ if( get_theme_mod( 'about-hero' ) )
             </div>
          </div>
       </div>
-      <?php }?>
    </div>
 </div>
-<?php
-// If content is there on page fetched this content
-while ( have_posts() ) : the_post();
-    if ( !empty( get_the_content() ) ) { ?>
-        <div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <?php echo the_content(); ?>
-                    </div>
-                </div>
-            </div>
-        </div>        
-<?php  } 
-endwhile;
-wp_reset_query();  // end of the loop. ?>
+<?php }?>
 <?php 
 
 $show_bod = get_theme_mod( 'show-team-section-bod' );
@@ -97,7 +80,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
             $loop = new WP_Query( $args );
             
             //echo $loop->request;exit;
-
+            $count = 1;
             while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
             <div class="col-xs-12 col-sm-4">
@@ -122,7 +105,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <a class="modal-close" href="" data-dismiss="modal">
-                            <img src="<?php bloginfo('template_directory'); ?>/images/close-icon.png" class="img-responsive">
+                            <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
                         </a>
 
                         <div class="modal-body text-center">
@@ -136,8 +119,11 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                     </div>
                 </div>
             </div>
+             <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+            <?php } ?>
             <!-- Modal -->
-<?php endwhile; wp_reset_postdata();?>
+<?php $count++; endwhile; wp_reset_postdata();?>
 
         </div>        
     </div>
@@ -175,6 +161,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                             ),
                             'posts_per_page' => -1 );
             $loop = new WP_Query( $args );
+            $count = 1;
             while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
             <div class="col-xs-12 col-sm-4">
@@ -199,7 +186,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <a class="modal-close" href="" data-dismiss="modal">
-                            <img src="<?php bloginfo('template_directory'); ?>/images/close-icon.png" class="img-responsive">
+                            <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
                         </a>
 
                         <div class="modal-body text-center">
@@ -214,7 +201,10 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                 </div>
             </div>
             <!-- Modal -->
-<?php endwhile; wp_reset_postdata();?>
+            <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+            <?php } ?>
+<?php $count++; endwhile; wp_reset_postdata();?>
 
         </div>        
     </div>

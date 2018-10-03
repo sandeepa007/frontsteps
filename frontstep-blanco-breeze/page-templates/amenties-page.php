@@ -131,6 +131,7 @@ endwhile; // end of the loop. ?>
     <div class="container">
         <div class="row">
             <?php
+            $count = 1;
             while ( $loop->have_posts() ) : $loop->the_post();
             ?>
             <div class="col-xs-12 <?php echo $center_class?>">
@@ -149,7 +150,10 @@ endwhile; // end of the loop. ?>
                     </div>
                 </div>
             </div>
-            <?php
+            <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+            <?php }
+             $count++;
             endwhile; wp_reset_postdata();
             ?>
         </div>

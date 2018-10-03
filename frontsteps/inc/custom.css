@@ -678,6 +678,10 @@ ul.ui-autocomplete li a:hover
 {
   font-size: 5em;
 }
+.ginput_container label
+{
+  display: none!important;
+}
 /*#community-search-modal .modal-dialog .modal-close img
 {
     background: #000000;

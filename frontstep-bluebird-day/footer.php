@@ -136,9 +136,9 @@ if($cta_bg_img != "")
 
 			<div class="col-12 text-center wow fadeInUp">
 				<ul class="footer-menu margin-0px padding-0px list-unstyled">
-					<li><a href="#" class="text-grey-3">Privacy Policy</a></li>
+					<li><a href="https://www.frontsteps.com/privacy-policy" class="text-grey-3" target="_blank">Privacy Policy</a></li>
 					<li>|</li>
-					<li><a href="#" class="text-grey-3">Terms</a></li>
+					<li><a href="https://www.frontsteps.com/terms-of-service" target="_blank" class="text-grey-3">Terms</a></li>
 				</ul>
 			</div>
 
@@ -147,7 +147,7 @@ if($cta_bg_img != "")
 		<div class="row padding-top-30px wow fadeInUp">
 			<div class="col-12 text-xs-center text-right">
 				<span class="text-sm-center text-lg-right text-grey-3 d-block padding-top-5px">
-          Powered by <a href="#" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a>
+          Powered by <a href="https://www.frontsteps.com/" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a>
         </span>
 			</div>
 		</div>

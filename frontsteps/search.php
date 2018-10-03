@@ -29,7 +29,9 @@ if( get_theme_mod( 'community-hero' ) )
     <div class="container-fluid">          
         <div class="row">
             <?php if ( have_posts() ) : ?>
-            <?php while ( have_posts() ) : the_post();
+            <?php 
+            $count = 1;
+            while ( have_posts() ) : the_post();
 			$meta = get_post_meta(get_the_id(), 'community', true );
 	            if(!empty($meta))
 	            {
@@ -59,9 +61,12 @@ if( get_theme_mod( 'community-hero' ) )
                         </div>
                     </div>
                 </div>
-            </a>                   
+            </a>
+            <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+            <?php } ?>                
             <?php
-            endwhile; wp_reset_postdata();
+            $count++; endwhile; wp_reset_postdata();
             else : ?>
 					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
 				<?php endif; ?>

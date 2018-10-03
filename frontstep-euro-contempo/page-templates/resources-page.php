@@ -52,6 +52,7 @@ endwhile; // end of the loop. ?>
     $args = array( 'post_type' => 'resource', 'posts_per_page' => -1 );
     $loop = new WP_Query( $args );
     if ( $loop->have_posts() ) {
+    $count = 1;
     while ( $loop->have_posts() ) : $loop->the_post();
     ?>
     <div class="section section-intro section-resources">
@@ -73,8 +74,11 @@ endwhile; // end of the loop. ?>
             </div>
         </div>
     </div>
+    <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+            <?php } ?>
     <?php
-    endwhile;
+    $count++; endwhile;
     } wp_reset_postdata();
     ?>
 </div>
