@@ -165,7 +165,7 @@ get_header();?>
                 <?php if( $attachments->exist() ) {?>
                     <?php while( $attachment = $attachments->get() ) : ?>
                         <div class="image-block gallery-block">
-                            <img src="<?php echo $attachments->url(); ?>" class="img-responsive" alt="<?php echo $attachments->field( 'title' ); ?>" />
+                            <img src="<?php echo $attachments->src('home-gallery'); ?>" class="img-responsive" alt="<?php echo $attachments->field( 'title' ); ?>" />
                         </div>                        
                     <?php endwhile; ?>
                 <?php 
