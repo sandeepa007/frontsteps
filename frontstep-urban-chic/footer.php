@@ -64,7 +64,7 @@ if($cta_bg_img != "")
 </div>
 <?php } ?>
 <?php endif; ?>
-<?php wp_footer(); ?>
+
 <footer>
    <div class="container-fluid">
       <div class="row">
@@ -116,7 +116,7 @@ if($cta_bg_img != "")
       </div>
    </div>
 </footer>
-
+<?php wp_footer(); ?>
 
 <!-- Community Serach Modal -->
    <div class="modal modal-team fade" id="community-search-modal">
