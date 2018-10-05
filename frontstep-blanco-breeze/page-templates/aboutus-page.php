@@ -134,6 +134,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
 
                     <div class="info-block">
                         <h5 class="h5 color-dark text-center"><?php the_title(); ?></h5>
+						<p><?php echo wp_trim_words( wp_strip_all_tags( get_the_content() ) , 10 ); ?></p>
                         <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
                     </div>
                 </div>

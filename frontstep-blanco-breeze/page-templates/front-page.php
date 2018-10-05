@@ -194,7 +194,7 @@ get_header();?>
 
 
 <?php
-$show_accredition = get_theme_mod( 'home-hide-accreditation' );
+$show_accredition = get_theme_mod( 'home-hide-accreditation', 1 );
 if($show_accredition ==1 )
 { 
     $args = array( 'post_type' => 'accreditation', 'posts_per_page' => -1 );
