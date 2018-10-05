@@ -131,10 +131,12 @@ endwhile; // end of the loop. ?>
     <div class="container">
         <div class="row">
             <?php
+			$count = 1;
             while ( $loop->have_posts() ) : $loop->the_post();
             ?>
             <div class="col-xs-12 <?php echo $center_class?>">
                 <div class="box-block">
+					<?php if( get_theme_mod( 'amenities-showimg') == 1 ) : ?>
                     <div class="img-block">
                         <?php 
                         if( has_post_thumbnail() ) { 
@@ -143,14 +145,20 @@ endwhile; // end of the loop. ?>
                          <img src="<?php echo get_template_directory_uri().'/img/amenities-placeholder-image.png';?>" class="img-responsive">
                         <?php } ?>
                     </div>
+					<?php endif; ?>
                     <div class="info-block">
                         <h5 class="h5 color-dark"><?php the_title(); ?></h5>
                         <?php the_content(); ?>
                     </div>
                 </div>
             </div>
+            <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+            <?php } ?>
             <?php
-            endwhile; wp_reset_postdata();
+            $count++; 
+            endwhile; 
+            wp_reset_postdata();
             ?>
         </div>
     </div>

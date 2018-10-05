@@ -47,7 +47,7 @@ while ( have_posts() ) : the_post();
 endwhile; // end of the loop. ?>
 
 
-<?php if( get_theme_mod( 'amenities-section1-title' ) != '' && get_theme_mod( 'amenities-section1-subtitle') != '')
+<?php if( get_theme_mod( 'amenities-section1-title' ) != '' || get_theme_mod( 'amenities-section1-subtitle') != '')
 { ?>
 <!-- INTRO SECTION -->
 <div class="section section-intro">
@@ -109,14 +109,16 @@ endwhile; // end of the loop. ?>
             ?>
             <div class="col-xs-12 <?php echo $center_class?>">
                 <div class="box-block">
-                    <?php 
-                        if( has_post_thumbnail() ) { ?>
-                            <div class="img-block">
-                            <?php
-                                the_post_thumbnail( 'full' );
-                            ?>
-                           </div> 
-                    <?php } ?>
+					<?php if( get_theme_mod( 'amenities-showimg') == 1 ) : ?>
+                    <div class="img-block">
+                        <?php 
+                        if( has_post_thumbnail() ) { 
+                            the_post_thumbnail( 'full' );
+                        } else { ?>
+                         <img src="<?php echo get_template_directory_uri().'/img/amenities-placeholder-image.png';?>" class="img-responsive">
+                        <?php } ?>
+                    </div>
+					<?php endif; ?>
                     <div class="info-block">
                         <h5 class="h5 color-dark"><?php the_title(); ?></h5>
                         <?php the_content(); ?>

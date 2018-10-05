@@ -93,6 +93,7 @@ function customizer_options(){
             ['id' => 'amenities-hero', 'label' => __('Hero Image'), 'type' => 'upload', 'default' => get_stylesheet_directory_uri() . '/images/hero-about.jpg'],            
             ['id' => 'amenities-section1-title', 'label' => __('Section 1 Title'), 'type' => 'text', 'default' => __('What Makes Us Unique.')],
             ['id' => 'amenities-section1-subtitle', 'label' => __('Section 1 Content'), 'type' => 'textarea'],
+			['id' => 'amenities-showimg', 'label' => __('Show Amenity Image'), 'type' => 'checkbox', 'default' => 1],
         ]],
         /* Gallery Page */
         ['id' => 'gallery_content', 'title' => __('Gallery Settings'), 'options' => [
