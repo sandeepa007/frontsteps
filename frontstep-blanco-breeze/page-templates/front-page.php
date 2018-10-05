@@ -212,7 +212,7 @@ if($show_accredition ==1 )
       ?>
         <div class="slide">
             <?php if ( has_post_thumbnail() ) {
-                        the_post_thumbnail( 'accredition-logo' );
+                        the_post_thumbnail( 'full' );
                     }else{ ?>
                 <img src="<?php echo get_template_directory_uri().'/img/accre-placeholder-img.png';?>">
                        <?php } ?>

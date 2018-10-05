@@ -1533,3 +1533,7 @@ footer {
 .button-primary{
   border-radius: 50px;
 }
+.accredidations-logos .slick-slide img {
+    width: 170px;
+    height: 80px;
+}
