@@ -64,7 +64,7 @@ if($cta_bg_img != "")
 </div>
 <?php } ?>
 <?php endif; ?>
-<?php wp_footer(); ?>
+
 <footer>
     <div class="section section-footer">
         <div class="container">
@@ -116,7 +116,7 @@ if($cta_bg_img != "")
         </div>
     </div>
 </footer>
-
+<?php wp_footer(); ?>
 
 </div>
 <!-- Main Container -->

@@ -18,6 +18,14 @@ function citrus_customize_register($wp_customize) {
 }
 
 /**
+ * Defines image sizes
+ */
+function blanco_breeze_setup() {
+    add_image_size( 'home-gallery', 341, 172, true );
+}
+add_action( 'after_setup_theme', 'blanco_breeze_setup' );
+
+/**
  * Defines customizer options
  *
  * @package Customizer Library Demo

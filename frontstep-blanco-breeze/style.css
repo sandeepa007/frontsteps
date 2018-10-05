@@ -25,11 +25,13 @@ body {
 a {
   color: #555555;
   outline: none;
-  -webkit-font-smoothing: antialiased; }
-  a:hover, a:focus {
+  -webkit-font-smoothing: antialiased; 
+}
+a:hover, a:focus {
     outline: none;
-    color: #555555;
-    text-decoration: none; }
+    color: #E24C3E;
+    text-decoration: none; 
+}
 
 ul {
   padding: 0 0 0 20px; }
