@@ -103,7 +103,6 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                             ),
                             'posts_per_page' => -1 );
                 $loop = new WP_Query( $args );
-                $count = 1;
                 while ( $loop->have_posts() ) : $loop->the_post(); ?>
                 <div class="col-xs-12 col-sm-6">
                     <div class="box-block team-block">
@@ -149,11 +148,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                         </div>
                     </div>
                 </div>
-                <?php if($count%2 == 0 ){?>
-                    <div class="clearfix"></div>
-            <?php } ?>
-            <!-- Modal -->
-            <?php $count++; endwhile; wp_reset_postdata();?>
+                <?php endwhile; wp_reset_postdata();?>
                 <!-- Team Modal -->
             </div>
         </div>
@@ -190,7 +185,6 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                             ),
                             'posts_per_page' => -1 );
                 $loop = new WP_Query( $args );
-                $count = 1;
                 while ( $loop->have_posts() ) : $loop->the_post(); ?>
                 <div class="col-xs-12 col-sm-6">
                     <div class="box-block team-block">
@@ -236,11 +230,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                         </div>
                     </div>
                 </div>
-                <?php if($count%2 == 0 ){?>
-                    <div class="clearfix"></div>
-                <?php } ?>
-            <!-- Modal -->
-            <?php $count++; endwhile; wp_reset_postdata();?>
+                <?php endwhile; wp_reset_postdata();?>
                 <!-- Team Modal -->
             </div>
         </div>

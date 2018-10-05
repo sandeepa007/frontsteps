@@ -75,7 +75,6 @@ if( get_theme_mod( 'resources-hero' ) )
       <div class="row">
         <?php
         $args = array( 'post_type' => 'resource', 'posts_per_page' => -1 );
-        $count = 1;
         $loop = new WP_Query( $args );
         while ( $loop->have_posts() ) : $loop->the_post();
         ?>
@@ -89,11 +88,8 @@ if( get_theme_mod( 'resources-hero' ) )
             </div>
           </div>
         </div>
-        <?php if($count%3 == 0 ){?>
-                    <div class="clearfix"></div>
-            <?php } ?>
         <?php
-         $count++; endwhile; wp_reset_postdata();
+        endwhile; wp_reset_postdata();
         ?>
       </div>
     </div>

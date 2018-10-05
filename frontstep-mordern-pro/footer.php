@@ -65,7 +65,7 @@ if($cta_bg_img != "")
 </div>
 <?php } ?>
 <?php endif; ?>
-
+<?php wp_footer(); ?>
 <footer>
    <div class="container-fluid">
       <div class="row">
@@ -99,17 +99,19 @@ if($cta_bg_img != "")
          </div>
          <div class="col-xs-12 col-sm-6">
             <div class="credits">
-               <p>Powered by <a href="https://www.frontsteps.com/" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a></p>
+               <p>Powered by <a href="#" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a></p>
             </div>
          </div>
          <div class="col-xs-12">
             <div class="footer-menu">
                <div class="widget">
                		<div class="menu-footer-menu-container">
-               			<ul class="footer-menu margin-0px padding-0px list-unstyled">
-                    <li><a href="https://www.frontsteps.com/privacy-policy" class="text-grey-3" target="_blank">Privacy Policy</a></li>
-                    <li><a href="https://www.frontsteps.com/terms-of-service" target="_blank" class="text-grey-3">Terms</a></li>          
-                    </ul>
+               			<ul id="menu-footer-menu" class="menu">
+               				<li id="menu-item-146" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146">	<a href="#">Privacy Policy</a>
+               				</li>
+               				<li id="menu-item-147" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147">	<a href="#">Terms</a>
+               				</li>
+               			</ul>
                		</div>
                	</div>            
             </div>
@@ -117,7 +119,6 @@ if($cta_bg_img != "")
       </div>
    </div>
 </footer>
-<?php wp_footer(); ?>
 <!-- Community Serach Modal -->
    <div class="modal modal-team fade" id="community-search-modal">
        <div class="modal-dialog" role="document">

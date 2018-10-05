@@ -46,67 +46,40 @@ while ( have_posts() ) : the_post();
 <?php  }
 endwhile; // end of the loop. ?>
 
-<div class="section section-intro">
-  <div class="bg-image fill" style=""></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="title-block text-center">
-          <h2 class="h2 color-dark"><?php echo get_theme_mod( 'amenities-section1-title' ); ?></h2>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <?php
-        $full_class = "col-sm-12 text-center";
-        
-        if(get_theme_mod( 'amenities-section1-subtitle')!="" && get_theme_mod( 'amenities-rightcontent')!="")
-        {
-          $full_class = "col-sm-6";
-        }
-      ?>
-      <?php  if(get_theme_mod( 'amenities-section1-subtitle')!="")
-      { ?>
-        <div class="col-xs-12 <?php echo $full_class;?>">
-            <div class="text-block">
-              <p><?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p>
-            </div>
-        </div>
-    <?php } ?>
-      <?php  if(get_theme_mod( 'amenities-rightcontent')!="")
-      { ?>
-      <div class="col-xs-12 <?php echo $full_class;?>">
-          <div class="text-block">
-              <p><?php echo get_theme_mod( 'amenities-rightcontent' ); ?></p>
-          </div>
-      </div>
-      <?php } ?>
-    </div>
 
-  </div>
-</div>
-
-
+<?php if( get_theme_mod( 'amenities-section1-title' ) != '' && get_theme_mod( 'amenities-section1-subtitle') != '')
+{ ?>
 <!-- INTRO SECTION -->
-<!-- <div class="section section-intro">
+<div class="section section-intro">
     <div class="bg-image fill" style=""></div>
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <div class="title-block">
-                    <h5>< ?php echo get_theme_mod( 'amenities-section1-title' ); ?></h5>
+			<?php 
+			if( get_theme_mod( 'amenities-section1-subtitle') != '' ) : 
+				$divclass = "col-sm-6";
+				$style = "";
+			else :
+				$divclass = "col-sm-12";
+				$style = "style=\"max-width:100%;text-align:center;\"";
+			endif;
+			?>
+            <div class="col-xs-12 <?php echo $divclass; ?>">
+                <div class="title-block" <?php echo $style; ?>>
+                    <h5><?php echo get_theme_mod( 'amenities-section1-title' ); ?></h5>
                 </div>
             </div>
+			<?php if( get_theme_mod( 'amenities-section1-subtitle') != '' ) : ?>
             <div class="col-xs-12 col-sm-6">
                 <div class="content-block">
-                    <div><p>< ?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p></div>
+                    <div><p><?php echo get_theme_mod( 'amenities-section1-subtitle' ); ?></p></div>
                 </div>
             </div>
+			<?php endif; ?>
         </div>
     </div>
-</div> -->
-
+</div>
+<?php } ?>
 
 <?php
     $args = array( 'post_type' => 'amenity', 'posts_per_page' => -1 );
@@ -136,14 +109,14 @@ endwhile; // end of the loop. ?>
             ?>
             <div class="col-xs-12 <?php echo $center_class?>">
                 <div class="box-block">
-                    <div class="img-block">
-                        <?php 
-                        if( has_post_thumbnail() ) { 
-                            the_post_thumbnail( 'full' );
-                        } else { ?>
-                         <img src="<?php echo get_template_directory_uri().'/img/amenities-placeholder-image.png';?>" class="img-responsive">
-                        <?php } ?>
-                    </div>
+                    <?php 
+                        if( has_post_thumbnail() ) { ?>
+                            <div class="img-block">
+                            <?php
+                                the_post_thumbnail( 'full' );
+                            ?>
+                           </div> 
+                    <?php } ?>
                     <div class="info-block">
                         <h5 class="h5 color-dark"><?php the_title(); ?></h5>
                         <?php the_content(); ?>
@@ -152,9 +125,11 @@ endwhile; // end of the loop. ?>
             </div>
             <?php if($count%3 == 0 ){?>
                     <div class="clearfix"></div>
-            <?php }
-             $count++;
-            endwhile; wp_reset_postdata();
+            <?php } ?>
+            <?php
+            $count++; 
+            endwhile; 
+            wp_reset_postdata();
             ?>
         </div>
     </div>

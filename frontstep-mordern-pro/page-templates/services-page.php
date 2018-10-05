@@ -39,7 +39,6 @@ if($loop->have_posts() )
    <div class="container-fluid">
       <div class="row">
         <?php
-        $count = 1;
         while ( $loop->have_posts() ) : $loop->the_post();
         ?>
         <div class="col-xs-12 col-sm-6">
@@ -48,11 +47,8 @@ if($loop->have_posts() )
                <p><?php the_content(); ?></p>
             </div>
         </div>
-        <?php if($count%2 == 0 ){?>
-                    <div class="clearfix"></div>
-            <?php } ?>
         <?php
-        $count++; endwhile; wp_reset_postdata();
+        endwhile; wp_reset_postdata();
         ?> 
       </div>
    </div>

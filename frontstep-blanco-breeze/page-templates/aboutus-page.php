@@ -3,12 +3,12 @@
  * Template Name: Aboutus Page Template
  *
  * Description: A page template that provides a key component of WordPress as a CMS
- * by meeting the need for a carefully crafted introductory page. The front page template
+ * by meeting the need for a carefully crafted introductory page. The Aboutus page template
  */
 
 get_header(); ?>
 <!-- HERO SECTION -->
-<?php 
+<?php
 $style = "background-image: url(".get_template_directory_uri()."/img/default-hero-bg.jpg)";
 if( get_theme_mod( 'about-hero' ) )
 {
@@ -22,77 +22,85 @@ if( get_theme_mod( 'about-hero' ) )
         <div class="row">
             <div class="col-xs-12">
                 <div class="hero-block color-white text-center">
-                    <h1 class="h1"><?php echo get_theme_mod( 'about-title' ); ?></h1>
-                    <?php echo get_theme_mod( 'about-subtitle' ); ?>
+                    <h2 class="h2"><?php echo get_theme_mod( 'about-title' ); ?></h2>
+                    <p id="page-sub-heading"><?php echo get_theme_mod( 'about-subtitle' ); ?></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- HERO SECTION -->
-<div class="section section-intro">
+<?php if( get_theme_mod( 'about-section1-title' ) != '' && get_theme_mod( 'about-section2-title') != '' && get_theme_mod( 'about-section3-title' ) != '')
+{ ?>
+<!-- BILLBOARD SECTION -->
+<div class="section billboard-section">
     <div class="bg-image fill" style=""></div>
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="title-block text-center">
-                    <h2 class="h2 color-dark text-bold"><?php echo get_theme_mod( 'about-section1-title' ); ?></h2>
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="stat-block text-center">
+                    <h3 class="h3 color-dark abt-block-title"><?php echo get_theme_mod( 'about-section1-title' ); ?></h3>
+                    <p><?php echo get_theme_mod( 'about-section1-desc' ); ?></p>
                 </div>
             </div>
-        </div>
-        <?php
-        $full_class = "col-sm-12 text-center";
-        
-        if(get_theme_mod( 'about-section1-desc')!="" && get_theme_mod( 'about-section2-desc')!="")
-        {
-          $full_class = "col-sm-6";
-        }
-      ?>
-        <div class="row">
-             <?php  if(get_theme_mod( 'about-section1-desc')!="")
-            { ?>
-                <div class="col-xs-12 <?php echo $full_class;?>">
-                    <div class="text-block">
-                      <p><?php echo get_theme_mod( 'about-section1-desc' ); ?></p>
-                    </div>
-                </div>
-            <?php } ?>
-              <?php  if(get_theme_mod( 'about-section2-desc')!="")
-              { ?>    
-            <div class="col-xs-12 <?php echo $full_class;?>">
-                <div class="text-block">
+            <div class="col-xs-12 col-sm-4">
+                <div class="stat-block text-center">
+                    <h3 class="h3 color-dark abt-block-title"><?php echo get_theme_mod( 'about-section2-title' ); ?></h3>
                     <p><?php echo get_theme_mod( 'about-section2-desc' ); ?></p>
                 </div>
             </div>
-            <?php } ?>
+            <div class="col-xs-12 col-sm-4">
+                <div class="stat-block text-center">
+                    <h3 class="h3 color-dark abt-block-title"><?php echo get_theme_mod( 'about-section3-title' ); ?></h3>
+                    <p><?php echo get_theme_mod( 'about-section3-desc' ); ?></p>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
-<?php 
-
-$show_bod = get_theme_mod( 'show-team-section-bod' );
-$show_employee = get_theme_mod( 'show-team-section-emplye' );
-?>
-<!-- TEAM SECTION -->
-<?php if($show_bod == 1)
-{
-?>
-<div class="section section-box section-team bg-lightgrey">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="title-block text-center">
-                    <h2 class="h2 color-dark"><?php echo get_theme_mod( 'bod-section-title' ); ?></h2>
+<!-- BILLBOARD SECTION -->
+<?php } ?>
+<?php
+// If content is there on page fetched this content
+while ( have_posts() ) : the_post();
+    if ( !empty( get_the_content() ) ) { ?>
+        <div class="bg-lightgrey">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <?php echo the_content(); ?>
+                    </div>
                 </div>
             </div>
         </div>
+<?php  }
+endwhile; // end of the loop. ?>
 
-        <div class="team-group">
-            <div class="row">
-                <?php
-                $args = array( 
+
+<?php
+$show_bod = get_theme_mod( 'show-team-section-bod' );
+$show_employee = get_theme_mod( 'show-team-section-emplye' );
+?>
+
+<?php if($show_bod == 1)
+{
+?>
+<!-- BOD SECTION -->
+<div class="section section-box section-team">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="title-block text-center">
+                    <h4 class="color-dark"><?php echo get_theme_mod( 'bod-section-title' ); ?></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php
+            $args = array(
                             'post_type' => 'member',
                             'tax_query' => array(
                                 array(
@@ -102,99 +110,17 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                                     )
                             ),
                             'posts_per_page' => -1 );
-                $loop = new WP_Query( $args );
-                $count = 1;
-                while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                <div class="col-xs-12 col-sm-6">
-                    <div class="box-block team-block">
-                        <?php if ( has_post_thumbnail() ) { ?>
-                            <div class="img-block">
-                                <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">
-                                   <?php the_post_thumbnail(); ?>
-                               </a>
-                            </div>
-                        <?php }else{?>
-                             <div class="img-block">
-                                <img src="<?php echo get_template_directory_uri().'/img/team-image-placeholder.png';?>">
-                              </div>  
-                            <?php }?>   
-                        
-                        <div class="info-block">
-                            <h4 class="h4 color-dark"><?php the_title(); ?></h4>
-                            <p><?php 
-                                $content = get_the_content();
-                                $content = strip_tags($content);
-                                echo substr($content, 0, 100);?>                                     
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            $loop = new WP_Query( $args );
 
-                <!-- Team Modal -->
-                <div class="modal modal-team fade" id="team-modal-<?php echo get_the_ID();?>">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <a class="modal-close" href="" data-dismiss="modal">
-                                <img src="http://hoadev.wpengine.com/wp-content/themes/hoa/images/close-icon.png" class="img-responsive">
-                            </a>
+            //echo $loop->request;exit;
+            $count = 1;
+            while ( $loop->have_posts() ) : $loop->the_post(); 
+            ?>
 
-                            <div class="modal-body text-center">
-                                <div class="title-block">
-                                    <h3><?php the_title(); ?></h3>
-                                </div>
-                                <div class="content-block">
-                                    <p><?php the_content();?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php if($count%2 == 0 ){?>
-                    <div class="clearfix"></div>
-            <?php } ?>
-            <!-- Modal -->
-            <?php $count++; endwhile; wp_reset_postdata();?>
-                <!-- Team Modal -->
-            </div>
-        </div>
-    </div>
-</div>
-<?php
-}
-?>
-<?php if($show_employee == 1)
-{
-?>
-<div class="section section-box section-team bg-lightgrey">
-    <div class="container">
+            <div class="col-xs-12 col-sm-4">
+                <div class="box-block team-block text-center">
 
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="title-block text-center">
-                    <h2 class="h2 color-dark"><?php echo get_theme_mod( 'emplyee-section-title' ); ?></h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="team-group">
-            <div class="row">
-                <?php
-                $args = array( 
-                            'post_type' => 'member',
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'member_type',
-                                    'field' => 'slug',
-                                    'terms'    => array( 'member_employee'),
-                                    )
-                            ),
-                            'posts_per_page' => -1 );
-                $loop = new WP_Query( $args );
-                $count = 1;
-                while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                <div class="col-xs-12 col-sm-6">
-                    <div class="box-block team-block">
-                        <?php if ( has_post_thumbnail() ) { ?>
+                    <?php if ( has_post_thumbnail() ) { ?>
                             <div class="img-block">
                                 <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">
                                    <?php the_post_thumbnail(); ?>
@@ -205,49 +131,122 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                                 <img src="<?php echo get_template_directory_uri().'/img/team-image-placeholder.png';?>">
                               </div>  
                             <?php }?>
-                        
-                        <div class="info-block">
-                            <h4 class="h4 color-dark"><?php the_title(); ?></h4>
-                            <p><?php 
-                                $content = get_the_content();
-                                $content = strip_tags($content);
-                                echo substr($content, 0, 100);?>
-                            </p>
-                        </div>
+
+                    <div class="info-block">
+                        <h5 class="h5 color-dark text-center"><?php the_title(); ?></h5>
+                        <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
                     </div>
                 </div>
+            </div>
 
-                <!-- Team Modal -->
-                <div class="modal modal-team fade" id="team-modal-<?php echo get_the_ID();?>">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <a class="modal-close" href="" data-dismiss="modal">
-                                <img src="<?php bloginfo('template_directory'); ?>/images/close-icon.png" class="img-responsive">
-                            </a>
+            <!-- Modal -->
+            <div class="modal modal-team fade" id="team-modal-<?php echo get_the_ID();?>">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <a class="modal-close" href="" data-dismiss="modal">
+                            <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
+                        </a>
 
-                            <div class="modal-body text-center">
-                                <div class="title-block">
-                                    <h3><?php the_title(); ?></h3>
-                                </div>
-                                <div class="content-block">
-                                    <p><?php the_content();?></p>
-                                </div>
+                        <div class="modal-body text-center">
+                            <div class="title-block">
+                                <h3><?php the_title(); ?></h3>
+                            </div>
+                            <div class="content-block">
+                                <?php the_content();?>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php if($count%2 == 0 ){?>
+            </div>
+            <?php if($count%3 == 0 ){?>
                     <div class="clearfix"></div>
-                <?php } ?>
+            <?php } ?>
             <!-- Modal -->
             <?php $count++; endwhile; wp_reset_postdata();?>
-                <!-- Team Modal -->
-            </div>
+
         </div>
     </div>
 </div>
-<?php
-}
+<!-- BOD SECTION -->
+<?php } ?>
+
+
+<?php if($show_employee == 1)
+{
 ?>
-<!-- TEAM SECTION -->
+<!-- BOD SECTION -->
+<div class="section section-box section-team bg-lightgrey">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="title-block text-center">
+                    <h4 class="color-dark"><?php echo get_theme_mod( 'emplyee-section-title' ); ?></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php
+            $args = array(
+                            'post_type' => 'member',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'member_type',
+                                    'field' => 'slug',
+                                    'terms'    => array( 'member_employee'),
+                                    )
+                            ),
+                            'posts_per_page' => -1 );
+            $loop = new WP_Query( $args );
+            while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="box-block team-block text-center">
+
+                    <?php if ( has_post_thumbnail() ) { ?>
+                            <div class="img-block">
+                                <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">
+                                   <?php the_post_thumbnail(); ?>
+                               </a>
+                            </div>
+                        <?php }else{?>
+                             <div class="img-block">
+                                <img src="<?php echo get_template_directory_uri().'/img/team-image-placeholder.png';?>">
+                              </div>  
+                            <?php }?>
+
+                    <div class="info-block">
+                        <h5 class="h5 color-dark text-center"><?php the_title(); ?></h5>
+                        <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal modal-team fade" id="team-modal-<?php echo get_the_ID();?>">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <a class="modal-close" href="" data-dismiss="modal">
+                            <img src="<?php bloginfo('template_directory'); ?>/images/close-black-icon.png" class="img-responsive">
+                        </a>
+
+                        <div class="modal-body text-center">
+                            <div class="title-block">
+                                <h3><?php the_title(); ?></h3>
+                            </div>
+                            <div class="content-block">
+                                <?php the_content();?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+<?php endwhile; wp_reset_postdata();?>
+
+        </div>
+    </div>
+</div>
+<!-- BOD SECTION -->
+<?php } ?>
+
 <?php get_footer(); ?>

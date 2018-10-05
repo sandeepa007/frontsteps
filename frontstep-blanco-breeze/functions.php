@@ -5,6 +5,8 @@ require $customizer_path.'/styles.php';
 require get_stylesheet_directory() . '/home-features-widget.php';
 
 /**Custom Option for theme**/
+
+
 add_action('customize_register', 'citrus_customize_register', 1000);
 add_action( 'init', 'customizer_library_citrus_options', 1000 );
 function citrus_customize_register($wp_customize) {
@@ -14,14 +16,6 @@ function citrus_customize_register($wp_customize) {
   $wp_customize->remove_control( 'gallery-subtitle' );  
   
 }
-
-/**
- * Defines image sizes
- */
-function blanco_breeze_setup() {
-    add_image_size( 'home-gallery', 341, 172, true );
-}
-add_action( 'after_setup_theme', 'blanco_breeze_setup' );
 
 /**
  * Defines customizer options
