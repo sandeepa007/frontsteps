@@ -1180,7 +1180,7 @@ body .section-intro {
 .modal-team .modal-dialog {
   width: 100%;
   max-width: 670px;
-  margin-top: 20%; }
+  margin-top: 10%; }
   .modal-team .modal-dialog .modal-content {
     box-shadow: none;
     background: #333333;

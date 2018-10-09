@@ -39,7 +39,7 @@ function customizer_options(){
                 ['id' => 'button-hover-bkg-color', 'label' => __('Button Background Color(hover)'), 'type' => 'color', 'default' => $button_hover_bkg_color, 'description' => 'This affects the button Background color in your site  on rollover.'],
                 ['id' => 'cta-text-color', 'label' => __('CTA Text Color'), 'type' => 'color', 'default' => $cta_text_color, 'description' => 'This affects the default color for your CTA text on your site.'],
                 ['id' => 'cta-bkg-color', 'label' => __('CTA Background Color'), 'type' => 'color', 'default' => $cta_bkg_color, 'description' => 'This affects the CTA background color for your pages.'],
-                ['id' => 'cta-bkg-img', 'label' => __('CTA Background Image'), 'type' => 'upload', 'default' => get_stylesheet_directory_uri() . '/images/hero-about.jpg'],
+                ['id' => 'cta-bkg-img', 'label' => __('CTA Background Image'), 'type' => 'upload', 'default' => ''],
                 ['id' => 'footer-text-color', 'label' => __('Footer Text Color'), 'type' => 'color', 'default' => $footer_text_color, 'description' => 'This affects the default color for footer text on your site.'],
                 ['id' => 'footer-bkg-color', 'label' => __('Footer Background Color'), 'type' => 'color', 'default' => $footer_bkg_color, 'description' => 'This affects the footer background color for your pages.'],   
                   ['id' => 'box-text-color', 'label' => __('Box Text Color'), 'type' => 'color', 'default' => $box_text_color, 'description' => 'This affects the default color for your box text on your site.'],
@@ -68,7 +68,7 @@ function customizer_options(){
             ['id' => 'aboutus_content', 'title' => __('About Us Settings'), 'options' => [
             ['id' => 'about-title', 'label' => __('Title'), 'type' => 'text', 'default' => __('What Makes Us Unique.')],
             ['id' => 'about-subtitle', 'label' => __('Subtitle'), 'type' => 'textarea'],
-            ['id' => 'about-hero', 'label' => __('Hero Image'), 'type' => 'upload', 'default' => get_stylesheet_directory_uri() . '/images/hero-about.jpg'],
+            ['id' => 'about-hero', 'label' => __('Hero Image'), 'type' => 'upload', 'default' => ''],
             ['id' => 'about-section1-title', 'label' => __('Section 1 Title'), 'type' => 'text', 'default' => __('Value')],
             ['id' => 'about-section1-desc', 'label' => __('Section 1 Description'), 'type' => 'textarea', 'default' => __('You’ll quickly discover that our team is committed to making sure your investment is a good one.')],
             ['id' => 'about-section2-title', 'label' => __('Section 2 Title'), 'type' => 'text', 'default' => __('Integrity')],
@@ -84,13 +84,13 @@ function customizer_options(){
         ['id' => 'resources_content', 'title' => __('Resources Settings'), 'options' => [
             ['id' => 'resources-title', 'label' => __('Title'), 'type' => 'text', 'default' => __('What Makes Us Unique.')],
             ['id' => 'resources-subtitle', 'label' => __('Subtitle'), 'type' => 'textarea'],
-            ['id' => 'resources-hero', 'label' => __('Hero Image'), 'type' => 'upload', 'default' => get_stylesheet_directory_uri() . '/images/hero-about.jpg'],            
+            ['id' => 'resources-hero', 'label' => __('Hero Image'), 'type' => 'upload', 'default' => ''],            
         ]],
         /* Amenity Page */
         ['id' => 'amenities_content', 'title' => __('Amenities Settings'), 'options' => [
             ['id' => 'amenities-title', 'label' => __('Title'), 'type' => 'text', 'default' => __('What Makes Us Unique.')],
             ['id' => 'amenities-subtitle', 'label' => __('Subtitle'), 'type' => 'textarea'],
-            ['id' => 'amenities-hero', 'label' => __('Hero Image'), 'type' => 'upload', 'default' => get_stylesheet_directory_uri() . '/images/hero-about.jpg'],            
+            ['id' => 'amenities-hero', 'label' => __('Hero Image'), 'type' => 'upload', 'default' => ''],            
             ['id' => 'amenities-section1-title', 'label' => __('Section 1 Title'), 'type' => 'text', 'default' => __('What Makes Us Unique.')],
             ['id' => 'amenities-section1-subtitle', 'label' => __('Section 1 Content'), 'type' => 'textarea'],
 			['id' => 'amenities-showimg', 'label' => __('Show Amenity Image'), 'type' => 'checkbox', 'default' => 1],
@@ -262,7 +262,7 @@ function customizer_library_demo_options() {
         'label'   => __( 'Hero Image', 'frontsteps' ),
         'section' => $section,
         'type'    => 'upload',
-        'default' => get_stylesheet_directory_uri() .'/img/hero-home.jpg',
+        'default' => '',
     );
     $options['home-hero-title'] = array(
         'id' => 'home-hero-title',
@@ -332,7 +332,7 @@ function customizer_library_demo_options() {
         'label'   => __( 'Slide '.$i, 'frontsteps' ),
         'section' => $section,
         'type'    => 'upload',
-        'default' => get_stylesheet_directory_uri() .'/img/hero-home.jpg',
+        'default' => '',
         );
 
         $options['home-hero-slider-title'.$i] = array(

@@ -104,11 +104,12 @@ class home_feature_Widget extends WP_Widget {
      <p>
         <label for="<?php echo $this->get_field_id('image_uri'); ?>">Image</label><br />
 
-        <?php
-            if ( $image_uri != '' ) :
-                echo '<img class="custom_media_image" src="' . $image_uri . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
-            endif;
-        ?>
+        <div class="custom_media_image">
+                <?php
+                if ( $image_uri != '' ) : ?>
+                    <img src="<?php echo $image_uri;?>" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" />
+                <?php endif; ?>
+        </div>
 
         <input type="text" class="widefat custom_media_url" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $image_uri; ?>" style="margin-top:5px;">
 
@@ -118,14 +119,15 @@ class home_feature_Widget extends WP_Widget {
     <p><input class="checkbox" type="checkbox"<?php checked( $is_img_left ); ?> id="<?php echo $this->get_field_id( 'is_img_left' ); ?>" name="<?php echo $this->get_field_name( 'is_img_left' ); ?>" />
     <label for="<?php echo $this->get_field_id( 'is_img_left' ); ?>"><?php _e( 'Is image left?' ); ?></label></p>
 
-      <script type="text/javascript">
-
+<script type="text/javascript">
+  
   jQuery(document).ready( function($) {
     function media_upload(button_class) {
         var _custom_media = true,
         _orig_send_attachment = wp.media.editor.send.attachment;
-
-        $('body').on('click', button_class, function(e) {
+        //alert(button_class);
+        //$('body').on('click', button_class, function(e) {
+          $(button_class).click(function(e) {
             var button_id ='#'+$(this).attr('id');
             var self = $(button_id);
             var send_attachment_bkp = wp.media.editor.send.attachment;
@@ -134,15 +136,21 @@ class home_feature_Widget extends WP_Widget {
             _custom_media = true;
             wp.media.editor.send.attachment = function(props, attachment){
                 if ( _custom_media  ) {
-                    $('.custom_media_id').val(attachment.id);
-                    $('.custom_media_url').val(attachment.url);
-                    $('.custom_media_image').attr('src',attachment.url).css('display','block');
+                    //$(this).parent().find('.custom_media_id').val(attachment.id);
+                    //$(this).parent().find('.custom_media_url').val(attachment.url);
+                    //$(this).parent().find('.custom_media_image').attr('src',attachment.url).css('display','block');
+                    $( e.target ).siblings( '.custom_media_id' ).val( attachment.id )
+                    $( e.target ).siblings( '.custom_media_url' ).val( attachment.url )
+                    $( e.target ).siblings( '.custom_media_image' ).html('<img src="'+attachment.url+'" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" />').css('display','block');
+
                 } else {
                     return _orig_send_attachment.apply( button_id, [props, attachment] );
                 }
-          $(".button.widget-control-save").removeAttr("disabled");
-            }
 
+              $('.custom_media_url').trigger('change');
+              
+            }
+            
             wp.media.editor.open(button);
             return false;
         });

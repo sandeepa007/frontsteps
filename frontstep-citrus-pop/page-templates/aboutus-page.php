@@ -89,7 +89,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
             </div>
         </div>
 
-        <div class="team-group">
+        <div class="row">
             <div class="row">
                 <?php
                 $args = array( 
@@ -103,8 +103,9 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                             ),
                             'posts_per_page' => -1 );
                 $loop = new WP_Query( $args );
+                $count = 1;
                 while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12 col-sm-4 text-center">
                     <div class="box-block team-block">
                         <?php if ( has_post_thumbnail() ) { ?>
                             <div class="img-block">
@@ -125,6 +126,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                                 $content = strip_tags($content);
                                 echo substr($content, 0, 100);?>                                     
                             </p>
+                            <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +150,10 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                         </div>
                     </div>
                 </div>
-                <?php endwhile; wp_reset_postdata();?>
+                <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+                <?php } ?>
+                <?php $count++; endwhile; wp_reset_postdata();?>
                 <!-- Team Modal -->
             </div>
         </div>
@@ -171,7 +176,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
             </div>
         </div>
 
-        <div class="team-group">
+        <div class="row">
             <div class="row">
                 <?php
                 $args = array( 
@@ -185,9 +190,10 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                             ),
                             'posts_per_page' => -1 );
                 $loop = new WP_Query( $args );
+                 $count = 1;
                 while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                <div class="col-xs-12 col-sm-6">
-                    <div class="box-block team-block">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="box-block team-block text-center">
                         <?php if ( has_post_thumbnail() ) { ?>
                             <div class="img-block">
                                 <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">
@@ -207,6 +213,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                                 $content = strip_tags($content);
                                 echo substr($content, 0, 100);?>
                             </p>
+                            <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
                         </div>
                     </div>
                 </div>
@@ -230,7 +237,10 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                         </div>
                     </div>
                 </div>
-                <?php endwhile; wp_reset_postdata();?>
+                <?php if($count%3 == 0 ){?>
+                    <div class="clearfix"></div>
+                <?php } ?>
+                <?php $count++; endwhile; wp_reset_postdata();?>
                 <!-- Team Modal -->
             </div>
         </div>
