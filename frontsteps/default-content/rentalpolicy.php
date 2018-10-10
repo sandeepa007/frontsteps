@@ -1,1 +1,0 @@
-[doctemplate docname="Rental Policy"]

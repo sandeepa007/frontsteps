@@ -459,3 +459,7 @@ footer .footer-menu ul li:last-child a:after {display: none;}
 {
   background: #343434!important;
 }
+body .section-resources:nth-child(even)
+{
+  color: #4C4C4C!important;
+}

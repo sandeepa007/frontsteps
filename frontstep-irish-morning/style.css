@@ -47,3 +47,8 @@ a.nav-link{
 {
 	color: #3B473E!important;
 }
+.section-home-cta .button-primary:hover
+{
+	background: #3D483F!important;
+	color: #ffffff!important;
+}

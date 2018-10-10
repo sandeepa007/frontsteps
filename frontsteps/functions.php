@@ -99,11 +99,6 @@ if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban
 require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
 /**
- * Load WooCommerce functions.
- */
-require get_template_directory() . '/inc/woocommerce.php';
-
-/**
  * Load Editor functions.
  */
 require get_template_directory() . '/inc/editor.php';

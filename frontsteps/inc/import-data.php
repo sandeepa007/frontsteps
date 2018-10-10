@@ -6,8 +6,9 @@
 	include_once( $parse_uri[0] . 'wp-admin/includes/image.php' );
 	$my_theme = wp_get_theme();	
 	global $wpdb;
-
+	//echo $my_theme;exit;
 	// Home page creation
+	
 	$home_page_id = get_option("home_page_id");
 	
 	if (!$home_page_id) {
@@ -25,21 +26,23 @@
 		update_option( 'show_on_front', 'page' );
 	}
 
-	// About page creation
-	$about_page_id = get_option("about_page_id");
-	if (!$about_page_id) {
-		$about_post = array(
-			'post_title' => "About",
-			'post_content' => "",
-			'post_status' => "publish",
-			'post_type' => 'page',
-			);
-		
-		$aboutID = wp_insert_post($about_post, $error);
-		update_post_meta($aboutID, "_wp_page_template", "page-templates/aboutus-page.php");
-		update_option("about_page_id", $aboutID);
-	}
-
+	if($my_theme != "Pumpkin Spice")
+	{
+		// About page creation
+		$about_page_id = get_option("about_page_id");
+		if (!$about_page_id) {
+			$about_post = array(
+				'post_title' => "About",
+				'post_content' => "",
+				'post_status' => "publish",
+				'post_type' => 'page',
+				);
+			
+			$aboutID = wp_insert_post($about_post, $error);
+			update_post_meta($aboutID, "_wp_page_template", "page-templates/aboutus-page.php");
+			update_option("about_page_id", $aboutID);
+		}
+	}	
 	// Resources page creation
 	$resources_page_id = get_option("resources_page_id");
 	if (!$resources_page_id) {
@@ -91,7 +94,7 @@
 		update_option("contact_page_id", $contactID);
 	}
 
-	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
+	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" || $my_theme!= "Pumpkin Spice")
 	{
 
 		// Communities page creation
@@ -163,37 +166,40 @@
 	}
 	else
 	{
-		// Amenties page creation
-		$amenties_page_id = get_option("amenties_page_id");
-		if (!$amenties_page_id) {
-			$amenties_post = array(
-				'post_title' => "Amenities",
-				'post_content' => "",
-				'post_status' => "publish",
-				'post_type' => 'page',
-				);
-			
-			$amentyID = wp_insert_post($amenties_post, $error);
-			update_post_meta($amentyID, "_wp_page_template", "page-templates/amenties-page.php");
-			update_option("amenties_page_id", $amentyID);
-		}
+		if($my_theme != "Pumpkin Spice")
+		{
+			// Amenties page creation
+			$amenties_page_id = get_option("amenties_page_id");
+			if (!$amenties_page_id) {
+				$amenties_post = array(
+					'post_title' => "Amenities",
+					'post_content' => "",
+					'post_status' => "publish",
+					'post_type' => 'page',
+					);
+				
+				$amentyID = wp_insert_post($amenties_post, $error);
+				update_post_meta($amentyID, "_wp_page_template", "page-templates/amenties-page.php");
+				update_option("amenties_page_id", $amentyID);
+			}
 
-		
-
-		// Gallery page creation
-		$gallery_page_id = get_option("gallery_page_id");
-		if (!$gallery_page_id) {
-			$gallery_post = array(
-				'post_title' => "Gallery",
-				'post_content' => "",
-				'post_status' => "publish",
-				'post_type' => 'page',
-				);
 			
-			$galleryID = wp_insert_post($gallery_post, $error);
-			update_post_meta($galleryID, "_wp_page_template", "page-templates/gallery-page.php");
-			update_option("gallery_page_id", $galleryID);
-		}
+
+			// Gallery page creation
+			$gallery_page_id = get_option("gallery_page_id");
+			if (!$gallery_page_id) {
+				$gallery_post = array(
+					'post_title' => "Gallery",
+					'post_content' => "",
+					'post_status' => "publish",
+					'post_type' => 'page',
+					);
+				
+				$galleryID = wp_insert_post($gallery_post, $error);
+				update_post_meta($galleryID, "_wp_page_template", "page-templates/gallery-page.php");
+				update_option("gallery_page_id", $galleryID);
+			}
+		}	
 	}
 
 
@@ -212,14 +218,16 @@
         'menu-item-title' =>  __('Home'),
         'menu-item-url' => home_url( '/' ), 
         'menu-item-status' => 'publish'));*/
-    wp_update_nav_menu_item($menu_id, 0, array(
-        'menu-item-title' =>  __('About'),
-        'menu-item-object-id' => $aboutID,
-	    'menu-item-object' => 'page',
-	    'menu-item-status' => 'publish',
-	    'menu-item-type' => 'post_type'
+    if($my_theme != "Pumpkin Spice")
+    {
+    	wp_update_nav_menu_item($menu_id, 0, array(
+	        'menu-item-title' =>  __('About'),
+	        'menu-item-object-id' => $aboutID,
+		    'menu-item-object' => 'page',
+		    'menu-item-status' => 'publish',
+		    'menu-item-type' => 'post_type'
 		));
-
+	}
     wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-title' =>  __('Resources'),
         'menu-item-object-id' => $resourcesID,
@@ -228,7 +236,7 @@
 	    'menu-item-type' => 'post_type'
     	));
 
-    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
+    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" || $my_theme != "Pumpkin Spice")
 	{
 		wp_update_nav_menu_item($menu_id, 0, array(
 	        'menu-item-title' =>  __('Services'),
@@ -267,19 +275,22 @@
 	}
     else
     {
-	    wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('Amenities'),
-	        'menu-item-object-id' => $amentyID,
-		    'menu-item-object' => 'page',
-		    'menu-item-status' => 'publish',
-		    'menu-item-type' => 'post_type'));
+	    if($my_theme != "Pumpkin Spice")
+	    {	
+		    wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Amenities'),
+		        'menu-item-object-id' => $amentyID,
+			    'menu-item-object' => 'page',
+			    'menu-item-status' => 'publish',
+			    'menu-item-type' => 'post_type'));
 
-	    wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('Gallery'),
-	        'menu-item-object-id' => $galleryID,
-		    'menu-item-object' => 'page',
-		    'menu-item-status' => 'publish',
-		    'menu-item-type' => 'post_type'));
+		    wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Gallery'),
+		        'menu-item-object-id' => $galleryID,
+			    'menu-item-object' => 'page',
+			    'menu-item-status' => 'publish',
+			    'menu-item-type' => 'post_type'));
+		}    
 	}    
 
     wp_update_nav_menu_item($menu_id, 0, array(
@@ -297,37 +308,39 @@
 	    }
 	}
 
-	// Create custom right menu
-	$rmenuname = 'Header Right Menu';
-	$rightmenulocation = 'right_menu';
-	// Does the menu exist already?
-	$rmenu_exists = wp_get_nav_menu_object( $rmenuname );
+		// Create custom right menu
+		$rmenuname = 'Header Right Menu';
+		$rightmenulocation = 'right_menu';
+		// Does the menu exist already?
+		$rmenu_exists = wp_get_nav_menu_object( $rmenuname );
 
-	// If it doesn't exist, let's create it.
-	if( !$rmenu_exists){
-    $rmenu_id = wp_create_nav_menu($rmenuname);
+		// If it doesn't exist, let's create it.
+		if( !$rmenu_exists){
+	    $rmenu_id = wp_create_nav_menu($rmenuname);
 
-    // Set up default BuddyPress links and add them to the menu.
-    wp_update_nav_menu_item($rmenu_id, 0, array(
-        'menu-item-title' =>  __('Pay Online'),
-        'menu-item-url' => '#',
-        'menu-item-classes' => '',
-        'menu-item-status' => 'publish'));
+	   if($my_theme != "Pumpkin Spice")
+		{
+		    // Set up default BuddyPress links and add them to the menu.
+		    wp_update_nav_menu_item($rmenu_id, 0, array(
+		        'menu-item-title' =>  __('Pay Online'),
+		        'menu-item-url' => '#',
+		        'menu-item-classes' => '',
+		        'menu-item-status' => 'publish'));
+		}    
 
-    wp_update_nav_menu_item($rmenu_id, 0, array(
-        'menu-item-title' =>  __('Login'),
-        'menu-item-classes' => 'login',
-        'menu-item-url' => '#', 
-        'menu-item-status' => 'publish'));
+	    wp_update_nav_menu_item($rmenu_id, 0, array(
+	        'menu-item-title' =>  __('Login'),
+	        'menu-item-classes' => 'login',
+	        'menu-item-url' => '#', 
+	        'menu-item-status' => 'publish'));
 
-    // Grab the theme locations and assign our newly-created menu
-	    if( !has_nav_menu( $rightmenulocation ) ){
-	        $locations = get_theme_mod('nav_menu_locations');
-	        $locations[$rightmenulocation] = $rmenu_id;
-	        set_theme_mod( 'nav_menu_locations', $locations );
-	    }
-	}
-
+	    // Grab the theme locations and assign our newly-created menu
+		    if( !has_nav_menu( $rightmenulocation ) ){
+		        $locations = get_theme_mod('nav_menu_locations');
+		        $locations[$rightmenulocation] = $rmenu_id;
+		        set_theme_mod( 'nav_menu_locations', $locations );
+		    }
+	}	
 	// Create custom footer menu
 	$fmenuname = 'Footer Menu';
 	$fmenulocation = 'footer_menu';
@@ -359,59 +372,63 @@
 	    }
 	}
 
-	// Create Custom Posts
-	global $user_ID;
+	if($my_theme != "Pumpkin Spice")
 	
-	$team_array = 
-			array(	"Jane Smith, Founder", 
-					"David Harris, Founder", 
-					"Liz Jenkins, Founder",
-					"Jane Smith, Founder"
-				  );
-
-	for($i=0 ;$i<count($team_array) ;$i++)
-	{
-		// Create Demo Team posts
-		$new_team_post = array(
-	    'post_title' => $team_array[$i],
-	    'post_content' => 'Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
-	    'post_status' => 'publish',
-	    'post_date' => date('Y-m-d H:i:s'),
-	    'post_author' => $user_ID,
-	    'post_type' => 'member',
-		);
-		$team_post_id = wp_insert_post($new_team_post);
-		$member_type = array ('member_board_of_directors','member_employee');
-		wp_set_object_terms($team_post_id,$member_type,'member_type');
-
-	}
-	//exit;
-	// Create Demo Community posts
-	$comenity_array = 
-			array(	"Naperville", 
-					"Oak Park", 
-					"Western Springs",
-					"Naperville",
-					"Buffalo Grove",
-					"Clarendon Hills",
-				 );
-
-	for($x=0 ;$x<count($comenity_array) ;$x++)
 	{
 
-		$new_community_post = array(
-	    'post_title' => $comenity_array[$x],
-	    'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at felis vitae velit scelerisque laoreet. Maecenas a fringilla leo, et malesuada dolor. Ut feugiat laoreet dui, sed suscipit ligula sodales non. Sed ultricies massa eu ante facilisis, in molestie justo dapibus. Nullam ex massa, ornare nec dolor vitae, congue semper massa. Nullam dui ipsum, blandit nec dui tristique, tincidunt condimentum eros. In hac habitasse platea dictumst.',
-	    'post_status' => 'publish',
-	    'post_date' => date('Y-m-d H:i:s'),
-	    'post_author' => $user_ID,
-	    'post_type' => 'community',
-		);
-		$community_post_id = wp_insert_post($new_community_post);
-		$url_array = array('url' => '#');
-		update_post_meta($community_post_id,"community",$url_array);
+		// Create Custom Posts
+		global $user_ID;
+		
+		$team_array = 
+				array(	"Jane Smith, Founder", 
+						"David Harris, Founder", 
+						"Liz Jenkins, Founder",
+						"Jane Smith, Founder"
+					  );
+
+		for($i=0 ;$i<count($team_array) ;$i++)
+		{
+			// Create Demo Team posts
+			$new_team_post = array(
+		    'post_title' => $team_array[$i],
+		    'post_content' => 'Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
+		    'post_status' => 'publish',
+		    'post_date' => date('Y-m-d H:i:s'),
+		    'post_author' => $user_ID,
+		    'post_type' => 'member',
+			);
+			$team_post_id = wp_insert_post($new_team_post);
+			$member_type = array ('member_board_of_directors','member_employee');
+			wp_set_object_terms($team_post_id,$member_type,'member_type');
+
+		}
+		//exit;
+		// Create Demo Community posts
+		$comenity_array = 
+				array(	"Naperville", 
+						"Oak Park", 
+						"Western Springs",
+						"Naperville",
+						"Buffalo Grove",
+						"Clarendon Hills",
+					 );
+
+		for($x=0 ;$x<count($comenity_array) ;$x++)
+		{
+
+			$new_community_post = array(
+		    'post_title' => $comenity_array[$x],
+		    'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at felis vitae velit scelerisque laoreet. Maecenas a fringilla leo, et malesuada dolor. Ut feugiat laoreet dui, sed suscipit ligula sodales non. Sed ultricies massa eu ante facilisis, in molestie justo dapibus. Nullam ex massa, ornare nec dolor vitae, congue semper massa. Nullam dui ipsum, blandit nec dui tristique, tincidunt condimentum eros. In hac habitasse platea dictumst.',
+		    'post_status' => 'publish',
+		    'post_date' => date('Y-m-d H:i:s'),
+		    'post_author' => $user_ID,
+		    'post_type' => 'community',
+			);
+			$community_post_id = wp_insert_post($new_community_post);
+			$url_array = array('url' => '#');
+			update_post_meta($community_post_id,"community",$url_array);
+		}
 	}
-	
 	for($i=1 ;$i<=5 ;$i++)
 	{
 		// Create Demo Resource posts
@@ -424,7 +441,8 @@
 	    'post_type' => 'resource',
 		);
 		$rsource_post_id = wp_insert_post($new_rsource_post);
-
+	if($my_theme != "Pumpkin Spice")
+	   {
 		// Create Demo Testimonial posts
 		$new_testimonial_post = array(
 	    'post_title' => 'Testimonial '.$i,
@@ -468,7 +486,7 @@
 	    'post_type' => 'accreditation',
 		);
 		$accred_post_id = wp_insert_post($new_accrd_post);
-
+	}
 		if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
 		{
 			// Create Demo Blog posts

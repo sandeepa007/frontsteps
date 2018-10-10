@@ -67,7 +67,7 @@ if( get_theme_mod( 'about-hero' ) )
 // If content is there on page fetched this content
 while ( have_posts() ) : the_post();
     if ( !empty( get_the_content() ) ) { ?>
-        <div class="">
+        <div class="bg-lightgrey">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -162,7 +162,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                     <div class="clearfix"></div>
             <?php } ?>
             <!-- Modal -->
-            <?php $count++; endwhile; wp_reset_postdata();?>
+<?php $count++; endwhile; wp_reset_postdata();?>
 
         </div>
     </div>
@@ -175,7 +175,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
 {
 ?>
 <!-- BOD SECTION -->
-<div class="section section-box section-team">
+<div class="section section-box section-team bg-lightgrey">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">

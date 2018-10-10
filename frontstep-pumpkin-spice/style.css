@@ -1,0 +1,43 @@
+/*
+ Theme Name:   Pumpkin Spice
+ Theme URI:    http://frontsteps.com
+ Description:  FrontStep's Euro Contempo Theme
+ Author:       FrontStep 
+ Template:     frontsteps
+ Version:      1.0.0 
+*/
+#header .container .right-column ul li.login a{
+	border-radius: 5px;
+	color:#727272;
+}
+#header .container .right-column ul li.login a:hover {
+	background:#4CBDD7;
+	color:#ffffff;
+}
+.button-primary {
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 4px;
+    border: 0px solid #FFFFFF;
+}
+#header .container .navigation-column .navbar-default .navbar-nav li a, #header .container .right-column ul li a {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+@media only screen and (max-width: 600px) {
+  .slick-slide img {
+    width: auto;
+	margin:0 auto;
+  }
+}
+#header .container .right-column ul li.login a
+{
+  background: #4CBDD7!important;
+  color: #ffffff;
+}
+.section-resources:nth-child(even) {
+    background: #F7F9FC !important;
+}
+.section-resources:nth-child(odd) {
+    background: #FFFFFF !important;
+}
