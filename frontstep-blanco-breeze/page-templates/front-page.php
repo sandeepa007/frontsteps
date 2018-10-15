@@ -133,9 +133,6 @@ get_header();?>
 </div>
 <?php } ?>
 <!-- Call to Actions SECTION -->
-<?php if( $show_gallery == 1)
-    {
-?>
 <div class="section section-gallery">
     <div class="container container-full">
         <div class="row">
@@ -147,7 +144,9 @@ get_header();?>
             </div>
         </div>
     </div>
-
+<?php if( $show_gallery == 1)
+    {
+?>
     <div class="gallery-group">
         <div id="home-gallery" class="owl-carousel owl-loaded owl-drag">
             

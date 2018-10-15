@@ -113,6 +113,68 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
             ));
         }
 
+        // Navigation Background Color
+        $setting = 'nav-bg-color';
+        $mod = get_theme_mod($setting, customizer_library_get_default($setting));
+
+        if ($mod !== customizer_library_get_default($setting)) {
+
+            $color = sanitize_hex_color($mod);
+
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '#header',
+                    '#header .container .navigation-column .navbar-default',
+                    '.main-nav'
+                ),
+                'declarations' => array(
+                    'background' => $color."!important;"
+                )
+            ));
+            
+        }
+        // Navigation text Color
+        $setting = 'nav-txt-color';
+        $mod = get_theme_mod($setting, customizer_library_get_default($setting));
+
+        if ($mod !== customizer_library_get_default($setting)) {
+
+            $color = sanitize_hex_color($mod);
+
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '#header .container .navigation-column .navbar-default .navbar-nav li a',
+                    '#right-main li a',
+                    '#header .container .right-column ul li a'
+                ),
+                'declarations' => array(
+                    'color' => $color
+                )
+            ));
+            
+        }
+        
+        // Navigation text hover and selected Color
+        $setting = 'nav-txt-hover-color';
+        $mod = get_theme_mod($setting, customizer_library_get_default($setting));
+
+        if ($mod !== customizer_library_get_default($setting)) {
+
+            $color = sanitize_hex_color($mod);
+
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '#header .container .navigation-column .navbar-default .navbar-nav li a:hover',
+                    '#header .container .navigation-column .navbar-default .navbar-nav li.active a',
+                    '#right-main li a:hover'
+                ),
+                'declarations' => array(
+                    'color' => $color
+                )
+            ));
+            
+        }
+
          // button_color Color
         $setting = 'button-color';
         $mod = get_theme_mod($setting, customizer_library_get_default($setting));

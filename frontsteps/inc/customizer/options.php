@@ -33,6 +33,12 @@ function customizer_options(){
                 ['id' => 'body-color', 'label' => __('Body Background Color'), 'type' => 'color', 'default' => $body_color, 'description' => 'This affects the body background color for your pages.'],
                 ['id' => 'anchore-color', 'label' => __('Anchor Color'), 'type' => 'color', 'default' => $anchore_color, 'description' => 'This affects the anchore text color in your site.'],
                 ['id' => 'anchore-hover-color', 'label' => __('Anchor Hover Color'), 'type' => 'color', 'default' => $anchore_hover_color, 'description' => 'This affects the anchore text color in your site on rollover.'],
+                ['id' => 'nav-bg-color', 'label' => __('Navigation Background'), 'type' => 'color', 'default' => '', 'description' => 'This affects navigation background color.'],
+
+                ['id' => 'nav-txt-color', 'label' => __('Navigation Text Color'), 'type' => 'color', 'default' => '', 'description' => 'This affects navigation text color.'],
+
+                ['id' => 'nav-txt-hover-color', 'label' => __('Navigation Text Hover Color'), 'type' => 'color', 'default' => $anchore_hover_color, 'description' => 'This affects the anchore text color in navigation on rollover.'],
+
                 ['id' => 'button-color', 'label' => __('Button Text Color'), 'type' => 'color', 'default' => $button_color, 'description' => 'This affects the button text color in your site.'],
                 ['id' => 'button-bkg-color', 'label' => __('Button Background Color'), 'type' => 'color', 'default' => $button_bkg_color, 'description' => 'This affects the button Background color in your site.'],
                 ['id' => 'button-hover-color', 'label' => __('Button Color(hover)'), 'type' => 'color', 'default' => $button_hover_color, 'description' => 'This affects the button text color in your site on rollover.'],
