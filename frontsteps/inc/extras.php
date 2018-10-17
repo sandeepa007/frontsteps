@@ -298,75 +298,81 @@ function prefix_dashboard_widget() {
         '<h2 style="text-align:right">%s</h2>',
         __( 'Please, configure the widget ☝' )
     );
+    $my_theme = wp_get_theme();	
+	//echo $my_theme;
 
     # check if saved data contains content
     $saved_feature_post = isset( $widget_options['feature_post'] ) ? $widget_options['feature_post'] : false;
 
-    $output = '<ol>
-    			<li>
-    				<a target="_blank" href="#">How to change background colors</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to change Color scheme</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to change Typography</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit / add a Team Member</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit / add Amenities</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit / add Resources</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit / add Accreditation</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to change WordPress Password</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit company value proposition on Home page</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit content on Home page</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit content on About Us page</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit content on Amenities page</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit content on Contact page</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit content on Gallery page</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit content on Resource page</a>
-    			</li>
-    			
-    			<li>
-    				<a target="_blank" href="#">How to edit Resources on Home page</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit Social Media icons</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to edit Title and Subtitle on About Us page</a>
-    			</li>
-    			<li>
-    				<a target="_blank" href="#">How to update Title and Tagline on Home page</a>
-    			</li>
+    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic")
+	{
+		$output = '<ol>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/SpBaXIknB6Y">How to Login and Edit Header, Footer.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/ek5tusuGVLQ">How to Edit Site Colors and Fonts.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/pp8nQIhZw8o">Home Page - How to edit content and images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/Eo-QQboYyDw">About Page - How to edit content and images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/3X0h3iLNVak">Services page - How to edit content and images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/ZEgvP4l2bTM">Blogs - How to add and edit single Blog.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/CcsCBmwNllM">Resources Page - How to Add Edit content and Images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/gm0wsSsUcKM">Request a Proposal, Contact us page - How to edit Images and content.</a>
+		    			</li>
+		    			
+    				</ol>';
+
+	}
+	else
+	{
+		
+		$output = '<ol>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/_iHlzwI8JKo">How to Login and Edit Header, Footer.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/Yz8HhTGv9lg">How to Edit Colors and Fonts.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/BDPG4ntCb4A">Home Page - How to edit Content and Images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/w2SGJUkL0kc">About us Page - How to Edit content and Images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/Ylzsq3LC4C8">Amenities Page - How to Edit content and Images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/kb2RKHIYM6w">Resources Page - How to Edit content and Images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/Ezvuwlr-GDY">Gallery Page - How to Edit content and Images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/W8oc95BVqTI">Contact us Page - How to Edit content and Images.</a>
+		    			</li>
+		    			<li>
+		    				<a target="_blank" href="https://youtu.be/jFjD0pwP_KA">How to Add  New - Board of Directors, Employees, Amenities, Resources.</a>
+		    			</li>
     			</ol>';
 
+	}
 
     echo "<div class='feature_post_class_wrap'>
-        <label style='background:#ccc;'>$output</label>
-    </div>
+        		<label style='background:#ccc;'>$output</label>
+    		</div>
     ";
 }
 // To hide update notifications to non-admin users
