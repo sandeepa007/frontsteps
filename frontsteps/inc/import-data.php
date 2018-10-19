@@ -11,7 +11,7 @@
 	
 	$home_page_id = get_option("home_page_id");
 	
-	if (!$home_page_id) {
+	//if (!$home_page_id) {
 		$home_post = array(
 			'post_title' => "Home",
 			'post_content' => "",
@@ -24,13 +24,13 @@
 		update_option("home_page_id", $homeID);
 		update_option( 'page_on_front', $homeID );
 		update_option( 'show_on_front', 'page' );
-	}
+	//}
 
 	if($my_theme != "Pumpkin Spice")
 	{
 		// About page creation
 		$about_page_id = get_option("about_page_id");
-		if (!$about_page_id) {
+	//	if (!$about_page_id) {
 			$about_post = array(
 				'post_title' => "About",
 				'post_content' => "",
@@ -41,11 +41,11 @@
 			$aboutID = wp_insert_post($about_post, $error);
 			update_post_meta($aboutID, "_wp_page_template", "page-templates/aboutus-page.php");
 			update_option("about_page_id", $aboutID);
-		}
+		//}
 	}	
 	// Resources page creation
 	$resources_page_id = get_option("resources_page_id");
-	if (!$resources_page_id) {
+	//if (!$resources_page_id) {
 		$resourc_post = array(
 			'post_title' => "Resources",
 			'post_content' => "",
@@ -56,11 +56,11 @@
 		$resourcesID = wp_insert_post($resourc_post, $error);
 		update_post_meta($resourcesID, "_wp_page_template", "page-templates/resources-page.php");
 		update_option("resources_page_id", $resourcesID);
-	}
+	//}
 
 	// Thank You  page creation
 	$ty_page_id = get_option("ty_page_id");
-	if (!$ty_page_id) {
+	//if (!$ty_page_id) {
 		$ty_post = array(
 			'post_title' => "Thank You",
 			'post_content' => "",
@@ -71,11 +71,11 @@
 		$tyID = wp_insert_post($ty_post, $error);
 		update_post_meta($tyID, "_wp_page_template", "page-templates/thank-you.php");
 		update_option("ty_page_id", $tyID);
-	}
+	//}
 
 	// Contact page creation
 	$contact_page_id = get_option("contact_page_id");
-	if (!$contact_page_id) {
+	//if (!$contact_page_id) {
 		
 		// import gravity Contact form and insert into contact page
 		$contct_formobj = json_decode('{"title":"Contact Us","description":"","labelPlacement":"top_label","descriptionPlacement":"below","button":{"type":"text","text":"Submit","imageUrl":""},"fields":[{"type":"name","id":1,"label":"Name","adminLabel":"","isRequired":false,"size":"medium","errorMessage":"","visibility":"visible","nameFormat":"advanced","inputs":[{"id":"1.2","label":"Prefix","name":"","choices":[{"text":"Mr.","value":"Mr.","isSelected":false,"price":""},{"text":"Mrs.","value":"Mrs.","isSelected":false,"price":""},{"text":"Miss","value":"Miss","isSelected":false,"price":""},{"text":"Ms.","value":"Ms.","isSelected":false,"price":""},{"text":"Dr.","value":"Dr.","isSelected":false,"price":""},{"text":"Prof.","value":"Prof.","isSelected":false,"price":""},{"text":"Rev.","value":"Rev.","isSelected":false,"price":""}],"isHidden":true,"inputType":"radio"},{"id":"1.3","label":"First","name":"","customLabel":"First Name"},{"id":"1.4","label":"Middle","name":"","isHidden":true},{"id":"1.6","label":"Last","name":"","customLabel":"Last Name"},{"id":"1.8","label":"Suffix","name":"","isHidden":true}],"formId":1,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"email","id":2,"label":"Email","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":1,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","emailConfirmEnabled":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"phone","id":3,"label":"Phone","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"phoneFormat":"standard","formId":1,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","form_id":"","productField":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"textarea","id":4,"label":"Message","adminLabel":"","isRequired":false,"size":"medium","errorMessage":"","visibility":"visible","inputs":null,"formId":1,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","form_id":"","useRichTextEditor":false,"multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false}],"version":"2.3.3.6","id":1,"useCurrentUserAsAuthor":true,"postContentTemplateEnabled":false,"postTitleTemplateEnabled":false,"postTitleTemplate":"","postContentTemplate":"","lastPageButton":null,"pagination":null,"firstPageCssClass":null,"confirmations":[{"id":"5b76a660e365c","name":"Default Confirmation","isDefault":true,"type":"page","message":"Thanks for contacting us! We will get in touch with you shortly.","url":"","pageId":'.$tyID.',"queryString":"","disableAutoformat":false,"conditionalLogic":[]}],"notifications":[{"id":"5b76a660dc8ac","to":"{admin_email}","name":"Admin Notification","event":"form_submission","toType":"email","subject":"New submission from {form_title}","message":"{all_fields}"}]}', true);
@@ -92,14 +92,14 @@
 		$contactID = wp_insert_post($contact_post, $error);
 		update_post_meta($contactID, "_wp_page_template", "page-templates/contact-page.php");
 		update_option("contact_page_id", $contactID);
-	}
+	//}
 
 	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" || $my_theme!= "Pumpkin Spice")
 	{
 
 		// Communities page creation
 		$communities_page_id = get_option("communities_page_id");
-		if (!$communities_page_id) {
+	//	if (!$communities_page_id) {
 			$blog_post = array(
 				'post_title' => "Communities",
 				'post_content' => "",
@@ -110,11 +110,11 @@
 			$communitiesID = wp_insert_post($blog_post, $error);
 			update_post_meta($communitiesID, "_wp_page_template", "page-templates/communities-page.php");
 			update_option("communities_page_id", $communitiesID);
-		}
+	//	}
 
 		// Blog page creation
 		$blog_page_id = get_option("blog_page_id");
-		if (!$blog_page_id) {
+	//	if (!$blog_page_id) {
 			$blog_post = array(
 				'post_title' => "Blog",
 				'post_content' => "",
@@ -125,11 +125,11 @@
 			$blogID = wp_insert_post($blog_post, $error);
 			update_post_meta($blogID, "_wp_page_template", "page-templates/blog-page.php");
 			update_option("blog_page_id", $blogID);
-		}
+	//	}
 
 		// Service page creation
 		$services_page_id = get_option("services_page_id");
-		if (!$services_page_id) {
+	//	if (!$services_page_id) {
 			$blog_post = array(
 				'post_title' => "Services",
 				'post_content' => "",
@@ -140,11 +140,11 @@
 			$servicesID = wp_insert_post($blog_post, $error);
 			update_post_meta($servicesID, "_wp_page_template", "page-templates/services-page.php");
 			update_option("services_page_id", $servicesID);
-		}
+	//	}
 
 		// Request Proposal page creation
 		$reqprposl_page_id = get_option("reqprposl_page_id");
-		if (!$reqprposl_page_id) {
+	//	if (!$reqprposl_page_id) {
 
 			// import gravity Contact form and insert into contact page
 		$reqprop_formobj = json_decode('{"title":"Request Proposal","description":"","labelPlacement":"top_label","descriptionPlacement":"below","button":{"type":"text","text":"Submit","imageUrl":""},"fields":[{"type":"text","id":1,"label":"First Name","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"text","id":2,"label":"Last Name","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"email","id":3,"label":"Email","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","emailConfirmEnabled":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"phone","id":4,"label":"Phone","adminLabel":"","isRequired":true,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"phoneFormat":"standard","formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","form_id":"","productField":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"text","id":5,"label":"Address","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"text","id":6,"label":"Address 2","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_half","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false,"displayOnly":""},{"type":"text","id":7,"label":"City","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_left_third","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false},{"type":"text","id":8,"label":"State","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_middle_third","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false},{"type":"text","id":9,"label":"Zip","adminLabel":"","isRequired":false,"size":"large","errorMessage":"","visibility":"visible","inputs":null,"formId":2,"description":"","allowsPrepopulate":false,"inputMask":false,"inputMaskValue":"","inputType":"","labelPlacement":"","descriptionPlacement":"","subLabelPlacement":"","placeholder":"","cssClass":"gf_right_third","inputName":"","noDuplicates":false,"defaultValue":"","choices":"","conditionalLogic":"","productField":"","enablePasswordInput":"","maxLength":"","multipleFiles":false,"maxFiles":"","calculationFormula":"","calculationRounding":"","enableCalculation":"","disableQuantity":false,"displayAllCategories":false,"useRichTextEditor":false}],"version":"2.3.3.9","id":2,"useCurrentUserAsAuthor":true,"postContentTemplateEnabled":false,"postTitleTemplateEnabled":false,"postTitleTemplate":"","postContentTemplate":"","lastPageButton":null,"pagination":null,"firstPageCssClass":null,"confirmations":[{"id":"5b8fd6ec035d3","name":"Default Confirmation","isDefault":true,"type":"page","message":"Thanks for contacting us! We will get in touch with you shortly.","url":"","pageId":'.$tyID.',"queryString":"","disableAutoformat":false,"conditionalLogic":[]}],"notifications":[{"id":"5b8fd6ebdf14a","to":"{admin_email}","name":"Admin Notification","event":"form_submission","toType":"email","subject":"New submission from {form_title}","message":"{all_fields}"}]}', true);
@@ -161,7 +161,7 @@
 			$reqprpID = wp_insert_post($blog_post, $error);
 			update_post_meta($reqprpID, "_wp_page_template", "page-templates/request-proposal-page.php");
 			update_option("reqprposl_page_id", $reqprpID);
-		}
+	//	}
 
 	}
 	else
@@ -170,7 +170,7 @@
 		{
 			// Amenties page creation
 			$amenties_page_id = get_option("amenties_page_id");
-			if (!$amenties_page_id) {
+	//		if (!$amenties_page_id) {
 				$amenties_post = array(
 					'post_title' => "Amenities",
 					'post_content' => "",
@@ -181,13 +181,13 @@
 				$amentyID = wp_insert_post($amenties_post, $error);
 				update_post_meta($amentyID, "_wp_page_template", "page-templates/amenties-page.php");
 				update_option("amenties_page_id", $amentyID);
-			}
+	//		}
 
 			
 
 			// Gallery page creation
 			$gallery_page_id = get_option("gallery_page_id");
-			if (!$gallery_page_id) {
+	//		if (!$gallery_page_id) {
 				$gallery_post = array(
 					'post_title' => "Gallery",
 					'post_content' => "",
@@ -198,7 +198,7 @@
 				$galleryID = wp_insert_post($gallery_post, $error);
 				update_post_meta($galleryID, "_wp_page_template", "page-templates/gallery-page.php");
 				update_option("gallery_page_id", $galleryID);
-			}
+	//		}
 		}	
 	}
 
@@ -236,42 +236,45 @@
 	    'menu-item-type' => 'post_type'
     	));
 
-    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" || $my_theme != "Pumpkin Spice")
+    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic")
 	{
-		wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('Services'),
-	        'menu-item-object-id' => $servicesID,
-		    'menu-item-object' => 'page',
-		    'menu-item-status' => 'publish',
-		    'menu-item-type' => 'post_type'));
+		if($my_theme != "Pumpkin Spice")
+	    {
+			wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Services'),
+		        'menu-item-object-id' => $servicesID,
+			    'menu-item-object' => 'page',
+			    'menu-item-status' => 'publish',
+			    'menu-item-type' => 'post_type'));
 
-		/*wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('Our Communities'),
-	        'menu-item-classes' => '',
-	        'menu-item-url' => home_url( '/communities/' ), 
-	        'menu-item-status' => 'publish'));*/
+			/*wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Our Communities'),
+		        'menu-item-classes' => '',
+		        'menu-item-url' => home_url( '/communities/' ), 
+		        'menu-item-status' => 'publish'));*/
 
-		wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('Find Communities'),
-	        'menu-item-classes' => 'search_communities',
-	        'menu-item-url' => 'javascript:void(0)', 
-	        'menu-item-status' => 'publish'));
+			wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Find Communities'),
+		        'menu-item-classes' => 'search_communities',
+		        'menu-item-url' => 'javascript:void(0)', 
+		        'menu-item-status' => 'publish'));
 
 
 
-		wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('Blog'),
-	        'menu-item-object-id' => $blogID,
-		    'menu-item-object' => 'page',
-		    'menu-item-status' => 'publish',
-		    'menu-item-type' => 'post_type'));
+			wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Blog'),
+		        'menu-item-object-id' => $blogID,
+			    'menu-item-object' => 'page',
+			    'menu-item-status' => 'publish',
+			    'menu-item-type' => 'post_type'));
 
-		wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('Request Proposal'),
-	        'menu-item-object-id' => $reqprpID,
-		    'menu-item-object' => 'page',
-		    'menu-item-status' => 'publish',
-		    'menu-item-type' => 'post_type'));
+			wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Request Proposal'),
+		        'menu-item-object-id' => $reqprpID,
+			    'menu-item-object' => 'page',
+			    'menu-item-status' => 'publish',
+			    'menu-item-type' => 'post_type'));
+		}	
 	}
     else
     {
