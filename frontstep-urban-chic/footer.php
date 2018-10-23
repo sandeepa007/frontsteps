@@ -106,9 +106,9 @@ if($cta_bg_img != "")
                <div class="widget">
                		<div class="menu-footer-menu-container">
                			<ul id="menu-footer-menu" class="menu">
-               				<li id="menu-item-146" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146">	<a href="#">Privacy Policy</a>
+               				<li id="menu-item-146" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146">	<a target="_blank" href="https://www.frontsteps.com/privacy-policy">Privacy Policy</a>
                				</li>
-               				<li id="menu-item-147" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147">	<a href="#">Terms</a>
+               				<li id="menu-item-147" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147">	<a target="_blank" href="https://www.frontsteps.com/terms-of-service">Terms</a>
                				</li>
                			</ul>
                		</div>

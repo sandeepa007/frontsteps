@@ -52,9 +52,9 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 					<?php } ?>
 				</ul>
 				<ul class="footer-menu margin-0px padding-0px list-unstyled">
-					<li><a href="#" class="text-grey-3">Privacy Policy</a></li>
-					<li>|</li>
-					<li><a href="#" class="text-grey-3">Terms</a></li>					
+					<li><a target="_blank" href="https://www.frontsteps.com/privacy-policy" class="text-grey-3">Privacy Policy</a></li>
+						<li>|</li>
+						<li><a target="_blank" href="https://www.frontsteps.com/terms-of-service" class="text-grey-3">Terms</a></li>					
 				</ul>
 				<!-- // Social -->
 			</div>
