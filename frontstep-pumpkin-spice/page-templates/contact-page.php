@@ -54,4 +54,18 @@ if( get_theme_mod( 'contact-hero' ) )
         </div>
     </div>
 </div>
+
+<?php if( get_theme_mod( 'contact-map' ) != '')
+{ ?>
+<div class="contct-map">
+    <div class="row">
+            <div class="col-xs-12">
+                <div class="address-block text-center">
+                    <iframe width="100%" height="350px" src="<?php echo get_theme_mod( 'contact-map' ); ?>"></iframe>    
+                </div>
+            </div>
+        </div>
+</div>
+<?php } ?>
+
 <?php get_footer(); ?>

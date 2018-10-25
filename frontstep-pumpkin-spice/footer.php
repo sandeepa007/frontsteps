@@ -65,7 +65,7 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 			
 			<div class="col-lg-4 col-lg-offset-8 col-sm-4 col-sm-offset-8 col-xs-12 text-xs-center text-right">
 				<span class="text-sm-center text-lg-right text-grey-3 d-block padding-top-5px">
-                    Powered by <a href="#" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a>
+                    Powered by <a href="https://www.frontsteps.com/" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a>
                 </span>
 			</div>
 		</div>

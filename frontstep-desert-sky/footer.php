@@ -84,7 +84,7 @@ $container = get_theme_mod( 'frontsteps_container_type' );
          </div>
          <div class="col-xs-12 col-sm-6">
             <div class="credits">
-               <p>Powered by <a href="#" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a></p>
+               <p>Powered by <a href="https://www.frontsteps.com/" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a></p>
             </div>
          </div>
          <div class="col-xs-12">
