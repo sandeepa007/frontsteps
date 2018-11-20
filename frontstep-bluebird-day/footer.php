@@ -135,11 +135,16 @@ if($cta_bg_img != "")
 			</div>
 
 			<div class="col-12 text-center wow fadeInUp">
-				<ul class="footer-menu margin-0px padding-0px list-unstyled">
-					<li><a target="_blank" href="https://www.frontsteps.com/privacy-policy" class="text-grey-3">Privacy Policy</a></li>
-						<li>|</li>
-						<li><a target="_blank" href="https://www.frontsteps.com/terms-of-service" class="text-grey-3">Terms</a></li>
-				</ul>
+				<?php wp_nav_menu(
+							array(
+								'theme_location'  => 'footer_menu',
+								'menu_class'      => 'footer-menu margin-0px padding-0px list-unstyled',
+								'fallback_cb'     => '',
+								'menu_id'         => 'footer-links',
+								'depth'           => 2,
+								'walker'          => new Frontsteps_WP_Bootstrap_Navwalker(),
+							)
+						); ?>
 			</div>
 
 		</div>

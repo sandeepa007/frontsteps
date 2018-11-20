@@ -84,7 +84,9 @@ function customizer_options(){
             ['id' => 'show-team-section-bod', 'label' => __('Show Board of Director'), 'type' => 'checkbox', 'default' => 1],
             ['id' => 'show-team-section-emplye', 'label' => __('Show Employee'), 'type' => 'checkbox', 'default' => 0],
             ['id' => 'bod-section-title', 'label' => __('Board of Director Section Title'), 'type' => 'text', 'default' => __('Board of Directors')],
+            ['id' => 'bod-section-rdmore', 'label' => __('Board of Director Read More Text'), 'type' => 'text', 'default' => __('Read More')],
             ['id' => 'emplyee-section-title', 'label' => __('Employee Section Title'), 'type' => 'text', 'default' => __('Employee')],
+            ['id' => 'emplyee-section-rdmore', 'label' => __('Employee Section Read More Text'), 'type' => 'text', 'default' => __('Read More')],
         ]],
         /* Resources Page */
         ['id' => 'resources_content', 'title' => __('Resources Settings'), 'options' => [
@@ -277,6 +279,13 @@ function customizer_library_demo_options() {
         'type'    => 'text',
         'default' => 'welcome Home',
     );
+    $options['home-hero-title-color'] = array(
+        'id' => 'home-hero-title-color',
+        'label'   => __( 'Hero Title Text Color', 'frontsteps' ),
+        'section' => $section,
+        'type'    => 'color',
+        'default' => '#ffffff',
+    );
 
      $options['home-hero-desc'] = array(
         'id' => 'home-hero-desc',
@@ -284,6 +293,13 @@ function customizer_library_demo_options() {
         'section' => $section,
         'type'    => 'textarea',
         'default' => 'A Modern Community in the Heart of the City',
+    );
+     $options['home-hero-desc-color'] = array(
+        'id' => 'home-hero-desc-color',
+        'label'   => __( 'Hero Description Text Color', 'frontsteps' ),
+        'section' => $section,
+        'type'    => 'color',
+        'default' => '#ffffff',
     );
      $options['hero-overlay'] = array(
         'id' => 'hero-overlay',
@@ -329,7 +345,22 @@ function customizer_library_demo_options() {
         'section' => $section,
         'type'    => 'checkbox',
         'default' => 0,
-    ); 
+    );
+
+    $options['home-hero-slider-title-color'] = array(
+            'id' => 'home-hero-slider-title-color',
+            'label'   => __( 'Slider Title Color', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'color',
+            'default' => '#ffffff',
+        );
+    $options['home-hero-slider-subtitle-color'] = array(
+            'id' => 'home-hero-slider-subtitle-color',
+            'label'   => __( 'Slider Subtitle Color', 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'color',
+            'default' => '#ffffff',
+        );
 
     for( $i=1 ; $i<=10 ; $i++)
     {
@@ -356,6 +387,7 @@ function customizer_library_demo_options() {
             'type'    => 'text',
             'default' => 'A Modern Community in the Heart of the City',
         );
+
     }
 
     // Home Other

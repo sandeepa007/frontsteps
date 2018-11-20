@@ -1,6 +1,6 @@
 /*
  Theme Name:   Irish Morning
- Theme URI:    http://frontsteps.com
+ Theme URI:    https://frontsteps.com
  Description:  FrontStep's Irish Morning Theme
  Author:       FrontStep
  Template:     frontsteps
@@ -17,7 +17,7 @@
 	background-color: rgba(0,0,0,0.2);
 }
 #header .container .navigation-column .navbar-default .navbar-nav li a,
-a.nav-link{
+#header a.nav-link{
 	color: #FFFFFF;	
 }
 .button-primary, #header .container .right-column ul li.login a{

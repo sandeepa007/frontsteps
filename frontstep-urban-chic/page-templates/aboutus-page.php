@@ -95,7 +95,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                     </div>
                     <div class="info-block">
                         <h4 class="h4 color-dark"><?php the_title(); ?></h4>
-                        <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
+                        <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link"><?php echo get_theme_mod( 'bod-section-rdmore' ); ?></a>
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                     </div>
                     <div class="info-block">
                         <h4 class="h4 color-dark"><?php the_title(); ?></h4>
-                        <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
+                        <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link"><?php echo get_theme_mod( 'emplyee-section-rdmore' ); ?></a>
                     </div>
                 </div>
             </div>

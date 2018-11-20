@@ -145,7 +145,8 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                 'selectors' => array(
                     '#header .container .navigation-column .navbar-default .navbar-nav li a',
                     '#right-main li a',
-                    '#header .container .right-column ul li a'
+                    '#header .container .right-column ul li a',
+                    '#header .logo-column a'
                 ),
                 'declarations' => array(
                     'color' => $color
@@ -166,13 +167,87 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                 'selectors' => array(
                     '#header .container .navigation-column .navbar-default .navbar-nav li a:hover',
                     '#header .container .navigation-column .navbar-default .navbar-nav li.active a',
-                    '#right-main li a:hover'
+                    '#right-main li a:hover',
+                    '#header .logo-column a:hover'
                 ),
                 'declarations' => array(
                     'color' => $color
                 )
             ));
             
+        }
+
+        // Hero title color
+        $setting = 'home-hero-title-color';
+        $mod = get_theme_mod($setting, customizer_library_get_default($setting));
+
+        if ($mod !== customizer_library_get_default($setting)) {
+
+            $color = sanitize_hex_color($mod);
+
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '.home .hero-block.color-white.text-center',
+                    '.home .hero-block.color-white.text-center h1',
+                ),
+                'declarations' => array(
+                    'color' => $color."!important;"
+                )
+            ));
+        }
+
+        // Hero description color
+        $setting = 'home-hero-desc-color';
+        $mod = get_theme_mod($setting, customizer_library_get_default($setting));
+
+        if ($mod !== customizer_library_get_default($setting)) {
+
+            $color = sanitize_hex_color($mod);
+
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '.home .hero-block.color-white.text-center p'
+                ),
+                'declarations' => array(
+                    'color' => $color."!important;"
+                )
+            ));
+        }
+
+         // Hero slider title color
+        $setting = 'home-hero-slider-title-color';
+        $mod = get_theme_mod($setting, customizer_library_get_default($setting));
+
+        if ($mod !== customizer_library_get_default($setting)) {
+
+            $color = sanitize_hex_color($mod);
+
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '#home-hero-gallery .rsCaption .h1',
+                ),
+                'declarations' => array(
+                    'color' => $color."!important;"
+                )
+            ));
+        }
+
+        // Hero slider description color
+        $setting = 'home-hero-slider-subtitle-color';
+        $mod = get_theme_mod($setting, customizer_library_get_default($setting));
+
+        if ($mod !== customizer_library_get_default($setting)) {
+
+            $color = sanitize_hex_color($mod);
+
+            Customizer_Library_Styles()->add(array(
+                'selectors' => array(
+                    '#home-hero-gallery .rsCaption  p.color-white'
+                ),
+                'declarations' => array(
+                    'color' => $color."!important;"
+                )
+            ));
         }
 
          // button_color Color

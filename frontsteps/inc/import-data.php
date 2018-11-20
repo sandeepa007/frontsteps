@@ -561,9 +561,14 @@
 
 	// home hero settings
 	set_theme_mod('home-hero-title', $home_hero_title);
+	set_theme_mod('home-hero-title-color','#ffffff');
 	set_theme_mod('home-hero-desc', $home_hero_desc);
+	set_theme_mod('home-hero-desc-color','#ffffff');
 	set_theme_mod('hero-overlay-color', $hero_overlay_color);
 	set_theme_mod('hero-overlay-opacity', $hero_overlay_opacity);
+	set_theme_mod('home-hero-slider-title-color','#ffffff');
+	set_theme_mod('home-hero-slider-subtitle-color',,'#ffffff');
+	
 	set_theme_mod('home-hide-gallery', $home_hide_gallery);
 	set_theme_mod('home-hide-accreditation', $home_hide_accrediation);
 	
@@ -595,8 +600,10 @@
 	set_theme_mod('about-section3-desc', $about_section3_desc);
 	set_theme_mod('show-team-section-bod', $show_team_section_bod);
 	set_theme_mod('bod-section-title', $bod_section_title);
+	set_theme_mod('bod-section-rdmore', 'Read Bio');
 	set_theme_mod('emplyee-section-title', $emplyee_section_title);
-	
+	set_theme_mod('emplyee-section-rdmore', 'Read Bio');
+
 	// Resources settings
 	set_theme_mod('resources-title', $resources_title);
 	set_theme_mod('resources-title2', $resources_title2);

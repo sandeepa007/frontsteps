@@ -105,12 +105,17 @@ if($cta_bg_img != "")
             <div class="footer-menu">
                <div class="widget">
                		<div class="menu-footer-menu-container">
-               			<ul id="menu-footer-menu" class="menu">
-               				<li id="menu-item-146" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146">	<a target="_blank" href="https://www.frontsteps.com/privacy-policy">Privacy Policy</a>
-               				</li>
-               				<li id="menu-item-147" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147">	<a target="_blank" href="https://www.frontsteps.com/terms-of-service">Terms</a>
-               				</li>
-               			</ul>
+               			<?php wp_nav_menu(
+                    array(
+                      'theme_location'  => 'footer_menu',
+                      'menu_class'      => 'footer-menu margin-0px padding-0px list-unstyled',
+                      'fallback_cb'     => '',
+                      'menu_id'         => 'footer-links',
+                      'depth'           => 2,
+                      'walker'          => new Frontsteps_WP_Bootstrap_Navwalker(),
+                    )
+                    ); ?>
+
                		</div>
                	</div>            
             </div>

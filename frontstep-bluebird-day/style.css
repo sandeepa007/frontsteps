@@ -1,6 +1,6 @@
 /*
  Theme Name:   Bluebird Day
- Theme URI:    http://frontsteps.com
+ Theme URI:    https://frontsteps.com
  Description:  FrontStep's Bluebird Day Theme
  Author:       FrontStep
  Template:     frontsteps
@@ -14,7 +14,7 @@
   background: #333333;
   box-shadow: 0px 2px 7px rgba(0,0,0,0.13);
 }
-.menu-item
+#header .menu-item
 {
   color: #ffffff;
   
@@ -387,4 +387,7 @@ footer .widget { margin-bottom: 20px; }
 .gradient-white h3.widget-title
 {
   text-align: center!important;
+}
+ul#footer-links li:first-child:after {
+  color: #ffffff;
 }

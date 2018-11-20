@@ -126,7 +126,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                                 $content = strip_tags($content);
                                 echo substr($content, 0, 100);?>                                     
                             </p>
-                            <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
+                            <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link"><?php echo get_theme_mod( 'bod-section-rdmore' ); ?></a>
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@ $show_employee = get_theme_mod( 'show-team-section-emplye' );
                                 $content = strip_tags($content);
                                 echo substr($content, 0, 100);?>
                             </p>
-                            <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link">Read Bio</a>
+                            <a href="javascript: void(0)" data-toggle="modal" data-target="#team-modal-<?php echo get_the_ID();?>" class="bio-link"><?php echo get_theme_mod( 'emplyee-section-rdmore' ); ?></a>
                         </div>
                     </div>
                 </div>
