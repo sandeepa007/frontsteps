@@ -1,4 +1,5 @@
 <?php
+$selected_theme = wp_get_theme();
 
 function customizer_options(){
 
@@ -458,8 +459,90 @@ function customizer_library_demo_options() {
         'type'    => 'text',
         'default' => '#',
     );
+    //pmp template option
+   $selected_theme = wp_get_theme();
+   if($selected_theme == "PMP Template")
+    {
+        // PMP Home navigation
+        $section = 'home-middle-navigation';
 
+        $sections[] = array(
+        'id' => $section,
+        'title' => __( 'Homepage Navigation Bar', 'frontsteps' ),
+        'priority' => '30',
+        'panel' => $panel
+    );
+        $options['navbar-col-count'] = array(
+                'id' => 'navbar-col-count',
+                'label'   => __( 'Column to show', 'frontsteps' ),
+                'section' => $section,
+                'type'    => 'select',
+                'choices' => array(
+                    '1' => __( '1' ),
+                    '2' => __( '2' ),
+                    '3' => __( '3' ),
+                    '4' => __( '4' ),
+                  ),
+                'default' => '4',
+            );
     
+        for( $i=1 ; $i<=4 ; $i++)
+        {
+            $options['navbar-img'.$i] = array(
+                'id' => 'navbar-img'.$i,
+                'label'   => __( 'Image '.$i, 'frontsteps' ),
+                'section' => $section,
+                'type'    => 'upload',
+                'default' => '',
+            );
+            $options['navbar-img-bg'.$i] = array(
+                'id' => 'navbar-img-bg'.$i,
+                'label'   => __( 'Image '.$i.' Background Color', 'frontsteps' ),
+                'section' => $section,
+                'type'    => 'color',
+                'default' => '',
+            );
+            $options['navbar-hover-img'.$i] = array(
+            'id' => 'navbar-hover-img'.$i,
+            'label'   => __( 'Mouseover Image '.$i, 'frontsteps' ),
+            'section' => $section,
+            'type'    => 'upload',
+            'default' => '',
+            );
+            $options['navbar-img-hover-bg'.$i] = array(
+                'id' => 'navbar-img-hover-bg'.$i,
+                'label'   => __( 'Mouseover Image '.$i.' Background Color', 'frontsteps' ),
+                'section' => $section,
+                'type'    => 'color',
+                'default' => '',
+            );
+
+            $options['navbar-img-url'.$i] = array(
+                'id' => 'navbar-img-url'.$i,
+                'label'   => __( 'Image '.$i.' Url', 'frontsteps' ),
+                'section' => $section,
+                'type'    => 'text',
+                'default' => '#',
+            );
+
+            $options['navbar-title'.$i] = array(
+                'id' => 'navbar-title'.$i,
+                'label'   => __( 'Title '.$i.'', 'frontsteps' ),
+                'section' => $section,
+                'type'    => 'text',
+                'default' => 'Welcome Home',
+            );
+
+            $options['navbar-subtitle'.$i] = array(
+                'id' => 'navbar-subtitle'.$i,
+                'label'   => __( 'Sub Title '.$i.'', 'frontsteps' ),
+                'section' => $section,
+                'type'    => 'text',
+                'default' => 'A Modern Community in the Heart of the City',
+            );
+        }
+    }
+
     // Call to Action settings
     $section = 'call-to-actions';
 

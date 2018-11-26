@@ -1,6 +1,7 @@
 <?php 
 $selected_theme = wp_get_theme();
 
+
 if( $selected_theme == "Irish Morning")
 {
 	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#5DBC7A';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#5DBC7A';
@@ -16,9 +17,19 @@ if( $selected_theme == "Euro Contempo")
 	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#4EBCD6';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#4EBCD6';
 	$cta_text_color =  '#ffffff';$cta_bkg_color =  '#333844';$footer_text_color =  '#242626';$footer_bkg_color =  '#F7F9FC';$box_text_color =  '#242626';$box_bkg_color =  '#F7F9FC';
 }
-
+if( $selected_theme == "Payment Portal")
+{
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#188FDF';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#4EBCD6';
+	$cta_text_color =  '#ffffff';$cta_bkg_color =  '#333844';$footer_text_color =  '#242626';$footer_bkg_color =  '#F7F9FC';$box_text_color =  '#242626';$box_bkg_color =  '#F7F9FC';
+}
+if( $selected_theme == "PMP Template")
+{
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#4EBCD6';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#4EBCD6'; $cta_text_color =  '#333844'; $cta_bkg_color = '#ffffff';$footer_text_color =  '#ffffff';$footer_bkg_color =  '#363636';$box_text_color =  '#242626';$box_bkg_color =  '#F7F9FC';
+}
+	
 
 	$herohome = get_stylesheet_directory_uri()."/img/home/home-hero.jpg";
+	
 	$heroabout = get_stylesheet_directory_uri()."/img/about/hero-header.jpg";
 	$heroresources = get_stylesheet_directory_uri()."/img/resources/hero-header.jpg";
 	$herorcontact = get_stylesheet_directory_uri()."/img/contact-us/hero-header.jpg";
@@ -44,17 +55,28 @@ $url_linkedin =  '#';
 
 
 // home hero settings
-$home_hero_title =  'Welcome Home!';
-$home_hero_desc =  'A Modern Community in the Heart of the City';
+if( $selected_theme != "Payment Portal")
+{
+	$home_hero_title =  'Welcome Home!';
+	$home_hero_desc =  'A Modern Community in the Heart of the City';
+	$frontsteps_home_section1_title =  'Connections that last';
+	$frontsteps_home_section1_description =  'We pride ourselves on keeping our residents connected through events and activities.
+Our on-site manager is engaged with the community, and through our website and mobile app
+keeps everyone informed about area happenings, maintenance, security, and more.';
+}
+else
+{
+	$home_hero_title =  'MAKE DUES AND FEES PAYMENTS FOR COMMUNITY';	
+	$home_hero_desc =  '';
+	$frontsteps_home_section1_title =  'WHO IS FRONTSTEPS?';
+	$frontsteps_home_section1_description =  'Your community uses FRONTSTEPS to accept digital dues and fees payments from residents like you. FRONTSTEPS serves over 27,000 single and multi-family residential communities with its industry-leading community management software. Your information is safe with FRONTSTEPS as their payment solution is NACHA and PCI Level 1 compliant, which are top certifications in the data security industry. ';
+}
+
 $hero_overlay_color =  '#000000';
 $hero_overlay_opacity =  '50';
 $home_hide_gallery =  '1';
 $home_hide_accrediation =  '1';
 
-$frontsteps_home_section1_title =  'Connections that last';
-$frontsteps_home_section1_description =  'We pride ourselves on keeping our residents connected through events and activities.
-Our on-site manager is engaged with the community, and through our website and mobile app
-keeps everyone informed about area happenings, maintenance, security, and more.';
 
 $home_cta_title =  'We Hope You Feel Like You’re Home!';
 $home_cta_desc =  'We’d love to tell you our story and answer any questions about life in our community.';

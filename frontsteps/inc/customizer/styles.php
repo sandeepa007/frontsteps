@@ -265,7 +265,7 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                     '.section-contact .container .gform_wrapper input[type="submit"]'
                 ),
                 'declarations' => array(
-                    'color' => $color
+                    'color' => $color."!important;"
                 )
             ));
             
@@ -278,7 +278,7 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
         if ($mod !== customizer_library_get_default($setting)) {
 
             $color = sanitize_hex_color($mod);
-
+            
             Customizer_Library_Styles()->add(array(
                 'selectors' => array(
                     '.button-primary',
@@ -286,7 +286,7 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                     '.section-contact .container .gform_wrapper input[type="submit"]'
                 ),
                 'declarations' => array(
-                    'background' => $color
+                    'background' => $color."!important;"
                 )
             ));
         }
@@ -306,7 +306,7 @@ if (!function_exists('customizer_library_demo_build_styles') && class_exists('Cu
                     '.section-contact .container .gform_wrapper input[type="submit"]:hover'
                 ),
                 'declarations' => array(
-                    'color' => $color
+                    'color' => $color."!important;"
                 )
             ));
            

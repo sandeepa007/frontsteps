@@ -26,11 +26,13 @@
 		update_option( 'show_on_front', 'page' );
 	//}
 
-	if($my_theme != "Pumpkin Spice")
+	if($my_theme != "Pumpkin Spice" )
 	{
+		if($my_theme != "Payment Portal")
+		{
 		// About page creation
 		$about_page_id = get_option("about_page_id");
-	//	if (!$about_page_id) {
+		//	if (!$about_page_id) {
 			$about_post = array(
 				'post_title' => "About",
 				'post_content' => "",
@@ -41,8 +43,10 @@
 			$aboutID = wp_insert_post($about_post, $error);
 			update_post_meta($aboutID, "_wp_page_template", "page-templates/aboutus-page.php");
 			update_option("about_page_id", $aboutID);
-		//}
+		}
 	}	
+	if($my_theme != "Payment Portal")
+	{
 	// Resources page creation
 	$resources_page_id = get_option("resources_page_id");
 	//if (!$resources_page_id) {
@@ -203,149 +207,152 @@
 	//		}
 		}	
 	}
-
-
-	// Create custom menu
-	$menuname = 'Main Menu';
-	$primrymenulocation = 'primary';
-	// Does the menu exist already?
-	$menu_exists = wp_get_nav_menu_object( $menuname );
-
-	// If it doesn't exist, let's create it.
-	if( !$menu_exists){
-    $menu_id = wp_create_nav_menu($menuname);
-
-    // Set up default BuddyPress links and add them to the menu.
-    /*wp_update_nav_menu_item($menu_id, 0, array(
-        'menu-item-title' =>  __('Home'),
-        'menu-item-url' => home_url( '/' ), 
-        'menu-item-status' => 'publish'));*/
-    if($my_theme != "Pumpkin Spice")
-    {
-    	wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('About'),
-	        'menu-item-object-id' => $aboutID,
-		    'menu-item-object' => 'page',
-		    'menu-item-status' => 'publish',
-		    'menu-item-type' => 'post_type'
-		));
 	}
-    wp_update_nav_menu_item($menu_id, 0, array(
-        'menu-item-title' =>  __('Resources'),
-        'menu-item-object-id' => $resourcesID,
-	    'menu-item-object' => 'page',
-	    'menu-item-status' => 'publish',
-	    'menu-item-type' => 'post_type'
-    	));
 
-    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic")
+	if($my_theme != "Payment Portal")
 	{
-		if($my_theme != "Pumpkin Spice")
-	    {
-			wp_update_nav_menu_item($menu_id, 0, array(
-		        'menu-item-title' =>  __('Services'),
-		        'menu-item-object-id' => $servicesID,
-			    'menu-item-object' => 'page',
-			    'menu-item-status' => 'publish',
-			    'menu-item-type' => 'post_type'));
+			// Create custom menu
+			$menuname = 'Main Menu';
+			$primrymenulocation = 'primary';
+			// Does the menu exist already?
+			$menu_exists = wp_get_nav_menu_object( $menuname );
 
-			/*wp_update_nav_menu_item($menu_id, 0, array(
-		        'menu-item-title' =>  __('Our Communities'),
-		        'menu-item-classes' => '',
-		        'menu-item-url' => home_url( '/communities/' ), 
-		        'menu-item-status' => 'publish'));*/
+			// If it doesn't exist, let's create it.
+			if( !$menu_exists){
+		    $menu_id = wp_create_nav_menu($menuname);
 
-			wp_update_nav_menu_item($menu_id, 0, array(
-		        'menu-item-title' =>  __('Find Communities'),
-		        'menu-item-classes' => 'search_communities',
-		        'menu-item-url' => 'javascript:void(0)', 
-		        'menu-item-status' => 'publish'));
-
-
-
-			wp_update_nav_menu_item($menu_id, 0, array(
-		        'menu-item-title' =>  __('Blog'),
-		        'menu-item-object-id' => $blogID,
-			    'menu-item-object' => 'page',
-			    'menu-item-status' => 'publish',
-			    'menu-item-type' => 'post_type'));
-
-			wp_update_nav_menu_item($menu_id, 0, array(
-		        'menu-item-title' =>  __('Request Proposal'),
-		        'menu-item-object-id' => $reqprpID,
-			    'menu-item-object' => 'page',
-			    'menu-item-status' => 'publish',
-			    'menu-item-type' => 'post_type'));
-		}	
-	}
-    else
-    {
-	    if($my_theme != "Pumpkin Spice")
-	    {	
-		    wp_update_nav_menu_item($menu_id, 0, array(
-		        'menu-item-title' =>  __('Amenities'),
-		        'menu-item-object-id' => $amentyID,
-			    'menu-item-object' => 'page',
-			    'menu-item-status' => 'publish',
-			    'menu-item-type' => 'post_type'));
-
-		    wp_update_nav_menu_item($menu_id, 0, array(
-		        'menu-item-title' =>  __('Gallery'),
-		        'menu-item-object-id' => $galleryID,
-			    'menu-item-object' => 'page',
-			    'menu-item-status' => 'publish',
-			    'menu-item-type' => 'post_type'));
-		}    
-	}    
-
-    wp_update_nav_menu_item($menu_id, 0, array(
-	        'menu-item-title' =>  __('Contact'),
-	        'menu-item-object-id' => $contactID,
-		    'menu-item-object' => 'page',
-		    'menu-item-status' => 'publish',
-		    'menu-item-type' => 'post_type'));
-
-	    // Grab the theme locations and assign our newly-created menu
-	    if( !has_nav_menu( $primrymenulocation ) ){
-	        $locations = get_theme_mod('nav_menu_locations');
-	        $locations[$primrymenulocation] = $menu_id;
-	        set_theme_mod( 'nav_menu_locations', $locations );
-	    }
-	}
-
-		// Create custom right menu
-		$rmenuname = 'Header Right Menu';
-		$rightmenulocation = 'right_menu';
-		// Does the menu exist already?
-		$rmenu_exists = wp_get_nav_menu_object( $rmenuname );
-
-		// If it doesn't exist, let's create it.
-		if( !$rmenu_exists){
-	    $rmenu_id = wp_create_nav_menu($rmenuname);
-
-	   if($my_theme != "Pumpkin Spice")
-		{
 		    // Set up default BuddyPress links and add them to the menu.
-		    wp_update_nav_menu_item($rmenu_id, 0, array(
-		        'menu-item-title' =>  __('Pay Online'),
-		        'menu-item-url' => '#',
-		        'menu-item-classes' => '',
-		        'menu-item-status' => 'publish'));
-		}    
+		    /*wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Home'),
+		        'menu-item-url' => home_url( '/' ), 
+		        'menu-item-status' => 'publish'));*/
+		    if($my_theme != "Pumpkin Spice")
+		    {
+		    	wp_update_nav_menu_item($menu_id, 0, array(
+			        'menu-item-title' =>  __('About'),
+			        'menu-item-object-id' => $aboutID,
+				    'menu-item-object' => 'page',
+				    'menu-item-status' => 'publish',
+				    'menu-item-type' => 'post_type'
+				));
+			}
+		    wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Resources'),
+		        'menu-item-object-id' => $resourcesID,
+			    'menu-item-object' => 'page',
+			    'menu-item-status' => 'publish',
+			    'menu-item-type' => 'post_type'
+		    	));
 
-	    wp_update_nav_menu_item($rmenu_id, 0, array(
-	        'menu-item-title' =>  __('Login'),
-	        'menu-item-classes' => 'login',
-	        'menu-item-url' => '#', 
-	        'menu-item-status' => 'publish'));
+		    if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic")
+			{
+				if($my_theme != "Pumpkin Spice")
+			    {
+					wp_update_nav_menu_item($menu_id, 0, array(
+				        'menu-item-title' =>  __('Services'),
+				        'menu-item-object-id' => $servicesID,
+					    'menu-item-object' => 'page',
+					    'menu-item-status' => 'publish',
+					    'menu-item-type' => 'post_type'));
 
-	    // Grab the theme locations and assign our newly-created menu
-		    if( !has_nav_menu( $rightmenulocation ) ){
-		        $locations = get_theme_mod('nav_menu_locations');
-		        $locations[$rightmenulocation] = $rmenu_id;
-		        set_theme_mod( 'nav_menu_locations', $locations );
-		    }
-	}	
+					/*wp_update_nav_menu_item($menu_id, 0, array(
+				        'menu-item-title' =>  __('Our Communities'),
+				        'menu-item-classes' => '',
+				        'menu-item-url' => home_url( '/communities/' ), 
+				        'menu-item-status' => 'publish'));*/
+
+					wp_update_nav_menu_item($menu_id, 0, array(
+				        'menu-item-title' =>  __('Find Communities'),
+				        'menu-item-classes' => 'search_communities',
+				        'menu-item-url' => 'javascript:void(0)', 
+				        'menu-item-status' => 'publish'));
+
+
+
+					wp_update_nav_menu_item($menu_id, 0, array(
+				        'menu-item-title' =>  __('Blog'),
+				        'menu-item-object-id' => $blogID,
+					    'menu-item-object' => 'page',
+					    'menu-item-status' => 'publish',
+					    'menu-item-type' => 'post_type'));
+
+					wp_update_nav_menu_item($menu_id, 0, array(
+				        'menu-item-title' =>  __('Request Proposal'),
+				        'menu-item-object-id' => $reqprpID,
+					    'menu-item-object' => 'page',
+					    'menu-item-status' => 'publish',
+					    'menu-item-type' => 'post_type'));
+				}	
+			}
+		    else
+		    {
+			    if($my_theme != "Pumpkin Spice")
+			    {	
+				    wp_update_nav_menu_item($menu_id, 0, array(
+				        'menu-item-title' =>  __('Amenities'),
+				        'menu-item-object-id' => $amentyID,
+					    'menu-item-object' => 'page',
+					    'menu-item-status' => 'publish',
+					    'menu-item-type' => 'post_type'));
+
+				    wp_update_nav_menu_item($menu_id, 0, array(
+				        'menu-item-title' =>  __('Gallery'),
+				        'menu-item-object-id' => $galleryID,
+					    'menu-item-object' => 'page',
+					    'menu-item-status' => 'publish',
+					    'menu-item-type' => 'post_type'));
+				}    
+			}    
+
+		    wp_update_nav_menu_item($menu_id, 0, array(
+			        'menu-item-title' =>  __('Contact'),
+			        'menu-item-object-id' => $contactID,
+				    'menu-item-object' => 'page',
+				    'menu-item-status' => 'publish',
+				    'menu-item-type' => 'post_type'));
+
+			    // Grab the theme locations and assign our newly-created menu
+			    if( !has_nav_menu( $primrymenulocation ) ){
+			        $locations = get_theme_mod('nav_menu_locations');
+			        $locations[$primrymenulocation] = $menu_id;
+			        set_theme_mod( 'nav_menu_locations', $locations );
+			    }
+			}
+
+				// Create custom right menu
+				$rmenuname = 'Header Right Menu';
+				$rightmenulocation = 'right_menu';
+				// Does the menu exist already?
+				$rmenu_exists = wp_get_nav_menu_object( $rmenuname );
+
+				// If it doesn't exist, let's create it.
+				if( !$rmenu_exists){
+			    $rmenu_id = wp_create_nav_menu($rmenuname);
+
+			   if($my_theme != "Pumpkin Spice")
+				{
+				    // Set up default BuddyPress links and add them to the menu.
+				    wp_update_nav_menu_item($rmenu_id, 0, array(
+				        'menu-item-title' =>  __('Pay Online'),
+				        'menu-item-url' => '#',
+				        'menu-item-classes' => '',
+				        'menu-item-status' => 'publish'));
+				}    
+
+			    wp_update_nav_menu_item($rmenu_id, 0, array(
+			        'menu-item-title' =>  __('Login'),
+			        'menu-item-classes' => 'login',
+			        'menu-item-url' => '#', 
+			        'menu-item-status' => 'publish'));
+
+			    // Grab the theme locations and assign our newly-created menu
+				    if( !has_nav_menu( $rightmenulocation ) ){
+				        $locations = get_theme_mod('nav_menu_locations');
+				        $locations[$rightmenulocation] = $rmenu_id;
+				        set_theme_mod( 'nav_menu_locations', $locations );
+				    }
+			}
+	}			
 	// Create custom footer menu
 	$fmenuname = 'Footer Menu';
 	$fmenulocation = 'footer_menu';
@@ -377,7 +384,7 @@
 	    }
 	}
 
-	if($my_theme != "Pumpkin Spice")
+	if($my_theme != "Pumpkin Spice" || $my_theme != "Payment Portal")
 	
 	{
 
@@ -556,9 +563,49 @@
 	set_theme_mod('url-twitter', $url_twitter);
 	set_theme_mod('url-google', $url_google);
 	set_theme_mod('url-linkedin', $url_linkedin);
-	
 
 
+if($my_theme == "Payment Portal")
+	{	
+		
+		set_theme_mod('hero-cta-text','PAY HERE');
+		set_theme_mod('hero-cta-url','#');
+		set_theme_mod('home_section1_cta_text','');
+		set_theme_mod('home_section1_cta_url','');
+		set_theme_mod('home_section2_title','NEW RESIDENT');
+		set_theme_mod('home_section2_desc','New to this community? Simply register your account by clicking the button below to begin making digital payments via your smartphone, tablet, or computer. Once logged in, you can make a credit card, debit card, or ACH payment and will have the ability to setup recurring payments. If you were making payments through another site before, be sure to shut off those recurring payments to ensure youre not double charged.');
+		set_theme_mod('home_section2_cta_text','REGISTER');
+		set_theme_mod('home_section2_cta_url','#');
+
+	}
+
+	if($my_theme == "PMP Template")
+	{
+		set_theme_mod('navbar-col-count','4');
+
+		$nav_contnet_array =
+		array(
+			  array(get_stylesheet_directory_uri()."/img/icons/icon_1.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_1.png","#3D3D3D","#","Pay Your Bill","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc erat urna, blandit id arcu et, placerat consectetur mauris. Phasellus in pretium mi. Mauris at ultrices massa. Donec vehicula velit velit. Suspendisse at tellus ipsum."),
+			  array(get_stylesheet_directory_uri()."/img/icons/icon_2.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_2.png","#3D3D3D","#","Service Request","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc erat urna, blandit id arcu et, placerat consectetur mauris. Phasellus in pretium mi. Mauris at ultrices massa. Donec vehicula velit velit. Suspendisse at tellus ipsum."),
+			  array(get_stylesheet_directory_uri()."/img/icons/icon_3.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_3.png","#3D3D3D","#","Associations Documents","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc erat urna, blandit id arcu et, placerat consectetur mauris. Phasellus in pretium mi. Mauris at ultrices massa. Donec vehicula velit velit. Suspendisse at tellus ipsum."),
+			  array(get_stylesheet_directory_uri()."/img/icons/icon_4.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_4.png","#3D3D3D","#","Contact Management","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc erat urna, blandit id arcu et, placerat consectetur mauris. Phasellus in pretium mi. Mauris at ultrices massa. Donec vehicula velit velit. Suspendisse at tellus ipsum.")
+			  );
+		$i = 1;
+		for($row=0 ;$row<count($nav_contnet_array) ;$row++)
+		{
+			set_theme_mod('navbar-img'.$i,$nav_contnet_array[$row][0]);
+			set_theme_mod('navbar-img-bg'.$i,$nav_contnet_array[$row][1]);
+			set_theme_mod('navbar-hover-img'.$i,$nav_contnet_array[$row][2]);
+			set_theme_mod('navbar-img-hover-bg'.$i,$nav_contnet_array[$row][3]);
+			set_theme_mod('navbar-img-url'.$i,$nav_contnet_array[$row][4]);
+			set_theme_mod('navbar-title'.$i,$nav_contnet_array[$row][5]);
+			set_theme_mod('navbar-subtitle'.$i,$nav_contnet_array[$row][6]);
+			
+			$i ++;
+		}
+	}		
+
+	//exit;
 	// home hero settings
 	set_theme_mod('home-hero-title', $home_hero_title);
 	set_theme_mod('home-hero-title-color','#ffffff');
@@ -567,7 +614,7 @@
 	set_theme_mod('hero-overlay-color', $hero_overlay_color);
 	set_theme_mod('hero-overlay-opacity', $hero_overlay_opacity);
 	set_theme_mod('home-hero-slider-title-color','#ffffff');
-	set_theme_mod('home-hero-slider-subtitle-color',,'#ffffff');
+	set_theme_mod('home-hero-slider-subtitle-color','#ffffff');
 	
 	set_theme_mod('home-hide-gallery', $home_hide_gallery);
 	set_theme_mod('home-hide-accreditation', $home_hide_accrediation);

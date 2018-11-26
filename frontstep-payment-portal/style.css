@@ -1,0 +1,67 @@
+/*
+ Theme Name:   Payment Portal 
+ Theme URI:    https://frontsteps.com
+ Description:  FrontStep's Payment Portal Theme
+ Author:       FrontStep
+ Template:     frontsteps
+ Version:      1.0.0
+*/
+/* Add your custom style here */
+#header{
+	background-color: transparent;
+}
+.main-container{
+	margin-top: 0px; 
+}
+#header .container-full{
+	background-color: rgba(0,0,0,0.2);
+}
+#header .container .navigation-column .navbar-default .navbar-nav li a,
+#header a.nav-link{
+	color: #FFFFFF;	
+}
+.section.section-hero .button-primary, #header .container .right-column ul li.login a{
+	background-color: transparent !important;	
+}
+
+.section-contact .container .gform_wrapper input[type="submit"]{
+	border-radius: 30px;
+}
+#gallery .rsGCaption {
+    display: none;
+}
+#abt-us-content,.cta_bg_img .col-sm-offset-3
+{
+	background: transparent!important;
+}
+.section-home-cta .button-primary
+{
+	background:#ffffff!important;
+	color: #5DBC7A!important;
+}
+#header .container .navigation-column .navbar-default .navbar-nav li.active a,
+#header .container .navigation-column .navbar-default .navbar-nav li:hover a
+{
+	color: #5DBC7A;
+}
+.section-resources:nth-child(odd)
+{
+	color: #3B473E!important;
+}
+.section-home-cta .button-primary:hover
+{
+	background: #3D483F!important;
+	color: #ffffff!important;
+}
+.section-hero {
+    padding: 180px 0 180px 0;
+}
+.section.section-hero a#button {
+    margin-top: 70px;
+}
+.section.section-hero a#button:hover {
+	opacity: 0.7;
+}
+.section.section-intro .btn-block {
+ 	margin-top: 55px;
+}
