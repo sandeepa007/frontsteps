@@ -435,9 +435,18 @@ footer .section-footer .container .credit-block img { display: inline-block; ver
 .marker-info h3 { font-size: 20px; margin: 10px 0; }
 .marker-info p { font-size: 14px; line-height: 16px; margin-bottom: 5px; font-weight: 400; }
 
-#text-2
-{
-  padding: 30px 0px;
+@media (min-width: 768px) {
+  #text-2
+  {
+    padding: 30px 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  #text-2
+  {
+    padding: 5px 0px;
+  }
 }
 #text-2 .textwidget p
 {
@@ -694,6 +703,16 @@ ul#footer-links li:first-child:after
 .custom-logo-link img {
     position: relative;
     top: -15px;
+}
+@media (max-width: 490px) {
+.custom-logo-link img {
+    height: auto;
+    width: 90px;
+}
+.custom-logo-link img {
+  top: unset;
+}
+
 }
 /*#header .container .logo-column {
     margin: 0px;

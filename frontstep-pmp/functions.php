@@ -21,10 +21,22 @@ function pmp_customize_register($wp_customize) {
     $wp_customize->remove_control( 'home-hide-accreditation' );
 }
 
-
 /**
  * New widget area For Home Feature Section.
  */
 require get_stylesheet_directory() . '/inc/home-features-widget.php';
+
+add_action( 'widgets_init', 'pmp_widgets_init' );
+function pmp_widgets_init() {
+    register_sidebar( array(
+        'name' => __( 'Footer Logo', 'frontstep-pmp' ),
+        'id' => 'footer-logo',
+        'description' => __( '', 'frontstep-pmp' ),
+        'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
+    ) );
+}
 
 ?>

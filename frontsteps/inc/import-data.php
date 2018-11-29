@@ -366,14 +366,14 @@
     // Set up default BuddyPress links and add them to the menu.
     wp_update_nav_menu_item($fmenu_id, 0, array(
         'menu-item-title' =>  __('Privacy Policy'),
-        'menu-item-url' => '#',
+        'menu-item-url' => 'https://www.frontsteps.com/privacy-policy',
         'menu-item-classes' => '',
         'menu-item-status' => 'publish'));
 
     wp_update_nav_menu_item($fmenu_id, 0, array(
         'menu-item-title' =>  __('Terms'),
         'menu-item-classes' => 'login',
-        'menu-item-url' => '#', 
+        'menu-item-url' => 'https://www.frontsteps.com/terms-of-service', 
         'menu-item-status' => 'publish'));
 
     // Grab the theme locations and assign our newly-created menu
@@ -708,8 +708,10 @@ if($my_theme == "Payment Portal")
 	set_theme_mod('ty_button_text', $ty_button_text);
 	set_theme_mod('ty_button_link', $ty_button_link);
 	
-
 	// Widget Import code - Ashok
+
+
+
 	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
 	{
 
@@ -837,6 +839,82 @@ if($my_theme == "Payment Portal")
 			"_multiwidget" => 1,
 		);
 		update_option('widget_text', maybe_unserialize($footertextArr) );
+
+		/*if($my_theme == "PMP Template")
+		{
+			
+			$footer_logo = get_stylesheet_directory_uri()."/img/footer-logo.png";
+
+			$widgetArr_footer = array(
+			"wp_inactive_widgets" => array(),
+			"home-features" => array(
+				0 => "home_feature_widget-2",
+				1 => "home_feature_widget-3",
+			),
+			"right-sidebar" => array(
+				0 => "search-2",
+				1 => "recent-posts-2",
+				2 => "recent-comments-2",
+				3 => "archives-2",
+				4 => "categories-2",
+				5 => "meta-2",
+			),
+			"left-sidebar" => array(),
+			"footer-left" => array(
+				0 => "text-2",
+			),
+			"footer-right" => array(),
+			"footer-logo" => array(
+				0 => "text-2",
+			),
+			"array_version" => 3,
+			);
+			
+			update_option('sidebars_widgets', maybe_unserialize($widgetArr_footer) );
+
+
+			$homefeatureArr = array(
+			2 => array(
+				"title" => $title, 
+				"desc" => $desc,
+				"image_uri" => $img1,
+				"is_img_left" => false,
+			),
+			3 => array(
+				"title" => $title, 
+				"desc" => $desc,
+				"image_uri" => $img2,
+				"is_img_left" => true,
+			),
+			"_multiwidget" => 1,
+		);
+		update_option('widget_home_feature_widget', maybe_unserialize($homefeatureArr) );
+
+		$footertextArr = array(
+			1 => array(),
+			2 => array(
+				"title" => "Your Company", 
+				"text" => "1234 Any Street, <br>Denver, CO 80202",
+				"filter" => true,
+				"visual" => true,
+			),
+			"_multiwidget" => 1,
+		);
+		update_option('widget_text', maybe_unserialize($footertextArr) );
+
+			$footerlogo = array(
+			1 => array(),
+			2 => array(
+				"title" => "", 
+				"text" => "<img src='".$footer_logo."'>",
+				"filter" => true,
+				"visual" => true,
+			),
+			"_multiwidget" => 1,
+		);
+		update_option('widget_text', maybe_unserialize($footerlogo) );
+
+		}*/
 
 	}
 ?>

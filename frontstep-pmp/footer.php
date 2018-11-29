@@ -86,12 +86,22 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 						); ?>
 			</div>
 
+			<div class="col-12 text-center wow fadeInUp">
+				<?php if ( is_active_sidebar( 'footer-logo' ) ){
+			  				dynamic_sidebar( 'footer-logo' );
+			  			}
+			  		else{?>
+			  				<img class="footerFrontsteplogo" src="<?php echo get_stylesheet_directory_uri()?>/img/footer-logo.png">
+			  		<?php	}	
+			  			?>
+			</div>
+
 		</div>
 
 		<div class="row padding-top-30px wow fadeInUp">
 			<div class="col-12 text-xs-center text-right">
 				<span class="text-sm-center text-lg-right text-grey-3 d-block padding-top-5px">
-          Powered by <a href="https://www.frontsteps.com/" target="_blank"><img class="footerFrontsteplogo"  src="<?php echo get_template_directory_uri()?>/images/frontsteps-logo.png"></a>
+          Powered by <a href="https://www.frontsteps.com/" target="_blank"><img class="footerFrontsteplogo" src="<?php echo get_stylesheet_directory_uri()?>/img/frontstep-white.png"></a>
         </span>
 			</div>
 		</div>
