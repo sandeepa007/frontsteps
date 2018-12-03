@@ -7,7 +7,7 @@ if( $selected_theme == "Blanco Breeze")
 }
 if( $selected_theme == "Summer Vibes")
 {
-	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#5F8ED5';$button_bkg_color =  '#5F8ED5';$button_hover_color =  '#5F8ED5';$button_hover_bkg_color =  '#5f96d5';
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#5F8ED5';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#5f96d5';
 	$cta_text_color =  '#ffffff';$cta_bkg_color = '#5F8ED5';$footer_text_color =  '#242626';$footer_bkg_color =  '#ffffff';$box_text_color =  '#242626';$box_bkg_color =  '#F9F9F9';
 }
 if( $selected_theme == "Citrus Pop")

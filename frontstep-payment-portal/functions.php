@@ -106,10 +106,12 @@ function customizer_library_paymntportal_options($wp_customize) {
         'id' => 'home_section2_desc',
         'label'   => __( 'Section 2 Description', 'frontstep-payment-portal' ),
         'section' => 'home_other_section',
-        'type'    => 'textarea',        
+        'type'    => 'textarea',
         'default' => 'New to this community? Simply register your account by clicking the button below to begin making digital payments via your smartphone, tablet, or computer. Once logged in, you can make a credit card, debit card, or ACH payment and will have the ability to setup recurring payments. If you were making payments through another site before, be sure to shut off those recurring payments to ensure youre not double charged. ',
         'priority'    => 100,
     );
+
+
     $options['home_section2_cta_text'] = array(
         'id' => 'home_section2_cta_text',
         'label'   => __( 'Section 2 CTA Button Text', 'frontstep-payment-portal' ),

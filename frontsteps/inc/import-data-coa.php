@@ -19,8 +19,8 @@ if( $selected_theme == "Euro Contempo")
 }
 if( $selected_theme == "Payment Portal")
 {
-	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#188FDF';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#4EBCD6';
-	$cta_text_color =  '#ffffff';$cta_bkg_color =  '#333844';$footer_text_color =  '#242626';$footer_bkg_color =  '#F7F9FC';$box_text_color =  '#242626';$box_bkg_color =  '#F7F9FC';
+	$text_color =  '#4C4C4C';$body_color =  '#FFFFFF';$button_color =  '#ffffff';$button_bkg_color =  '#92c841';$button_hover_color =  '#ffffff';$button_hover_bkg_color =  '#92c041';
+	$cta_text_color =  '#ffffff';$cta_bkg_color =  '#92c041';$footer_text_color =  '#242626';$footer_bkg_color =  '#F7F9FC';$box_text_color =  '#242626';$box_bkg_color =  '#F7F9FC';
 }
 if( $selected_theme == "PMP Template")
 {
