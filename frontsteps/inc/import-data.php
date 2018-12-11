@@ -519,9 +519,15 @@
 	//paste code above from this line
 	
 	$uploadfile = get_template_directory_uri()."/img/placeholder-logo.png";
-	$media_id = media_sideload_image( $uploadfile,'','','src');
+	$media_id = media_sideload_image( $uploadfile,'','Placeholder Logo','src');
 	$query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$media_id'";
   	$logo_id = $wpdb->get_var($query);
+
+  	// script to import stock images in media
+  	for( $i=1; $i<=25; $i++)
+	{
+		media_sideload_image( get_stylesheet_directory_uri()."/img/stock_images/img_".$i.'.jpg','','Stock Images '.$i,'');	
+	}
 
   	if($my_theme == "Modern Pro" || $my_theme == "Desert Sky" || $my_theme == "Urban Chic" )
 	{

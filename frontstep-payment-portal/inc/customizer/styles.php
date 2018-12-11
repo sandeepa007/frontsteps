@@ -131,6 +131,7 @@ if (!function_exists('customizer_library_demo_build_styles_im')) :
                 ),
                 'declarations' => array(
                     'border' => '1px solid '.$color,
+                    'background' => $color.'!important;'
                 )
             ));
         }

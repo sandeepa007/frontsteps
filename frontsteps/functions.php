@@ -148,6 +148,14 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
     return $existing_mimes;
 }
 
+//add_action( 'customize_controls_print_footer_scripts', 'my_admin_add_js' );
+
+//function my_admin_add_js() {
+    //echo '<script type="text/javascript">tinymce.init({selector: "textarea",theme:"modern",branding: false});</script>';
+//}
+
+
+
 /*function search_filter($query) {
 
   if ( !is_admin() && $query->is_main_query() ) {

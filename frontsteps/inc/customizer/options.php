@@ -1,6 +1,7 @@
 <?php
 $selected_theme = wp_get_theme();
 
+
 function customizer_options(){
 
     // Theme defaults TO DO
