@@ -86,7 +86,7 @@ $container = get_theme_mod( 'frontsteps_container_type' );
 						); ?>
 			</div>
 
-			<div class="col-12 text-center wow fadeInUp">
+			<div class="col-12 text-center wow fadeInUp footer-logo">
 				<?php if ( is_active_sidebar( 'footer-logo' ) ){
 			  				dynamic_sidebar( 'footer-logo' );
 			  			}

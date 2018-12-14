@@ -55,22 +55,29 @@ $url_linkedin =  '#';
 
 
 // home hero settings
+
+$home_hero_title =  'MAKE DUES AND FEES PAYMENTS FOR COMMUNITY';	
+$home_hero_desc =  '';
+$frontsteps_home_section1_title =  'WHO IS FRONTSTEPS?';
+$frontsteps_home_section1_description =  'Your community uses FRONTSTEPS to accept digital dues and fees payments from residents like you. FRONTSTEPS serves over 27,000 single and multi-family residential communities with its industry-leading community management software. Your information is safe with FRONTSTEPS as their payment solution is NACHA and PCI Level 1 compliant, which are top certifications in the data security industry. ';
+
 if( $selected_theme != "Payment Portal")
 {
 	$home_hero_title =  'Welcome Home!';
 	$home_hero_desc =  'A Modern Community in the Heart of the City';
 	$frontsteps_home_section1_title =  'Connections that last';
-	$frontsteps_home_section1_description =  'We pride ourselves on keeping our residents connected through events and activities.
-Our on-site manager is engaged with the community, and through our website and mobile app
+	$frontsteps_home_section1_description =  'We pride ourselves on keeping our residents connected through events and activities. Our on-site manager is engaged with the community, and through our website and mobile app
 keeps everyone informed about area happenings, maintenance, security, and more.';
 }
-else
+
+if( $selected_theme != "PMP Template")
 {
-	$home_hero_title =  'MAKE DUES AND FEES PAYMENTS FOR COMMUNITY';	
-	$home_hero_desc =  '';
-	$frontsteps_home_section1_title =  'WHO IS FRONTSTEPS?';
-	$frontsteps_home_section1_description =  'Your community uses FRONTSTEPS to accept digital dues and fees payments from residents like you. FRONTSTEPS serves over 27,000 single and multi-family residential communities with its industry-leading community management software. Your information is safe with FRONTSTEPS as their payment solution is NACHA and PCI Level 1 compliant, which are top certifications in the data security industry. ';
+	$home_hero_title =  'Welcome Home!';
+	$frontsteps_home_section1_description =  'We pride ourselves on keeping our residents connected through events and activities. Our on-site manager is engaged with the community, and through our website and mobile app
+keeps everyone informed about area happenings, maintenance, security, and more.';
 }
+
+
 
 $hero_overlay_color =  '#000000';
 $hero_overlay_opacity =  '50';

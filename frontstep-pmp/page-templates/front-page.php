@@ -211,13 +211,13 @@ get_header();?>
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12">
                 <div class="title-block">
                     <h3><?php echo get_theme_mod( 'frontsteps_home_section1_title' ); ?></h3>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12 text-center">
                 <div class="content-block">
                     <p><?php echo get_theme_mod( 'frontsteps_home_section1_description' ); ?></p>
                 </div>

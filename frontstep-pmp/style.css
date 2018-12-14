@@ -11,17 +11,17 @@
   border-radius: 0;
   width: 100%;
   height: 72px;
-  background: #333333;
+  background: #ffffff;
   box-shadow: 0px 2px 7px rgba(0,0,0,0.13);
 }
 #header .menu-item
 {
   color: #ffffff;
   
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 15px;
   text-align: left;
   text-transform: uppercase;
@@ -306,7 +306,7 @@ p
   text-transform: uppercase;
 }
 #header .container .navigation-column .navbar-default .navbar-nav li a {
-  color: #ffffff;
+  color: #333333;
   text-transform: uppercase;
 }
 #header .container .right-column ul li.login a {
@@ -359,7 +359,7 @@ footer .widget { margin-bottom: 20px; }
 }
 #header .container .navigation-column .navbar-default
 {
-  background:#333333;
+  background:#ffffff;
 }
 @media (max-width: 991px)
 {
@@ -437,4 +437,16 @@ span.body_nav_title {
       position: relative;
       top: -45px;
   }
+}
+.section-intro .container .title-block {
+    max-width: unset;
+    margin-left: 0px; 
+}
+.section.section-intro .title-block h3,.text-center p
+{
+  text-align: center!important;
+}
+.footer-logo img.footerFrontsteplogo {
+    width: 10%;
+    padding-top: 15px;
 }
