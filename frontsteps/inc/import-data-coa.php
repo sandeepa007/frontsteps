@@ -64,17 +64,19 @@ $frontsteps_home_section1_description =  'Your community uses FRONTSTEPS to acce
 if( $selected_theme != "Payment Portal")
 {
 	$home_hero_title =  'Welcome Home!';
-	$home_hero_desc =  'A Modern Community in the Heart of the City';
+	$home_hero_desc =  'Sed posuere consectetur est at lobortis.';
 	$frontsteps_home_section1_title =  'Connections that last';
 	$frontsteps_home_section1_description =  'We pride ourselves on keeping our residents connected through events and activities. Our on-site manager is engaged with the community, and through our website and mobile app
 keeps everyone informed about area happenings, maintenance, security, and more.';
 }
 
-if( $selected_theme != "PMP Template")
+if( $selected_theme == "PMP Template")
 {
-	$home_hero_title =  'Welcome Home!';
-	$frontsteps_home_section1_description =  'We pride ourselves on keeping our residents connected through events and activities. Our on-site manager is engaged with the community, and through our website and mobile app
-keeps everyone informed about area happenings, maintenance, security, and more.';
+	$home_hero_title =  'Mattis Inceptos Sem Ornare Fringilla';
+	$home_hero_desc =  'A Modern Community in the Heart of the City';
+	$frontsteps_home_section1_title =  'WELCOME HOME!';
+	$frontsteps_home_section1_description =  'Thank you for visiting ___[community name]______ Association’s official community website, where visitors may learn more about our amazing community and owners may access important Association documents and information, including but not limited to governing documents, rules & regulations, and community applications. Owners wishing to access community documents and account information must first register to receive their secure log-in credentials. Simply click on the link ____________ to validate that you’re an owner of record to obtain your log-in credentials. Once registered, owners have the ability to open maintenance work orders, view their account information, and even pay assessments online.<br>Thank you again for visiting _____[community name]____ Association online! 
+';
 }
 
 

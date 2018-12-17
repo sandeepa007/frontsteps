@@ -591,10 +591,10 @@ if($my_theme == "Payment Portal")
 
 		$nav_contnet_array =
 		array(
-			  array(get_stylesheet_directory_uri()."/img/icons/icon_1.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_1.png","#3D3D3D","#","Pay Your Bill","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc erat urna, blandit id arcu et, placerat consectetur mauris. Phasellus in pretium mi. Mauris at ultrices massa. Donec vehicula velit velit. Suspendisse at tellus ipsum."),
-			  array(get_stylesheet_directory_uri()."/img/icons/icon_2.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_2.png","#3D3D3D","#","Service Request","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc erat urna, blandit id arcu et, placerat consectetur mauris. Phasellus in pretium mi. Mauris at ultrices massa. Donec vehicula velit velit. Suspendisse at tellus ipsum."),
-			  array(get_stylesheet_directory_uri()."/img/icons/icon_3.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_3.png","#3D3D3D","#","Associations Documents","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc erat urna, blandit id arcu et, placerat consectetur mauris. Phasellus in pretium mi. Mauris at ultrices massa. Donec vehicula velit velit. Suspendisse at tellus ipsum."),
-			  array(get_stylesheet_directory_uri()."/img/icons/icon_4.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_4.png","#3D3D3D","#","Contact Management","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc erat urna, blandit id arcu et, placerat consectetur mauris. Phasellus in pretium mi. Mauris at ultrices massa. Donec vehicula velit velit. Suspendisse at tellus ipsum.")
+			  array(get_stylesheet_directory_uri()."/img/icons/icon_1.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_1.png","#3D3D3D","#","Pay Your Bill","Easy and efficient payment method to streamline the way you pay your assessments"),
+			  array(get_stylesheet_directory_uri()."/img/icons/icon_2.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_2.png","#3D3D3D","#","Service Request","Maintenance & Service requests will be processed by Community Care and routed to the proper team member"),
+			  array(get_stylesheet_directory_uri()."/img/icons/icon_3.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_3.png","#3D3D3D","#","Associations Documents","Direct link to your associations governing documents such as Architectural application, Rules and Regulations and Insurance certification."),
+			  array(get_stylesheet_directory_uri()."/img/icons/icon_4.png","#ffffff",get_stylesheet_directory_uri()."/img/icons/rollover-icons/icon_4.png","#3D3D3D","#","Contact Management","Quick direct link to PMP’s Community Care team")
 			  );
 		$i = 1;
 		for($row=0 ;$row<count($nav_contnet_array) ;$row++)
@@ -838,7 +838,7 @@ if($my_theme == "Payment Portal")
 			1 => array(),
 			2 => array(
 				"title" => "Your Company", 
-				"text" => "1234 Any Street, <br>Denver, CO 80202",
+				"text" => "100 Spectrum Center Drive, Suite 900 <br>Irvine, CA 92618",
 				"filter" => true,
 				"visual" => true,
 			),
