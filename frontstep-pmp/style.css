@@ -447,6 +447,6 @@ span.body_nav_title {
   text-align: center!important;
 }
 .footer-logo img.footerFrontsteplogo {
-    width: 10%;
+   /* width: 10%;*/
     padding-top: 15px;
 }
